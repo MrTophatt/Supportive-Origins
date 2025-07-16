@@ -1,0 +1,14 @@
+{
+    "name": "Solar Panels",
+    "description": "You can stand in the sun to replenish your battery, artificial light works as well but isn't as efficient.",
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:change_resource",
+        "resource": "mrt_supports:alpha2/battery_resource",
+        "change": 1
+    },
+    "interval": 20,
+    "condition": {
+        "type": "origins:exposed_to_sun"
+    }
+}

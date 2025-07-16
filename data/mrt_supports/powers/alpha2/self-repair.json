@@ -1,0 +1,16 @@
+{
+    "name": "Self Repair",
+    "description": "While battery level is above 50% your internal repair system is online.",
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:heal",
+        "amount": 1
+    },
+    "interval": 50,
+    "condition": {
+        "type": "origins:resource",
+        "resource": "mrt_supports:alpha2/battery_resource",
+        "comparison": ">",
+        "compare_to": 50
+    }
+}

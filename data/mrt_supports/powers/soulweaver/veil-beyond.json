@@ -1,0 +1,190 @@
+{
+    "name": "Veil of the Beyond",
+    "description": "Cloak yourself in a veil of soul energy, entering a state of limbo. Unable to interact with the world, yet observing.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/toggle.png",
+            "text": "Toggle your cloak yourself with %s"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "You can only phase through most non-solid blocks, and blocks that don't block light."
+        }
+    ],
+    "type": "origins:multiple",
+
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": false,
+        "retain_state": false,
+        "key": {
+            "key": "key.loadToolbarActivator"
+        }
+    },
+
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 5,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "mrt_supports:soulweaver/veil-beyond_resource",
+                "comparison": "!=",
+                "compare_to": 200
+            }
+        }
+    },
+
+    "decrease": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/veil-beyond_resource",
+                    "change": -2
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "mrt_supports:soulweaver/veil-beyond_resource",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:power_active",
+                                "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:toggle",
+                        "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+                    },
+                    "else_action": {
+                        "type": "origins:nothing"
+                    }
+                }
+            ]
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+        }
+    },
+
+    "increase": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:delay",
+            "ticks": 20,
+            "action": {
+                "type": "origins:change_resource",
+                "resource": "mrt_supports:soulweaver/veil-beyond_resource",
+                "change": 1
+            }
+        },
+        "interval": 3,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle",
+            "inverted": true
+        }
+    },
+
+    "invis": {
+        "type": "origins:invisibility",
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+        }
+    },
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.1
+        },
+        "tick_rate": 2,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+        }
+    },
+    "phase": {
+        "type": "origins:phasing",
+        "render_type": "blindness",
+        "view_distance": 10,
+        "block_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:light_blocking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:water_loggable"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "mrt_supports:soul-phaseable"
+                }
+            ]
+        },
+        "phase_down_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+        }
+    },
+    "no-block-use": {
+        "type": "origins:prevent_block_use",
+        "block_condition": {
+            "type": "origins:hardness",
+            "comparison": ">=",
+            "compare_to": 0
+        },
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+        }
+    },
+    "no-block-select": {
+        "type": "origins:prevent_block_selection",
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+        }
+    },
+    "no-entity-use": {
+        "type": "origins:prevent_entity_use",
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:soulweaver/veil-beyond_toggle"
+        }
+    }
+}

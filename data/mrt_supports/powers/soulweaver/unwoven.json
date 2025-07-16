@@ -1,0 +1,34 @@
+{
+    "name": "Unwoven",
+    "description": "When you aren't linked to a soul you feel sluggish and unsteady.",
+    "type": "origins:multiple",
+
+    "slow-walk": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.4
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/soullink_link-count",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+
+    "slow-mine": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.3
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/soullink_link-count",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    }
+}

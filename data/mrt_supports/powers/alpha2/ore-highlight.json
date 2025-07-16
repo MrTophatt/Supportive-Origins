@@ -1,0 +1,47 @@
+{
+    "type":"origins:multiple",
+
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 10,
+        "hud_render": {
+            "should_render": true
+        }
+    },
+	
+    "duration-tick": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "mrt_supports:alpha2/ore-highlight_duration",
+            "change": -1
+        },
+        "interval": 20
+    },
+	
+	"block-expire":{
+		"type": "origins:action_over_time",
+		"interval": 2,
+        "entity_action": {
+		    "type": "origins:and",
+		    "actions":[
+		        {
+		            "type": "origins:execute_command",
+                    "command": "kill @e[type=minecraft:block_display,distance=..1,tag=shown]"
+		        },
+		        {
+		            "type": "origins:execute_command",
+                    "command": "kill @s"
+		        }
+		    ]
+	    },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:alpha2/ore-highlight_duration",
+            "comparison": "==",
+            "compare_to": 0
+        }
+	}
+}

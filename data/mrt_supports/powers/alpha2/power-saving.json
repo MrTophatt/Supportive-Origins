@@ -1,0 +1,44 @@
+{
+    "name": "Power Saving Mode",
+    "description": "Once you have 0 battery remaining, you will enter power saving mode until you recharge.",
+    "type": "origins:multiple",
+
+    "speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.6
+        },
+        "tick_rate": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:alpha2/battery_resource",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no-block-use": {
+        "type": "origins:prevent_block_use",
+        "block_condition": {
+            "type": "origins:hardness",
+            "comparison": ">=",
+            "compare_to": 0
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:alpha2/battery_resource",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "no-block-select": {
+        "type": "origins:prevent_block_selection",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:alpha2/battery_resource",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    }
+}

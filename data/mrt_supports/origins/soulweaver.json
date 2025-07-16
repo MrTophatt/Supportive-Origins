@@ -1,0 +1,23 @@
+{
+	"name": "Soul Weaver",
+	"description": "An old and protective soul trapped in the land of the living.",
+	"powers": [
+                "mrt_supports:soulweaver/assignid",
+                "mrt_supports:soulweaver/soullink",
+                "mrt_supports:soulweaver/teleport",
+                "mrt_supports:soulweaver/cleanse",
+                "mrt_supports:soulweaver/veil-beyond",
+                "mrt_supports:soulweaver/echo-sight",
+                "mrt_supports:soulweaver/unwoven",
+                "mrt_supports:soulweaver/light-soul",
+                "origins:no_shield",
+                "mrt_supports:soulweaver/fragmented-shell",
+                "mrt_supports:soulweaver/no-rest"
+        ],
+        "icon": {
+                "item": "minecraft:soul_lantern"
+        },
+        "order": 1,
+        "impact": 3,
+        "hidden": false
+}

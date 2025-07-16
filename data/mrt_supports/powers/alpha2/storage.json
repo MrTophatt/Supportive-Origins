@@ -1,0 +1,10 @@
+{
+    "name": "Storage Matrix",
+    "description": "You have access to an internal storage matrix, allowing you to store items even after death.",
+    "type": "origins:inventory",
+    "title": "Storage Matrix",
+    "container_type": "dropper",
+    "key": {
+        "key": "key.origins.secondary_active"
+    }
+}

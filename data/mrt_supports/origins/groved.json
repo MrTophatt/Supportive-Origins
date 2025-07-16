@@ -1,0 +1,17 @@
+{
+	"name": "Groved",
+	"description": "A being made of flora, protective and a natural helper.",
+	"powers": [
+        "mrt_supports:groved/natures-embrace",
+        "mrt_supports:groved/life-blessing",
+        "mrt_supports:groved/photosynthesis",
+        "mrt_supports:groved/leaf-fragile",
+        "origins:vegetarian"
+	],
+	"icon": {
+		"item": "minecraft:moss_block"
+	},
+	"order": 1,
+	"impact": 1,
+	"hidden": false
+}

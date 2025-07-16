@@ -1,0 +1,36 @@
+{
+    "name": "Life Blessing",
+    "description": "Bless the area around you with life, bonemealing blocks around you.",
+    "type": "origins:multiple",
+
+    "toggle": {
+        "type": "origins:toggle",
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+
+    "grow": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:block_action_at",
+            "block_action": {
+                "type": "origins:area_of_effect",
+                "radius": 4,
+                "shape": "sphere",
+                "block_action": {
+                    "type": "origins:chance",
+                    "chance": 0.02,
+                    "action": {
+                        "type": "origins:bonemeal"
+                    }
+                }
+            }
+        },
+        "interval": 5,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:groved/life-blessing_toggle"
+        }
+    }
+}

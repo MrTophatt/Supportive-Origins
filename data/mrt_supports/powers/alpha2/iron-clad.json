@@ -1,0 +1,11 @@
+{
+    "name": "Iron Clad",
+    "description": "You are built of durable metal and can withstand a bit more damage.",
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.armor",
+        "value": 4,
+        "operation": "addition"
+    }
+}

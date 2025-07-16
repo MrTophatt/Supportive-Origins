@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "origins": [
+        "mrt_supports:groved",
+        "mrt_supports:soulweaver",
+        "mrt_supports:alpha2"
+    ]
+}

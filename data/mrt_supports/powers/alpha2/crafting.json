@@ -1,0 +1,8 @@
+{
+    "name": "Fabrication",
+    "description": "have access to an internal crafting table at all times.",
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:crafting_table"
+    }
+}

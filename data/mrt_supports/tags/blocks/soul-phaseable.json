@@ -1,0 +1,11 @@
+{
+    "values": [
+        "#stairs",
+        "#slabs",
+        "#all_hanging_signs",
+        "#anvil",
+        "#doors",
+        "#trapdoors",
+        "#walls"
+    ]
+}

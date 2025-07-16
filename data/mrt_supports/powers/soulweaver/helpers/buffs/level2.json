@@ -1,0 +1,25 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+
+    "resistance": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 1,
+        "duration_per_stack": 240,
+        "effects": [
+            {
+                "effect": "minecraft:resistance"
+            }
+        ]
+    },
+    
+    "speed": {
+        "type": "origins:modify_attribute",
+        "attribute": "minecraft:generic.movement_speed",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": 0.05
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:revoke_power",
+        "power": "mrt_supports:soulweaver/helpers/selected",
+        "source": "origins:origins"
+    },
+    "interval": 5
+}

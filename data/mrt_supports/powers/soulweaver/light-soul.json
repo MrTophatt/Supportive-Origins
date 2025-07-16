@@ -1,0 +1,6 @@
+{
+    "name": "Light Soul",
+    "description": "You are much lighter than a living being, as such you take no fall damage.",
+    "type": "origins:modify_falling",
+    "take_fall_damage": false
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Photosynthesis",
+    "description": "Heal slowly overtime when in direct sunlight.",
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:heal",
+        "amount": 1
+    },
+    "condition": {
+        "type": "origins:daytime"
+    },
+    "interval": 30
+}

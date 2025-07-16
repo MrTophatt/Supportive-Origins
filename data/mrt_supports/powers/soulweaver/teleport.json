@@ -1,0 +1,775 @@
+{
+    "name": "Soul Recall",
+    "description": "Call out to a linked soul and guide it's way back to you",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Call back a linked soul with %s when looking at them"
+        }
+    ],
+    "type": "origins:active_self",
+    "cooldown": 200,
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/resource_bar.png",
+        "bar_index": 3
+    },
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:raycast",
+        "distance": 100,
+        "block": false,
+        "fluid_handling": "none",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "function mrt_supports:soulweaver/teleport-to-weaver"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/1"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/1"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/2"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/3"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/4"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/5"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/6"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/7"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/8"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/9"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/10"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/11"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/12"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/13"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/14"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/15"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/16"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/17"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/18"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/19"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/20"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/21"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/22"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/23"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/24"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/25"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/26"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/27"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/28"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/29"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/30"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/31"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/32"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/33"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/34"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/35"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/36"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/37"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/38"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/39"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/40"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/41"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/42"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/43"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/44"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/45"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/46"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/47"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/48"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/49"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/50"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "condition": {
+        "type": "origins:raycast",
+        "distance": 100,
+        "block": false,
+        "entity": true,
+        "fluid_handling": "none",
+        "match_bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/1"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/1"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/2"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/3"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/4"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/5"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/6"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/7"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/8"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/9"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/10"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/11"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/12"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/13"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/14"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/15"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/16"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/17"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/18"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/19"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/20"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/21"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/22"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/23"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/24"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/25"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/26"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/27"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/28"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/29"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/30"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/31"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/32"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/33"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/34"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/35"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/36"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/37"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/38"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/39"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/40"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/41"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/42"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/43"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/44"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/45"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/46"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/47"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/48"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/49"
+                            }
+                        },
+                        {
+                            "type": "origins:both",
+                            "condition": {
+                                "type": "origins:power",
+                                "power": "mrt_supports:soulweaver/helpers/50"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

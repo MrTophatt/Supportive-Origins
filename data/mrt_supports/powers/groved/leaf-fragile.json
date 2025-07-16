@@ -1,0 +1,35 @@
+{
+    "name": "Flora Fragility",
+    "description": "A body make of flora means you are weak to extreme temperatures.",
+    "type": "origins:multiple",
+
+    "heat": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:in_tag",
+            "tag": "minecraft:is_fire"
+        },
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "value": 0.25
+        }
+    },
+
+    "cold": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 1,
+        "duration_per_stack": 100,
+        "effect": {
+            "effect": "minecraft:slowness"
+        },
+        "condition": {
+            "type": "origins:biome",
+            "condition": {
+                "type": "origins:temperature",
+                "comparison": "<=",
+                "compare_to": 0.5
+            }
+        }
+    }
+}
