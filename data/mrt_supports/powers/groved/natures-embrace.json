@@ -573,7 +573,7 @@
             }
         ]
     },
-    "cooldown": 100,
+    "cooldown": 600,
     "condition": {
         "type": "origins:inventory",
         "slot": "weapon.mainhand",
