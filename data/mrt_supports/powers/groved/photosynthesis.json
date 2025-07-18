@@ -7,7 +7,7 @@
         "amount": 1
     },
     "condition": {
-        "type": "origins:daytime"
+        "type": "origins:exposed_to_sun"
     },
     "interval": 30
 }
