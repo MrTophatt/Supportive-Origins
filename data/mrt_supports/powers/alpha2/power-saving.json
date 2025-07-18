@@ -12,9 +12,8 @@
         },
         "tick_rate": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "mrt_supports:alpha2/battery_resource",
-            "comparison": "==",
+            "type": "origins:food_level",
+            "comparison": "<=",
             "compare_to": 0
         }
     },
@@ -26,18 +25,16 @@
             "compare_to": 0
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "mrt_supports:alpha2/battery_resource",
-            "comparison": "==",
+            "type": "origins:food_level",
+            "comparison": "<=",
             "compare_to": 0
         }
     },
     "no-block-select": {
         "type": "origins:prevent_block_selection",
         "condition": {
-            "type": "origins:resource",
-            "resource": "mrt_supports:alpha2/battery_resource",
-            "comparison": "==",
+            "type": "origins:food_level",
+            "comparison": "<=",
             "compare_to": 0
         }
     }

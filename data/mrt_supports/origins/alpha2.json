@@ -4,6 +4,7 @@
 	"powers": [
 		"mrt_supports:alpha2/crafting",
 		"mrt_supports:alpha2/storage",
+		"mrt_supports:alpha2/smelt",
 		"mrt_supports:alpha2/scan-ores",
 		"mrt_supports:alpha2/battery",
 		"mrt_supports:alpha2/solarpanel",

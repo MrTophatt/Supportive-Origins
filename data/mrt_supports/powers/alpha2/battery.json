@@ -3,53 +3,17 @@
     "description": "Instead of hunger, you run off of energy from your internal batteries.",
     "type": "origins:multiple",
 
-    "resource": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 100,
-        "start_value": 100,
-        "hud_render": {
-            "sprite_location": "origins:textures/gui/resource_bar.png",
-            "bar_index": 2
-        }
-    },
-    "drain": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:change_resource",
-            "resource": "mrt_supports:alpha2/battery_resource",
-            "change": -1
-        },
-        "interval": 15,
-        "condition": {
-            "type": "origins:or",
-            "conditions": [
-                {
-                    "type": "origins:exposed_to_sun",
-                    "inverted": true
-                },
-                {
-                    "type": "origins:brightness",
-                    "comparison": ">",
-                    "compare_to": 0.25,
-                    "inverted": true
-                },
-                {
-                    "type": "origins:sprinting"
-                }
-            ]
-        }
-    },
-    "no-hunger": {
+    "battery": {
         "type": "origins:status_bar_texture",
         "texture": "mrt_supports:textures/gui/icons.png"
     },
-    "feed": {
-        "type": "origins:action_over_time",
-        "entity_action": {
-            "type": "origins:feed",
-            "food": 20,
-            "saturation": 1
+
+    "exhaust": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Increased exhaustion",
+            "operation": "multiply_base",
+            "value": 2
         }
     }
 }

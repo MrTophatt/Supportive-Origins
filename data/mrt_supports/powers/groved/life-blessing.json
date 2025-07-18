@@ -4,6 +4,7 @@
     "type": "origins:multiple",
 
     "toggle": {
+        "active_by_default": false,
         "type": "origins:toggle",
         "key": {
             "key": "key.origins.secondary_active"
@@ -27,10 +28,36 @@
                 }
             }
         },
-        "interval": 5,
+        "interval": 10,
         "condition": {
             "type": "origins:power_active",
             "power": "mrt_supports:groved/life-blessing_toggle"
+        }
+    },
+
+    "actionbar": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"You are Blessing Life\",\"color\":\"green\",\"bold\":true}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:groved/life-blessing_toggle"
+        }
+    },
+    "actionbar-clear": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"\"}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:groved/life-blessing_toggle",
+            "inverted": true
         }
     }
 }

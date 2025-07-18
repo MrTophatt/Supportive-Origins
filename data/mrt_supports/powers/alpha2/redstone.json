@@ -3,11 +3,6 @@
     "description": "Redstone is a good source of energy for you if you do not have access to light.",
     "type": "apugli:edible_item",
     "use_action": "eat",
-    "entity_action": {
-        "type": "origins:change_resource",
-        "resource": "mrt_supports:alpha2/battery_resource",
-        "change": 5
-    },
     "item_condition": {
         "type": "origins:ingredient",
         "ingredient": {
@@ -16,7 +11,7 @@
     },
     "food_component": {
         "always_edible": true,
-        "hunger": 0,
-        "saturation": 0
+        "hunger": 2,
+        "saturation": 1
     }
 }

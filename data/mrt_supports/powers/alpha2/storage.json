@@ -1,6 +1,13 @@
 {
     "name": "Storage Matrix",
     "description": "You have access to an internal storage matrix, allowing you to store items even after death.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Open your storage matric with %s"
+        }
+    ],
     "type": "origins:inventory",
     "title": "Storage Matrix",
     "container_type": "dropper",

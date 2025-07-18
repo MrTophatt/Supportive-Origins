@@ -6,7 +6,7 @@
         {
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Scanning for ores uses 25% of your total energy"
+            "text": "Scanning for ores uses 7 energy"
         },
         {
             "type": "origins:keybind",
@@ -21,9 +21,9 @@
 			"type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
-                    "resource": "mrt_supports:alpha2/battery_resource",
-                    "change": -25
+                    "type": "origins:feed",
+                    "food": -7,
+                    "saturation": 0
                 },
 			    {
 				    "type": "origins:area_of_effect",
@@ -60,7 +60,7 @@
 			]
 		},
 		"key": {
-            "key":"key.saveToolbarActivator"
+            "key":"key.loadToolbarActivator"
         },
         "cooldown": 1200,
         "hud_render": {
@@ -68,10 +68,9 @@
             "bar_index": 3
         },
         "condition": {
-            "type": "origins:resource",
-            "resource": "mrt_supports:alpha2/battery_resource",
+            "type": "origins:food_level",
             "comparison": ">=",
-            "compare_to": 25
+            "compare_to": 7
         }
 	},
 	
