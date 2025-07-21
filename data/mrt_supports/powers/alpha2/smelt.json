@@ -23,7 +23,7 @@
                 "process_mode": "items",
                 "item_action": {
                     "type": "origins:modify",
-                    "modifier": "create_automaton:smelt"
+                    "modifier": "mrt_supports:smelt"
                 }
             },
             {
