@@ -24,10 +24,26 @@
         "block": false,
         "fluid_handling": "none",
         "bientity_action": {
-            "type": "origins:target_action",
-            "action": {
-                "type": "origins:execute_command",
-                "command": "function mrt_supports:soulweaver/teleport-to-weaver"
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:actor_condition",
+                "condition": {
+                    "type": "origins:sneaking"
+                }
+            },
+            "if_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/teleport-weaver"
+                }
+            },
+            "else_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/teleport-to-weaver"
+                }
             }
         },
         "bientity_condition": {
