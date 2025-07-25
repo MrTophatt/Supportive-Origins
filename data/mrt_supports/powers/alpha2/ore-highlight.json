@@ -29,7 +29,7 @@
 		    "actions":[
 		        {
 		            "type": "origins:execute_command",
-                    "command": "kill @e[type=minecraft:block_display,distance=..1,tag=shown]"
+                    "command": "kill @e[type=minecraft:block_display,distance=..1,tag=shown,sort=nearest,limit=1]"
 		        },
 		        {
 		            "type": "origins:execute_command",
