@@ -11,11 +11,13 @@
             {
                 "effect": "minecraft:resistance",
                 "amplifier": 1
-            },
-            {
-                "effect": "minecraft:night_vision"
             }
         ]
+    },
+
+    "nightvision": {
+        "type": "origins:night_vision",
+        "strength": 1
     },
     
     "speed": {

@@ -25,46 +25,165 @@
     "link": {
         "type": "origins:active_self",
         "entity_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:command",
-                "command": "execute if score @p[distance=0.1..5,limit=1,sort=nearest,tag=linked] soulLinkID = @s soulLinkID",
-                "compare_to": 1,
-                "comparison": "=="
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "function mrt_supports:soulweaver/unlink-player"
-            },
-            "else_action": {
-                "type": "origins:if_else",
-                "condition": {
-                    "type": "origins:resource",
-                    "resource": "mrt_supports:soulweaver/soullink_link-count",
-                    "comparison": "!=",
-                    "compare_to": 5
-                },
-                "if_action": {
-                    "type": "origins:execute_command",
-                    "command": "function mrt_supports:soulweaver/link-player"
-                },
-                "else_action": {
-                    "type": "origins:if_else",
+            "type": "origins:if_else_list",
+            "actions": [
+                {
                     "condition": {
-                        "type": "origins:command",
-                        "command": "execute if entity @p[distance=0.1..5,limit=1,sort=nearest]",
-                        "compare_to": 1,
-                        "comparison": "=="
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] unless data entity @s {Tags:[soulweaver]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] unless data entity @s {Tags:[linked]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute at @p[distance=0.1..5] unless score @p soulLinkID = @s soulLinkID",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "mrt_supports:soulweaver/soullink_link-count",
+                                "comparison": "<",
+                                "compare_to": 5
+                            }
+                        ]
                     },
-                    "if_action": {
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:soulweaver/link-player"
+                    }
+                },
+
+
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] if data entity @s {Tags:[soulweaver]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar {\"text\":\"⚠ Cannot soul weave another Soul Weaver\",\"color\":\"#c75959\",\"bold\":true}"
+                    }
+                },
+
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] unless data entity @s {Tags:[soulweaver]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] unless data entity @s {Tags:[linked]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute at @p[distance=0.1..5] unless score @p soulLinkID = @s soulLinkID",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "mrt_supports:soulweaver/soullink_link-count",
+                                "comparison": "==",
+                                "compare_to": 5
+                            }
+                        ]
+                    },
+                    "action": {
                         "type": "origins:execute_command",
                         "command": "title @s actionbar {\"text\":\"Max souls linked\",\"color\":\"#1692C7\",\"bold\":true}"
+                    }
+                },
+
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] unless data entity @s {Tags:[soulweaver]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] if data entity @s {Tags:[linked]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute at @p[distance=0.1..5] unless score @p soulLinkID = @s soulLinkID",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "mrt_supports:soulweaver/soullink_link-count",
+                                "comparison": "<",
+                                "compare_to": 5
+                            }
+                        ]
                     },
-                    "else_action": {
-                        "type": "origins:nothing"
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar {\"text\":\"⚠ That player is already linked to another Soul Weaver.\",\"color\":\"#c75959\",\"bold\":true}"
+                    }
+                },
+
+                {
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] unless data entity @s {Tags:[soulweaver]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute as @p[distance=0.1..5] if data entity @s {Tags:[linked]}",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute at @p[distance=0.1..5] if score @p soulLinkID = @s soulLinkID",
+                                "comparison": "==",
+                                "compare_to": 1
+                            }
+                        ]
+                    },
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:soulweaver/unlink-player"
                     }
                 }
-            }
+            ]
         },
         "cooldown": 1
     },
