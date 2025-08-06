@@ -17,6 +17,16 @@
             "should_render": false
         }
     },
+    "forge-reset-glow-timer": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:change_resource",
+            "resource": "mrt_supports:soulweaver/echo-sight_glow-timer",
+            "change": 0,
+            "operation": "set"
+        },
+        "execute_chosen_when_orb": true
+    },
 
     "activate-glow": {
         "type": "origins:active_self",

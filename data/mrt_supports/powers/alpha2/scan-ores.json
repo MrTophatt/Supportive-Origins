@@ -62,7 +62,7 @@
 		"key": {
             "key":"key.loadToolbarActivator"
         },
-        "cooldown": 1200,
+        "cooldown": 12,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 3
@@ -72,18 +72,5 @@
             "comparison": ">=",
             "compare_to": 7
         }
-	},
-	
-	"block-break":{
-        "type": "origins:action_on_block_break",
-        "block_action": {
-            "type": "origins:execute_command",
-            "command": "execute as @e[type=minecraft:armor_stand,tag=shown,distance=..1,sort=nearest,limit=1] at @s run kill @e[type=minecraft:block_display,tag=shown,distance=..1,limit=1,sort=nearest]"
-        },
-        "block_condition": {
-            "type": "origins:in_tag",
-            "tag": "mrt_supports:ores"
-        },
-        "only_when_harvested": false
-    }
+	}
 }
