@@ -1,5 +1,5 @@
 {
-    "hidden": false,
+    "hidden": true,
     "type": "origins:multiple",
     "set-selected": {
         "type": "origins:action_over_time",
