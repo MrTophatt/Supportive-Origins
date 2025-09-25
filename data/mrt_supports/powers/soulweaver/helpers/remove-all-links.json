@@ -1,0 +1,22 @@
+{
+    "hidden": true,
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:action_on_set",
+                "set": "mrt_supports:soulweaver/soullink_set",
+                "bientity_action": {
+                    "type": "origins:remove_from_set",
+                    "set": "mrt_supports:soulweaver/soullink_set"
+                }
+            },
+            {
+                "type": "origins:remove_power",
+                "power": "mrt_supports:soulweaver/helpers/remove-all-links"
+            }
+        ]
+    },
+    "interval": 1
+}

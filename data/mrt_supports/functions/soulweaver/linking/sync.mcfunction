@@ -1,0 +1,1 @@
+execute at @a[tag=linked] if score @p soulLinkID = @s soulLinkID run data modify entity @s cardinal_components."apoli:powers".Powers[{Type:"mrt_supports:soulweaver/soullink_set"}].Data.Entities prepend from entity @p[limit=1] UUID

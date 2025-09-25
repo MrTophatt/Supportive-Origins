@@ -1,6 +1,6 @@
 {
     "name": "Echo Sight",
-    "description": "Detects the souls in living beings in the area around you",
+    "description": "Perceive the echoes of life itself, exposing nearby souls to your sight.",
     "badges": [
         {
             "type": "origins:keybind",

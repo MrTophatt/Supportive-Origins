@@ -1,0 +1,11 @@
+scoreboard objectives add soulLinkID dummy
+scoreboard objectives add Distance dummy
+scoreboard objectives add ax dummy
+scoreboard objectives add ay dummy
+scoreboard objectives add az dummy
+scoreboard objectives add px dummy
+scoreboard objectives add py dummy
+scoreboard objectives add pz dummy
+scoreboard objectives add dx dummy
+scoreboard objectives add dy dummy
+scoreboard objectives add dz dummy

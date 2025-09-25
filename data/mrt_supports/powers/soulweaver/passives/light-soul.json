@@ -1,0 +1,6 @@
+{
+    "name": "Light Soul",
+    "description": "Your form is lighter than flesh, drifting through the world without fear of falling.",
+    "type": "origins:modify_falling",
+    "take_fall_damage": false
+}

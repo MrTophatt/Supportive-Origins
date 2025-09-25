@@ -1,6 +1,6 @@
 {
     "name": "Soul Cleanse",
-    "description": "Clean the souls of those linked to you, healing them in the process.",
+    "description": "Purify the souls you have woven, granting them renewal and protection.",
     "badges": [
         {
             "type": "origins:keybind",

@@ -1,5 +1,6 @@
 {
   "values": [
-    "mrt_supports:soulweaver/soul-link-setup"
+    "mrt_supports:soulweaver/soul-link-setup",
+    "mrt_supports:soulweaver/selector/setup"
   ]
 }

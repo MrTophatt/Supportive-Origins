@@ -1,0 +1,95 @@
+{
+    "hidden": false,
+    "type": "origins:multiple",
+    "set-selected": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 150,
+                    "command_step": 1,
+                    "block": false,
+                    "entity": false,
+                    "fluid_handling": "none",
+                    "command_along_ray": "function mrt_supports:soulweaver/selector/try-summon"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/selector/select-closest"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @e[type=armor_stand,tag=distance_tracker,distance=..151] run kill @e[limit=1,sort=nearest]"
+                }
+            ]
+        }
+    },
+
+    "selector-sync": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:action_on_set",
+            "set": "mrt_supports:soulweaver/soullink_set",
+            "bientity_action": {
+                "type": "origins:if_else_list",
+                "actions": [
+                    {
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags: ['selected']}"
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "mrt_supports:soulweaver/helpers/selected",
+                                        "inverted": true
+                                    }
+                                ]
+                            }
+                        },
+                        "action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s remove selected"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags: ['selected']}",
+                                        "inverted": true
+                                    },
+                                    {
+                                        "type": "origins:power",
+                                        "power": "mrt_supports:soulweaver/helpers/selected"
+                                    }
+                                ]
+                            }
+                        },
+                        "action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:remove_power",
+                                "power": "mrt_supports:soulweaver/helpers/selected"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

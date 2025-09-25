@@ -1,0 +1,22 @@
+{
+    "hidden": true,
+    "type": "origins:action_on_block_break",
+    "block_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "kill @e[type=minecraft:block_display,distance=..1,tag=shown,sort=nearest,limit=1]"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "kill @e[type=minecraft:armor_stand,distance=..1,tag=shown,sort=nearest,limit=1]"
+            }
+        ]   
+    },
+    "block_condition": {
+        "type": "origins:in_tag",
+        "tag": "mrt_supports:ores"
+    },
+    "only_when_harvested": false
+}

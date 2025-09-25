@@ -62,7 +62,7 @@
 		"key": {
             "key":"key.loadToolbarActivator"
         },
-        "cooldown": 12,
+        "cooldown": 1200,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
             "bar_index": 3

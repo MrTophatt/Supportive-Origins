@@ -1,9 +1,13 @@
 {
     "type": "origins:action_over_time",
-    "entity_action": {
+    "falling_action": {
         "type": "origins:revoke_power",
         "power": "mrt_supports:soulweaver/helpers/selected",
-        "source": "origins:origins"
+        "source": "apoli:command"
     },
-    "interval": 5
+    "interval": 1,
+    "condition": {
+        "type": "origins:nbt",
+        "nbt": "{Tags: ['selected']}"
+    }
 }
