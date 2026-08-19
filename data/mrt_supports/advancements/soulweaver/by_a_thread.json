@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/first_thread",
+    "display": {
+        "icon": {
+            "item": "minecraft:spider_eye"
+        },
+        "title": {
+            "text": "By a Thread"
+        },
+        "description": {
+            "text": "Recall a woven soul to you while they have one heart or less remaining."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

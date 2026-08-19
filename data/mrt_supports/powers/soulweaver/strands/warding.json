@@ -1,0 +1,126 @@
+{
+    "name": "Strand of Warding",
+    "description": "A watchful strand winds close, catching harm before it can reach the soul within. The lantern's flame blunts each blow turned against you.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Shields you from harm, its protection grows with woven souls."
+        }
+    ],
+    "type": "origins:multiple",
+
+    "switch-effects": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s SW.LanternStrand 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/strands/strand-switch-player-vfx"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "amplifier": 5,
+                        "duration": 10,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "apoli:action_on_entity_set",
+                    "set": "mrt_supports:soulweaver/lantern/animations_lantern-display-set",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s SW.LanternStrand 1"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "function mrt_supports:soulweaver/strands/strand-switch"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    
+    "ward-0-1": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.10
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "<=",
+            "compare_to": 1
+        }
+    },
+
+    "ward-2-3": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.125
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:scoreboard",
+                    "objective": "SW.StrandLinks",
+                    "comparison": "<=",
+                    "compare_to": 3
+                },
+                {
+                    "type": "apoli:scoreboard",
+                    "objective": "SW.StrandLinks",
+                    "comparison": ">=",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+
+    "ward-4": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.15
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+
+    "ward-5": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.20
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": ">=",
+            "compare_to": 5
+        }
+    }
+}

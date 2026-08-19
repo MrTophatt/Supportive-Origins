@@ -1,0 +1,7 @@
+{
+    "powers": [
+        "mrt_supports:global/visible-link-indicators",
+        "mrt_supports:global/hide-link-indicators",
+        "mrt_supports:global/cleanup-linked-powers"
+    ]
+}

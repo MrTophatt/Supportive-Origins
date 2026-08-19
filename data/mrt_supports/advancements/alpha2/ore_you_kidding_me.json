@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/seismic_jackpot",
+    "display": {
+        "icon": {
+            "item": "minecraft:ancient_debris"
+        },
+        "title": {
+            "text": "Ore You Kidding Me?"
+        },
+        "description": {
+            "text": "Detect at least 11,385 ores with one use of Seismic Ping."
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:lead"
+        },
+        "title": {
+            "text": "Hang in There!"
+        },
+        "description": {
+            "text": "Use your winch to hang in the void."
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:redstone_lamp"
+        },
+        "title": {
+            "text": "UNIT: α-02",
+            "color": "gold"
+        },
+        "description": {
+            "text": "Reactivate an abandoned machine built to help and serve."
+        },
+        "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "root": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/pocket_change",
+    "display": {
+        "icon": {
+            "item": "minecraft:copper_ore"
+        },
+        "title": {
+            "text": "Payday"
+        },
+        "description": {
+            "text": "Detect at least 128 ores with one use of Seismic Ping."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

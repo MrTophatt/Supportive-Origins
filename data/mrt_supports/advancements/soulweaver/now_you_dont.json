@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/now_you_see_me",
+    "display": {
+        "icon": {
+            "item": "minecraft:tinted_glass"
+        },
+        "title": {
+            "text": "...Now You Don't"
+        },
+        "description": {
+            "text": "Activate Veil of the Beyond below one heart while a mob is targeting you."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,247 @@
+{
+    "name": "Seismic Ping",
+    "description": "Send a twelve-second radial pulse that briefly highlights ores as it travels outward to 16 blocks.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Scanning for ores uses 7 energy"
+        },
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Scan using %s"
+        }
+    ],
+    "type": "origins:multiple",
+
+    "ping-shell": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 8,
+        "start_value": 8,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "ping-active": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "shell-timer": {
+        "type": "origins:cooldown",
+        "cooldown": 30,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "ore-glow": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:alpha2/seismic-ping/lifecycle/start"
+                },
+                {
+                    "type": "origins:feed",
+                    "food": -7,
+                    "saturation": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:alpha2/scan-ores_ping-shell",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:alpha2/scan-ores_ping-active",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "mrt_supports:alpha2/scan-ores_shell-timer"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:alpha2/seismic-ping/scan/render/first"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:alpha2/seismic-ping/scan/render/second"
+                    }
+                }
+            ]
+        },
+        "key": {
+            "key": "key.origins.quaternary_active"
+        },
+        "cooldown": 1200,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 3
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">=",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:alpha2/scan-ores_ping-active",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "shell-clock": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:alpha2/seismic-ping/cleanup/current-band"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:alpha2/scan-ores_ping-shell",
+                    "operation": "add",
+                    "change": 1
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:alpha2/scan-ores_ping-shell",
+                        "comparison": "<=",
+                        "compare_to": 7
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:trigger_cooldown",
+                                "power": "mrt_supports:alpha2/scan-ores_shell-timer"
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 1,
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function mrt_supports:alpha2/seismic-ping/scan/render/first"
+                                }
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 2,
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function mrt_supports:alpha2/seismic-ping/scan/render/second"
+                                }
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function mrt_supports:alpha2/seismic-ping/lifecycle/finish"
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "mrt_supports:alpha2/scan-ores_ping-active",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:alpha2/scan-ores_ping-active",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:alpha2/scan-ores_shell-timer",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "clear-highlight-on-broken-ore": {
+        "type": "origins:action_on_block_break",
+        "only_when_harvested": false,
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "c:ores"
+        },
+        "block_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @e[type=minecraft:shulker,tag=Supports.Alpha02.OreHighlight,distance=..1] at @s run function mrt_supports:alpha2/seismic-ping/cleanup/kill/shulker"
+        }
+    },
+
+    "clear-highlight-on-death": {
+        "type": "apoli:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "function mrt_supports:alpha2/seismic-ping/lifecycle/abort"
+            }
+        }
+    },
+
+    "cleanup-on-lost": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:alpha2/seismic-ping/lifecycle/abort"
+        },
+        "entity_action_removed": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:alpha2/seismic-ping/lifecycle/abort"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:alpha2/seismic-ping/lifecycle/abort"
+        }
+    }
+}

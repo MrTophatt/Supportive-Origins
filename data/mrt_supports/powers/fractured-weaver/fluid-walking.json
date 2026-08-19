@@ -1,0 +1,12 @@
+{
+    "name": "Weightless Tread",
+    "description": "The shattered weave of your soul barely burdens the surface of the world. You can skim across fluids as though they were solid ground.",
+    "type": "origins:walk_on_fluid",
+    "fluid": "mrt_supports:walkable_fluids",
+    "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": "<=",
+        "compare_to": 0.4
+    }
+}

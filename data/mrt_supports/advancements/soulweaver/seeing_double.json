@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/where_is_everyone",
+    "display": {
+        "icon": {
+            "item": "minecraft:spyglass"
+        },
+        "title": {
+            "text": "Seeing Double"
+        },
+        "description": {
+            "text": "Detect more than 100 mobs with a single use of Echo Sight."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

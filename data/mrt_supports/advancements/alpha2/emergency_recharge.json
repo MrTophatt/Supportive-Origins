@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/running_on_fumes",
+    "display": {
+        "icon": {
+            "item": "minecraft:redstone_block"
+        },
+        "title": {
+            "text": "Emergency Recharge"
+        },
+        "description": {
+            "text": "Starting in Power Saving Mode, reach full energy using only redstone dust and no abilities."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

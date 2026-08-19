@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/now_you_dont",
+    "display": {
+        "icon": {
+            "item": "minecraft:lead"
+        },
+        "title": {
+            "text": "Invisible Tug"
+        },
+        "description": {
+            "text": "Use Soul Recall or Mass Soul Recall while Veil of the Beyond is active."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

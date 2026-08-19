@@ -1,0 +1,18 @@
+execute if score @s SW.LanternChestBlend matches 0 rotated as @s rotated ~ 0 positioned ^-0.650 ^1.450 ^-0.350 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 1 rotated as @s rotated ~ 0 positioned ^-0.604 ^1.430 ^-0.325 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 2 rotated as @s rotated ~ 0 positioned ^-0.559 ^1.410 ^-0.301 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 3 rotated as @s rotated ~ 0 positioned ^-0.513 ^1.390 ^-0.276 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 4 rotated as @s rotated ~ 0 positioned ^-0.468 ^1.370 ^-0.252 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 5 rotated as @s rotated ~ 0 positioned ^-0.422 ^1.350 ^-0.227 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 6 rotated as @s rotated ~ 0 positioned ^-0.376 ^1.330 ^-0.202 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 7 rotated as @s rotated ~ 0 positioned ^-0.331 ^1.310 ^-0.178 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 8 rotated as @s rotated ~ 0 positioned ^-0.285 ^1.290 ^-0.153 run tp @s ~ ~ ~
+execute if score @s SW.LanternChestBlend matches 9 rotated as @s rotated ~ 0 positioned ^-0.240 ^1.270 ^-0.129 run tp @s ~ ~ ~
+execute if entity @s[tag=Supports.Soulweaver.LanternFollowChest] if score @s SW.LanternChestBlend matches 10.. unless score @s SW.LanternDelta matches -100..100 rotated as @s rotated ~ 0 positioned ^-0.194 ^1.250 ^-0.104 run tp @s ~ ~ ~
+execute if entity @s[tag=Supports.Soulweaver.LanternFollowChest] if score @s SW.LanternChestBlend matches 10.. if score @s SW.LanternDelta matches -100..100 positioned ^0.000 ^1.250 ^0.220 run tp @s ~ ~ ~
+execute unless entity @s[tag=Supports.Soulweaver.LanternFollowChest] if score @s SW.LanternChestBlend matches 10.. rotated as @s rotated ~ 0 positioned ^-0.194 ^1.250 ^-0.104 run tp @s ~ ~ ~
+
+# Unravel holds the lantern slightly ahead of the chest just before the shot.
+execute if entity @s[tag=Supports.Soulweaver.UnravelTuck] if score @s SW.LanternChestBlend matches 10.. positioned ^0.000 ^1.250 ^0.350 run tp @s ~ ~ ~
+
+function mrt_supports:soulweaver/lantern/apply-pose-height

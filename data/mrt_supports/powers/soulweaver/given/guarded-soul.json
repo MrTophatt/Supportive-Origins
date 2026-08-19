@@ -1,0 +1,1097 @@
+{
+    "type": "origins:multiple",
+    "guardian-sigil": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:soulweaver/guardian/mark-particles"
+        }
+    },
+    "hit-count": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "count-hit": {
+        "type": "origins:modify_damage_taken",
+        "self_action": {
+            "type": "origins:change_resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "operation": "add",
+            "change": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "<",
+            "compare_to": 2
+        }
+    },
+    "redirect-1": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": "<=",
+            "compare_to": 1
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-1"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-2": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-2"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-3": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 3
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-3"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-4": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 4
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-4"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-5": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 5
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-5"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-6": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 6
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-6"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-7": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 6
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 7
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-7"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-8": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 7
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 8
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-8"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-9": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 9
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-9"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-10": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 10
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-10"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-11": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 11
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-11"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-12": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 11
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 12
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-12"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-13": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 12
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 13
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-13"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-14": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 13
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 14
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-14"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-15": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 14
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 15
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-15"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-16": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 15
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 16
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-16"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-17": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 16
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 17
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-17"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-18": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 17
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 18
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-18"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-19": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 18
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 19
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-19"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-20": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 19
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 20
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-20"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-21": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 20
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 21
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-21"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-22": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 21
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 22
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-22"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-23": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 22
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 23
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-23"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-24": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:amount",
+                    "comparison": ">",
+                    "compare_to": 23
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "<=",
+                    "compare_to": 24
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-24"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "redirect-25": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">",
+            "compare_to": 24
+        },
+        "self_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/guardian/redirect-25"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/given/guarded-soul_hit-count",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "soul-save": {
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:soulweaver/guardian/save-guarded"
+        }
+    }
+}

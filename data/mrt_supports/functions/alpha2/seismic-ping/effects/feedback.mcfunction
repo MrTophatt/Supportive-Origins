@@ -1,0 +1,2 @@
+execute if score @s A2.Ores matches 1.. run function mrt_supports:alpha2/seismic-ping/effects/success
+execute if score @s A2.Ores matches 0 run function mrt_supports:alpha2/seismic-ping/effects/failure

@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:groved/love_is_in_the_air",
+    "display": {
+        "icon": {
+            "item": "minecraft:lead"
+        },
+        "title": {
+            "text": "A Proper Menagerie"
+        },
+        "description": {
+            "text": "Have ten different passive mob inside Sanctuary Bloom at once."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

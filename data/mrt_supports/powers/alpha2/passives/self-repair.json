@@ -1,0 +1,34 @@
+{
+    "name": "Self Repair",
+    "description": "At 10 or more energy, your internal repair system restores 1 HP every 1.75 seconds.",
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:heal",
+                "amount": 1
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "function mrt_supports:alpha2/self-repair-effects"
+            }
+        ]
+    },
+    "interval": 35,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:food_level",
+                "comparison": ">=",
+                "compare_to": 10
+            },
+            {
+                "type": "origins:relative_health",
+                "comparison": "<",
+                "compare_to": 1.0
+            }
+        ]
+    }
+}

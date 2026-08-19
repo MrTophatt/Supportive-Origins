@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:groved/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:wither_rose"
+        },
+        "title": {
+            "text": "Hostile Flora"
+        },
+        "description": {
+            "text": "Use Nature's Embrace to negatively affect another entity."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

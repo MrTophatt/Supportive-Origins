@@ -1,0 +1,1 @@
+playsound minecraft:block.comparator.click player @a ~ ~ ~ 0.85 1.55

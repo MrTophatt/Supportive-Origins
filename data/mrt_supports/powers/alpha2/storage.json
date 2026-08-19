@@ -1,0 +1,47 @@
+{
+    "name": "Storage Matrix",
+    "description": "You have access to an internal storage matrix, allowing you to store items even after death.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Open your storage matric with %s"
+        }
+    ],
+    "type": "origins:multiple",
+    "storage-matrix": {
+        "type": "origins:inventory",
+        "title": "Storage Matrix",
+        "container_type": "dropper",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+    "opening-feedback": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:alpha2/storage-effects"
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    }
+}

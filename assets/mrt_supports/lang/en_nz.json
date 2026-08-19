@@ -1,0 +1,8 @@
+{
+    "death.attack.unravel": "%1$s was unraveled by a soul thread",
+    "death.attack.unravel.player": "%1$s was unraveled by %2$s's soul thread",
+    "death.attack.soul_dissolution": "%1$s's soul was weakened by water",
+    "death.attack.soul_dissolution.player": "%1$s's soul was weakened by %2$s's water",
+    "death.attack.snapped_thread": "%1$s was torn apart by a snapped thread",
+    "death.attack.snapped_thread.player": "%1$s was torn apart by %2$s's snapped thread"
+}

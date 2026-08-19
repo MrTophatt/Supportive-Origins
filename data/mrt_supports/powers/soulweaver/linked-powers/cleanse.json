@@ -1,0 +1,158 @@
+{
+    "name": "Soul Cleanse",
+    "description": "Your woven bond carries a cleansing warmth to those bound by it. Call upon it to purge harmful afflictions from every soul in your weave.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Cleanse the linked souls with %s"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/soul-wisp.png",
+            "text": {
+                "text": "Requires at least 2 woven souls",
+                "color": "aqua"
+            }
+        }
+    ],
+    "type": "origins:multiple",
+
+    "cleanse": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "apoli:action_on_entity_set",
+            "set": "mrt_supports:soulweaver/link_linked-set",
+            "bientity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:bad_omen"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:blindness"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:darkness"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:hunger"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:levitation"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:mining_fatigue"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:nausea"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:poison"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:slowness"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:unluck"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:weakness"
+                                    },
+                                    {
+                                        "type": "origins:status_effect",
+                                        "effect": "minecraft:wither"
+                                    }
+                                ]
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:grant_advancement",
+                                "advancement": "mrt_supports:soulweaver/could_be_worse"
+                            }
+                        },
+                        "else_action": {
+                            "type": "origins:nothing"
+                        }
+                    },
+                    {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "function mrt_supports:soulweaver/cleanse"
+                        }
+                    },
+                    {
+                        "type": "origins:actor_action",
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "function mrt_supports:soulweaver/cleanse"
+                        }
+                    }
+                ]
+            }
+        },
+        "cooldown": 1200,
+        "condition": {
+            "type": "apoli:entity_set_size",
+            "set": "mrt_supports:soulweaver/link_stand-set",
+            "comparison": ">=",
+            "compare_to": 2
+        },
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 4
+        },
+        "key": {
+            "key": "key.origins.quinary_active"
+        }
+    },
+
+    "not-enough-souls-message": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:soulweaver/passives/see-health_cooldown"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar {\"text\":\"Need at least 2 woven souls to use Soul Cleanse\",\"color\":\"#21AEFF\",\"bold\":true}"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.quinary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "apoli:entity_set_size",
+            "set": "mrt_supports:soulweaver/link_stand-set",
+            "comparison": "<=",
+            "compare_to": 1
+        }
+    }
+}

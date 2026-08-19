@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/everybody_in",
+    "display": {
+        "icon": {
+            "item": "minecraft:ender_eye"
+        },
+        "title": {
+            "text": "Across All Realms"
+        },
+        "description": {
+            "text": "Use Mass Soul Recall with at least one woven soul in each vanilla dimension."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

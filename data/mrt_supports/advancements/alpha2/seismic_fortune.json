@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/mother_lode",
+    "display": {
+        "icon": {
+            "item": "minecraft:emerald_ore"
+        },
+        "title": {
+            "text": "Seismic Fortune"
+        },
+        "description": {
+            "text": "Detect at least 1,024 ores with one use of Seismic Ping."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

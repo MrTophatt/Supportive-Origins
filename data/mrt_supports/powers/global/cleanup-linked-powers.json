@@ -1,0 +1,100 @@
+{
+    "type": "origins:multiple",
+
+    "clear-resonant-strand": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:revoke_all_powers",
+                    "source": "mrt_supports:soulweaver/strands"
+                },
+                {
+                    "type": "apoli:revoke_all_powers",
+                    "source": "mrt_supports:resonant_strand"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s mrt_supports:soulweaver/strands/force-pulse-cooldown mrt_supports:resonant_strand_cooldown"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=Supports.Soulweaver.Owner]",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "apoli:remove_from_entity_set",
+                            "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set"
+                        }
+                    }
+                }
+            ]
+        },
+        "entity_action_respawned": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "apoli:revoke_all_powers",
+                    "source": "mrt_supports:soulweaver/strands"
+                },
+                {
+                    "type": "apoli:revoke_all_powers",
+                    "source": "mrt_supports:resonant_strand"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s mrt_supports:soulweaver/strands/force-pulse-cooldown mrt_supports:resonant_strand_cooldown"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@a[tag=Supports.Soulweaver.Owner]",
+                    "bientity_action": {
+                        "type": "origins:invert",
+                        "action": {
+                            "type": "apoli:remove_from_entity_set",
+                            "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+
+    "clear-guardian-weaver": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag=Supports.Soulweaver.Owner]",
+            "bientity_action": {
+                "type": "origins:invert",
+                "action": {
+                    "type": "apoli:remove_from_entity_set",
+                    "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
+                }
+            }
+        },
+        "entity_action_respawned": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag=Supports.Soulweaver.Owner]",
+            "bientity_action": {
+                "type": "origins:invert",
+                "action": {
+                    "type": "apoli:remove_from_entity_set",
+                    "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
+                }
+            }
+        },
+        "entity_action_lost": {
+            "type": "origins:selector_action",
+            "selector": "@a[tag=Supports.Soulweaver.Owner]",
+            "bientity_action": {
+                "type": "origins:invert",
+                "action": {
+                    "type": "apoli:remove_from_entity_set",
+                    "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
+                }
+            }
+        }
+    }
+}

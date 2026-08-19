@@ -1,0 +1,30 @@
+{
+    "criteria": {
+        "bred": {
+            "trigger": "minecraft:bred_animals",
+            "conditions": {
+                "parent": [
+                    {
+                        "condition": "minecraft:entity_properties",
+                        "entity": "this",
+                        "predicate": {
+                            "nbt": "{Tags:[\"Supports.Groved.BreedInside\"]}"
+                        }
+                    }
+                ],
+                "partner": [
+                    {
+                        "condition": "minecraft:entity_properties",
+                        "entity": "this",
+                        "predicate": {
+                            "nbt": "{Tags:[\"Supports.Groved.BreedInside\"]}"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "function": "mrt_supports:groved/advancements/sanctuary/breeding/event"
+    }
+}

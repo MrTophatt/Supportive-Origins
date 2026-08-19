@@ -1,0 +1,106 @@
+{
+    "name": "Life Blessing",
+    "description": "Bless the area around you with life, bonemealing blocks around you.",
+    "type": "origins:multiple",
+
+    "toggle": {
+        "active_by_default": false,
+        "type": "origins:toggle",
+        "key": {
+            "key": "key.origins.secondary_active"
+        }
+    },
+
+    "grow": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add Supports.Groved.LifeBlessingTracking"
+                },
+                {
+                    "type": "origins:block_action_at",
+                    "block_action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 4,
+                        "shape": "sphere",
+                        "block_action": {
+                            "type": "origins:chance",
+                            "chance": 0.02,
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:groved/advancements/life-blessing/crops/prepare"
+                                    },
+                                    {
+                                        "type": "origins:bonemeal"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:groved/advancements/life-blessing/crops/finish"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove Supports.Groved.LifeBlessingTracking"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:groved/life-blessing-particles"
+                }
+            ]
+        },
+        "interval": 10,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:groved/life-blessing_toggle"
+        }
+    },
+
+    "aura-sound": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:groved/life-blessing-sound"
+        },
+        "interval": 80,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:groved/life-blessing_toggle"
+        }
+    },
+
+    "actionbar": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\":\"You are Blessing Life\",\"color\":\"green\",\"bold\":true}"
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:groved/life-blessing_toggle"
+        }
+    },
+    "actionbar-clear": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar \"\""
+        },
+        "interval": 1,
+        "condition": {
+            "type": "origins:power_active",
+            "power": "mrt_supports:groved/life-blessing_toggle",
+            "inverted": true
+        }
+    }
+}

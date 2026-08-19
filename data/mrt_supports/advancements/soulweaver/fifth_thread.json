@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/fourth_thread",
+    "display": {
+        "icon": {
+            "item": "minecraft:painting"
+        },
+        "title": {
+            "text": "Fifth Thread"
+        },
+        "description": {
+            "text": "Link five woven souls at once."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

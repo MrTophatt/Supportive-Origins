@@ -1,0 +1,60 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+
+    "expiry": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 6,
+        "start_value": 6,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "apoli:remove_power",
+            "power": "mrt_supports:groved/given/grove-shelter"
+        }
+    },
+    "expiry-countdown": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "mrt_supports:groved/given/grove-shelter_expiry",
+            "change": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:groved/given/grove-shelter_expiry",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    
+    "protection": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total_multiplicative",
+            "value": -0.25
+        }
+    },
+    "invis": {
+        "type": "apoli:model_color",
+        "red": 1,
+        "green": 1,
+        "blue": 1,
+        "alpha": 0.6
+    },
+    "healing": {
+        "type": "origins:action_over_time",
+        "interval": 80,
+        "entity_action": {
+            "type": "origins:heal",
+            "amount": 1.0
+        },
+        "condition": {
+            "type": "origins:in_tag",
+            "tag": "mrt_supports:sanctuary_healable"
+        }
+    }
+}

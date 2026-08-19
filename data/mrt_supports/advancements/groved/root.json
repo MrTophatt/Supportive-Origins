@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:moss_block"
+        },
+        "title": {
+            "text": "Groved",
+            "color": "green"
+        },
+        "description": {
+            "text": "Grow into the role of nature's guardian."
+        },
+        "background": "minecraft:textures/block/moss_block.png",
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "root": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

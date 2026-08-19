@@ -1,0 +1,25 @@
+{
+    "values": [
+        "#minecraft:stairs",
+        "#minecraft:slabs",
+        "#minecraft:anvil",
+        "#minecraft:doors",
+        "#minecraft:trapdoors",
+        "#minecraft:walls",
+        "#minecraft:buttons",
+        "#minecraft:pressure_plates",
+        "#minecraft:wool_carpets",
+        "#minecraft:snow",
+        "#minecraft:beds",
+        "#minecraft:campfires",
+        "#minecraft:candles",
+        "#minecraft:flower_pots",
+        "minecraft:soul_sand",
+        "minecraft:soul_soil",
+        "minecraft:soul_fire",
+        "minecraft:soul_torch",
+        "minecraft:soul_wall_torch",
+        "minecraft:soul_lantern",
+        "minecraft:soul_campfire"
+    ]
+}

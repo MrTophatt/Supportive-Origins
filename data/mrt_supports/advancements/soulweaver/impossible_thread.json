@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/a_lot_less_broken",
+    "display": {
+        "icon": {
+            "item": "minecraft:echo_shard"
+        },
+        "title": {
+            "text": "Impossible Thread"
+        },
+        "description": {
+            "text": "Die while in the Fractured Weaver state."
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

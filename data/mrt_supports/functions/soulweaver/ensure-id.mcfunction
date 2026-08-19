@@ -1,0 +1,1 @@
+execute unless score @s Supports.SW.ID matches 1.. run function mrt_supports:soulweaver/assign-id

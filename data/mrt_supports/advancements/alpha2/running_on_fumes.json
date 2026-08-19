@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:redstone_torch"
+        },
+        "title": {
+            "text": "Running on Fumes"
+        },
+        "description": {
+            "text": "Enter Power Saving Mode without spending your last energy on an ability."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+	"name": "UNIT: α-02",
+	"description": "An abandoned automaton created years ago, built to help and serve during a time of peace.",
+	"powers": [
+		"mrt_supports:alpha2/root",
+		"mrt_supports:alpha2/advancements/tracking",
+		"mrt_supports:alpha2/crafting",
+		"mrt_supports:alpha2/storage",
+		"mrt_supports:alpha2/smelt",
+		"mrt_supports:alpha2/scan-ores",
+		"mrt_supports:alpha2/winch",
+
+		"mrt_supports:alpha2/battery/battery",
+		
+		"mrt_supports:alpha2/battery/solarpanel",
+		"mrt_supports:alpha2/battery/redstone",
+		"mrt_supports:alpha2/passives/self-repair",
+		"mrt_supports:alpha2/passives/compact",
+		"mrt_supports:alpha2/passives/rideable",
+		"mrt_supports:alpha2/passives/machine-like",
+		"mrt_supports:alpha2/passives/short-circuit",
+		"mrt_supports:alpha2/battery/power-saving",
+		"mrt_supports:alpha2/passives/iron-clad"
+	],
+	"icon": {
+		"item": "minecraft:redstone_lamp"
+	},
+	"order": 1,
+	"impact": 2,
+	"hidden": false
+}

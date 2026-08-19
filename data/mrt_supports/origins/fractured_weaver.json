@@ -1,0 +1,22 @@
+{
+    "name": "Fractured Weaver",
+    "description": "A Soul Weaver whose anchor to the living world has temporarily fractured.",
+    "powers": [
+        "mrt_supports:soulweaver/root",
+        "mrt_supports:fractured-weaver/timer",
+        "mrt_supports:fractured-weaver/intangible",
+        "mrt_supports:fractured-weaver/fluid-walking",
+        "mrt_supports:fractured-weaver/fragile-form",
+        "mrt_supports:fractured-weaver/retained-passives",
+        "mrt_supports:soulweaver/passives/soul-physiology",
+        "mrt_supports:soulweaver/passives/soul-speed"
+    ],
+    "icon": {
+        "item": "minecraft:soul_lantern",
+        "tag": "{CustomModelData:6777801}"
+    },
+    "order": 2,
+    "impact": 3,
+    "unchoosable": true,
+    "hidden": true
+}

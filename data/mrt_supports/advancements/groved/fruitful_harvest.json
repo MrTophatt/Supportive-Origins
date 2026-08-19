@@ -1,0 +1,30 @@
+{
+    "parent": "mrt_supports:groved/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:bone_meal"
+        },
+        "title": {
+            "text": "Fruitful Harvest"
+        },
+        "description": {
+            "text": "Use Life Blessing to fully grow ten unique crops."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "crop_1": { "trigger": "minecraft:impossible" },
+        "crop_2": { "trigger": "minecraft:impossible" },
+        "crop_3": { "trigger": "minecraft:impossible" },
+        "crop_4": { "trigger": "minecraft:impossible" },
+        "crop_5": { "trigger": "minecraft:impossible" },
+        "crop_6": { "trigger": "minecraft:impossible" },
+        "crop_7": { "trigger": "minecraft:impossible" },
+        "crop_8": { "trigger": "minecraft:impossible" },
+        "crop_9": { "trigger": "minecraft:impossible" },
+        "crop_10": { "trigger": "minecraft:impossible" }
+    }
+}

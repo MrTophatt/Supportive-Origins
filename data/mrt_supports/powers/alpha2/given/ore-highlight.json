@@ -1,0 +1,75 @@
+{
+    "type": "origins:multiple",
+
+    "invisibility": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:invisibility",
+                "duration": -1,
+                "show_particles": false
+            }
+        }
+    },
+
+    "duration": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 12,
+        "start_value": 12,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "duration-tick": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "mrt_supports:alpha2/given/ore-highlight_duration",
+            "change": -1
+        }
+    },
+
+    "expire": {
+        "type": "origins:action_over_time",
+        "interval": 2,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:alpha2/seismic-ping/cleanup/kill/shulker"
+        },
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:alpha2/given/ore-highlight_duration",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:block_collision",
+                    "offset_x": 0,
+                    "offset_y": 0,
+                    "offset_z": 0,
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "immunity": {
+        "type": "apoli:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "genericKill",
+            "inverted": true
+        },
+        "modifier": {
+            "operation": "set_total",
+            "value": -1
+        }
+    }
+}

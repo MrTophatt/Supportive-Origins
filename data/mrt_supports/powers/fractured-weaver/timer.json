@@ -1,0 +1,246 @@
+{
+    "name": "Fractured Soul",
+    "description": "Slowly, the fragments of your being gather around the memory of your lantern. When the weave is whole again, you return as a Soul Weaver.",
+    "type": "origins:multiple",
+
+    "impossible-thread": {
+        "type": "apoli:action_on_death",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:grant_advancement",
+                "advancement": "mrt_supports:soulweaver/impossible_thread"
+            }
+        }
+    },
+
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1800,
+        "start_value": 1800,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar \"\""
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:fractured-weaver/reweave-start"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:fractured-weaver/timer_reweave-delay",
+                    "operation": "set",
+                    "change": 30
+                }
+            ]
+        }
+    },
+
+    "reweave-delay": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 30,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:fractured-weaver/finish-reweave"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:resistance",
+                        "amplifier": 2,
+                        "duration": 40,
+                        "show_particles": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:weakness",
+                        "amplifier": 1,
+                        "duration": 900,
+                        "show_particles": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:mining_fatigue",
+                        "amplifier": 1,
+                        "duration": 900,
+                        "show_particles": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "amplifier": 1,
+                        "duration": 600,
+                        "show_particles": false
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:blindness",
+                        "amplifier": 0,
+                        "duration": 120,
+                        "show_particles": false
+                    }
+                }
+            ]
+        }
+    },
+
+    "countdown": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:fractured-weaver/display-timer"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:fractured-weaver/timer_timer",
+                    "change": -1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:fractured-weaver/timer_timer",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{DeathTime:0s}"
+                }
+            ]
+        }
+    },
+
+    "reweave-delay-countdown": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:fractured-weaver/reweave-spiral"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:fractured-weaver/timer_reweave-delay",
+                    "change": -1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:fractured-weaver/timer_reweave-delay",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{DeathTime:0s}"
+                }
+            ]
+        }
+    },
+
+    "reweaving-slow": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.95
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:fractured-weaver/timer_reweave-delay",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+
+    "cleanup-duration-tags": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "origin set @s mrt_supports:strands origins:empty"
+                },
+                {
+                    "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"Supports.Soulweaver.SoulFracture\"]}"
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "mrt_supports:fractured-weaver/timer_timer",
+                        "operation": "set",
+                        "change": 500
+                    },
+                    "else_action": {
+                        "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:nbt",
+                                    "nbt": "{Tags:[\"Supports.Soulweaver.ShortFracture\"]}"
+                        },
+                        "if_action": {
+                            "type": "origins:change_resource",
+                            "resource": "mrt_supports:fractured-weaver/timer_timer",
+                            "operation": "set",
+                            "change": 1000
+                        },
+                        "else_action": {
+                            "type": "origins:change_resource",
+                            "resource": "mrt_supports:fractured-weaver/timer_timer",
+                            "operation": "set",
+                            "change": 1800
+                        }
+                    }
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:fractured-weaver/cleanup-state"
+                }
+            ]
+        }
+    }
+}

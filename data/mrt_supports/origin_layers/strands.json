@@ -1,0 +1,21 @@
+{
+    "replace": false,
+    "enabled": true,
+    "hidden": false,
+    "name": "Soul Lantern Strand",
+    "origins": [
+        {
+            "condition": {
+                "type": "origins:origin",
+                "origin": "mrt_supports:soulweaver"
+            },
+            "origins": [
+                "mrt_supports:strands/renewal",
+                "mrt_supports:strands/warding",
+                "mrt_supports:strands/fervor",
+                "mrt_supports:strands/force",
+                "mrt_supports:strands/resolve"
+            ]
+        }
+    ]
+}

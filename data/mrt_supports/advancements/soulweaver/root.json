@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:soul_lantern"
+        },
+        "title": {
+            "text": "Soul Weaver",
+            "color": "aqua"
+        },
+        "description": {
+            "text": "Bind your soul to the living world."
+        },
+        "background": "minecraft:textures/block/soul_soil.png",
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "root": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

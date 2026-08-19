@@ -1,0 +1,109 @@
+{
+    "name": "Soul Transmutation",
+    "description": "Using soul sand and soul soil you can transform certain regular items to become their soul-bound version.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Soul sand or soul soil can be crafted with sand, dirt, lanterns, torches, and campfires."
+        }
+    ],
+    "type": "origins:multiple",
+
+    "sand-to-soul-sand": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "mrt_supports:soul_sand_from_sand",
+            "type": "minecraft:crafting_shapeless",
+            "ingredients": [
+                { 
+                    "tag": "minecraft:soul_fire_base_blocks" 
+                },
+                { 
+                    "item": "minecraft:sand" 
+                }
+            ],
+            "result": {
+                "item": "minecraft:soul_sand",
+                "count": 2
+            }
+        }
+    },
+
+    "dirt-to-soul-soil": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "mrt_supports:soul_soil_from_dirt",
+            "type": "minecraft:crafting_shapeless",
+            "ingredients": [
+                { 
+                    "tag": "minecraft:soul_fire_base_blocks" 
+                },
+                { 
+                    "tag": "minecraft:dirt" 
+                }
+            ],
+            "result": {
+                "item": "minecraft:soul_soil",
+                "count": 2
+            }
+        }
+    },
+
+    "soul-lantern": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "mrt_supports:soul_lantern",
+            "type": "minecraft:crafting_shapeless",
+            "ingredients": [
+                { 
+                    "tag": "minecraft:soul_fire_base_blocks"
+                },
+                { 
+                    "item": "minecraft:lantern"
+                }
+            ],
+            "result": {
+                "item": "minecraft:soul_lantern"
+            }
+        }
+    },
+
+    "soul-torch": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "mrt_supports:soul_torch",
+            "type": "minecraft:crafting_shapeless",
+            "ingredients": [
+                {
+                    "tag": "minecraft:soul_fire_base_blocks"
+                },
+                {
+                    "item": "minecraft:torch"
+                }
+            ],
+            "result": {
+                "item": "minecraft:soul_torch"
+            }
+        }
+    },
+
+    "soul-campfire": {
+        "type": "origins:recipe",
+        "recipe": {
+            "id": "mrt_supports:soul_campfire",
+            "type": "minecraft:crafting_shapeless",
+            "ingredients": [
+                {
+                    "tag": "minecraft:soul_fire_base_blocks"
+                },
+                {
+                    "item": "minecraft:campfire"
+                }
+            ],
+            "result": {
+                "item": "minecraft:soul_campfire"
+            }
+        }
+    }
+}

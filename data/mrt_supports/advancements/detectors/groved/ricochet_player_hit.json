@@ -1,0 +1,28 @@
+{
+    "criteria": {
+        "hit": {
+            "trigger": "minecraft:entity_hurt_player",
+            "conditions": {
+                "damage": {
+                    "type": {
+                        "direct_entity": {
+                            "nbt": "{Tags:[\"Supports.Groved.Ricocheted\"]}"
+                        },
+                        "source_entity": {
+                            "type": "minecraft:player"
+                        },
+                        "tags": [
+                            {
+                                "id": "minecraft:is_projectile",
+                                "expected": true
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "mrt_supports:groved/advancements/sanctuary/trickshot/mark-victim"
+    }
+}

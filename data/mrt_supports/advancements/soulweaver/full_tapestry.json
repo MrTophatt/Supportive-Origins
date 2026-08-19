@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/fifth_thread",
+    "display": {
+        "icon": {
+            "item": "minecraft:loom"
+        },
+        "title": {
+            "text": "Full Tapestry"
+        },
+        "description": {
+            "text": "Have all five woven souls linked and online at the same time."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

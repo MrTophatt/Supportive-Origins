@@ -1,0 +1,164 @@
+{
+    "name": "Soul Physiology",
+    "description": "Flesh, hunger, and weather have little mercy for a soul that refuses to pass on. Fire cannot claim you, but water and rain scour your exposed spirit.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "You cannot eat or recover through natural regeneration."
+        }
+    ],
+    "type": "origins:multiple",
+
+    "no-eating": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:food"
+        }
+    },
+
+    "no-natural-regeneration": {
+        "type": "origins:disable_regen"
+    },
+
+    "stay-fed": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:feed",
+            "food": 20,
+            "saturation": 0
+        }
+    },
+
+    "no-exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1.0
+        }
+    },
+
+    "more-experience": {
+        "type": "origins:modify_xp_gain",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        }
+    },
+
+    "fire-immunity": {
+        "type": "origins:invulnerability",
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fire"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "lava",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "lava-resistance": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.50
+        },
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "lava"
+        }
+    },
+
+    "water-weakness": {
+        "type": "origins:damage_over_time",
+        "interval": 20,
+        "onset_delay": 1,
+        "damage": 1.5,
+        "damage_easy": 1,
+        "damage_type": "mrt_supports:soul_dissolution",
+        "protection_enchantment": "origins:water_protection",
+        "protection_effectiveness": 0.75,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": ">",
+                    "compare_to": 0.0
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:in_rain"
+                        },
+                        {
+                            "type": "origins:biome",
+                            "condition": {
+                                "type": "origins:temperature",
+                                "comparison": ">",
+                                "compare_to": 0.15
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+
+    "snowfall-weakness": {
+        "type": "origins:damage_over_time",
+        "interval": 40,
+        "onset_delay": 1,
+        "damage": 1.0,
+        "damage_easy": 1.0,
+        "damage_type": "mrt_supports:soul_dissolution",
+        "protection_enchantment": "origins:water_protection",
+        "protection_effectiveness": 0.75,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:predicate",
+                    "predicate": "mrt_supports:raining"
+                },
+                {
+                    "type": "origins:exposed_to_sky"
+                },
+                {
+                    "type": "origins:biome",
+                    "condition": {
+                        "type": "origins:temperature",
+                        "comparison": "<=",
+                        "compare_to": 0.15
+                    }
+                }
+            ]
+        }
+    },
+
+    "snowball-weakness": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "addition",
+            "value": 1.0
+        },
+        "damage_condition": {
+            "type": "origins:projectile",
+            "projectile": "minecraft:snowball"
+        }
+    },
+
+    "soul-status-bar": {
+        "type": "origins:status_bar_texture",
+        "texture": "mrt_supports:textures/gui/soulweaver-status-bar.png"
+    }
+}

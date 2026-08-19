@@ -1,0 +1,5 @@
+function mrt_supports:groved/sanctuary/ricochet/calculations/contact/classify_surface
+function mrt_supports:groved/sanctuary/ricochet/calculations/reflection/motion
+execute if entity @s[type=#mrt_supports:sanctuary_projectiles_requiring_acceleration_reflection] run function mrt_supports:groved/sanctuary/ricochet/calculations/reflection/acceleration
+function mrt_supports:groved/sanctuary/ricochet/calculations/position/restore_safe_point
+function mrt_supports:groved/sanctuary/ricochet/finalize

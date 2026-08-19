@@ -1,0 +1,44 @@
+{
+    "parent": "mrt_supports:groved/hostile_flora",
+    "display": {
+        "icon": {
+            "item": "minecraft:flowering_azalea"
+        },
+        "title": {
+            "text": "How Did We Grow Here?"
+        },
+        "description": {
+            "text": "Use every valid flower, mushroom, and fungus with Nature's Embrace."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "lilac": { "trigger": "minecraft:impossible" },
+        "pink_petals": { "trigger": "minecraft:impossible" },
+        "poppy": { "trigger": "minecraft:impossible" },
+        "rose_bush": { "trigger": "minecraft:impossible" },
+        "peony": { "trigger": "minecraft:impossible" },
+        "sunflower": { "trigger": "minecraft:impossible" },
+        "dandelion": { "trigger": "minecraft:impossible" },
+        "blue_orchid": { "trigger": "minecraft:impossible" },
+        "allium": { "trigger": "minecraft:impossible" },
+        "white_tulip": { "trigger": "minecraft:impossible" },
+        "orange_tulip": { "trigger": "minecraft:impossible" },
+        "pink_tulip": { "trigger": "minecraft:impossible" },
+        "red_tulip": { "trigger": "minecraft:impossible" },
+        "azure_bluet": { "trigger": "minecraft:impossible" },
+        "lily_of_the_valley": { "trigger": "minecraft:impossible" },
+        "oxeye_daisy": { "trigger": "minecraft:impossible" },
+        "cornflower": { "trigger": "minecraft:impossible" },
+        "torchflower": { "trigger": "minecraft:impossible" },
+        "pitcher_plant": { "trigger": "minecraft:impossible" },
+        "wither_rose": { "trigger": "minecraft:impossible" },
+        "brown_mushroom": { "trigger": "minecraft:impossible" },
+        "red_mushroom": { "trigger": "minecraft:impossible" },
+        "crimson_fungus": { "trigger": "minecraft:impossible" },
+        "warped_fungus": { "trigger": "minecraft:impossible" }
+    }
+}

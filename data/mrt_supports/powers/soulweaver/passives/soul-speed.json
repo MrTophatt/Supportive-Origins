@@ -1,0 +1,33 @@
+{
+    "name": "Soul Speed",
+    "description": "Soul sand remembers every spirit that crossed it. Recognizing one of its own, soul sand and soul soil carry you swiftly over the earth.",
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "operation": "multiply_total",
+        "value": 0.7
+    },
+    "tick_rate": 1,
+    "condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:on_block",
+                "block_condition": {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:soul_fire_base_blocks"
+                }
+            },
+            {
+                "type": "origins:block_collision",
+                "offset_x": 0,
+                "offset_y": -0.1,
+                "offset_z": 0,
+                "block_condition": {
+                    "type": "origins:in_tag",
+                    "tag": "minecraft:soul_fire_base_blocks"
+                }
+            }
+        ]
+    }
+}

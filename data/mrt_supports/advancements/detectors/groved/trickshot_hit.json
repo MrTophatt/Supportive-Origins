@@ -1,0 +1,25 @@
+{
+    "criteria": {
+        "hit": {
+            "trigger": "minecraft:player_hurt_entity",
+            "conditions": {
+                "damage": {
+                    "type": {
+                        "direct_entity": {
+                            "nbt": "{Tags:[\"Supports.Groved.Ricocheted\"]}"
+                        },
+                        "tags": [
+                            {
+                                "id": "minecraft:is_projectile",
+                                "expected": true
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "mrt_supports:groved/advancements/sanctuary/trickshot/mark-shooter"
+    }
+}

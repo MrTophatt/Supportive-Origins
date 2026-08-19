@@ -1,0 +1,156 @@
+### ⚠️ THIS DATAPACK IS ALSO A RESOURCE PACK ⚠️
+
+This datapack adds 3 new origins based on supporting the players around you. The origins support and help in different and interesting ways.
+These Origins were meant to be played in multiplayer, but can still be fun in singleplayer.
+
+<details>
+<summary>🟢 Groved</summary>
+
+*A being made of flora, protective and a natural helper.*
+
+This origin is meant to be played as a group supporter, helping a large group of players together at once.
+
+> **PRIMARY: Natures Embrace**
+> - Press your primary key to heal allies around you for 2.5 hearts.
+> - Holding different flowers when using this ability will sacrifice the flower to give a small buff to players around you
+> - Cooldown of 30 seconds
+
+> **SECONDARY: Life Blessing**
+> - Toggle on and off this ability
+> - While on, you will start to bonemeal blocks around you, accelerating plant growth around you in a 4 block radius
+
+> **PASSIVE [+]: Photosynthesis**
+> - You will slowly heal over time when in direct sunlight
+
+> **PASSIVE [-]: Flora Fragility**
+> - You take 25% more damage from all fire damage
+> - You gain slowness when in cold biomes (biomes with temperatures <= 0.5)
+
+> **PASSIVE [-]: Vegetarian**
+> - You cannot eat meat, you are stuck eating only vegetables and fruit
+
+</details>
+
+
+<details>
+<summary>🟡🟡 α-02</summary>
+
+*An abandoned automaton created years ago, built to help and serve during a time of peace.*
+
+This origin is meant to be more utilitarian, being a kind of workshop on the go.
+
+> **PASSIVE [=]: Internal Batteries**
+> - You no longer need to eat, you are a robot thus you do not need food
+> - Your hunger bar is gone, instead you have an energy bar
+> - You have 20 total energy points
+
+> **PRIMARY: Fabrication**
+> - Be able to use a crafting anywhere, anytime
+> - Costs 2 energy points to be opened
+
+> **SECONDARY: Storage Matrix**
+> - You have access to a 3x3 storage unit, items inside are kept upon death
+> - Costs no energy points
+
+> **TERTIARY (Save Hotbar Activator): Thermal Converter**
+> - Smelt items in your main hand
+> - Cooldown of 15 seconds per smelt
+> - Costs 4 energy points
+
+> **QUATERNARY (Load Hotbar Activator): Seismic Ping**
+> - Shows the location of ores around you in a 16 block radius
+> - Blocks are shown for 10 seconds
+> - Cooldown of 1 minute
+> - Costs 7 energy points
+
+> **PASSIVE [+]: Solar Panels**
+> - When standing in direct sunlight, slowly recharge your battery
+> - When not in direct sunlight, but in light level of 9+ (overworld) or 7+ (nether) battery will recharge 3x slower
+
+> **PASSIVE [+]: Power Hungry**
+> - You can eat redstone dust to gain 2 energy points
+
+> **PASSIVE [+]: Self Repair**
+> - While at or over 10 energy points, you will slowly heal at a rate of 0.5 hearts/2 seconds
+
+> **PASSIVE [+]: Iron Clad**
+> - You have 4 extra armor points
+
+> **PASSIVE [=]: Compact**
+> - You are 25% smaller than a regular player
+
+> **PASSIVE [=]: Machine**
+> - As a machine, you are inorganic thus you don't regenerate, you don't get insomnia, and you are immune to most health/hunger based potion effects
+
+> **PASSIVE [-]: Short Circuit**
+> - You take damage when in bodies of water
+> - Rain is perfectly fine
+
+> **PASSIVE [-]: Power Saving Mode**
+> - When you reach 0 energy points, you can no longer interact with blocks
+> - You move 60% slower
+
+</details>
+
+
+<details>
+<summary>🔴🔴🔴 Soul Weaver</summary>
+
+*An old and protective soul trapped in the land of the living.*
+
+⚠️ You can only have a maximum of 50 Soul Weaver's on a server in total, or else it breaks ⚠️
+
+This origin is meant to be at the backlines, not in the middle of a war, but rather quietly helping out friends from afar.
+
+> **PRIMARY: Soul Link**
+> - Link/Unlink the closest player in a 5 block radius
+> - You cannot link to players that are linked to another Soul Weaver
+> - You cannot link to other Soul Weaver's
+> - You can have a maximum of 5 links
+> - Of a player you linked to dies, they are still linked.
+> - If you die you lose all your links
+> - Linked players will have an outline only visible to you
+> - Depending on how many links you have, everyone will have a buff, the more links, the stronger the buffs
+
+> **SECONDARY: Soul Recall**
+> - Look at one of your linked players in a 100 block radius
+> - Activate the ability to teleport that player to you, or if you are shifting, teleport to them
+> - Cooldown of 10 seconds
+
+> **TERTIARY (Save Hotbar Activator): Soul Cleanse**
+> - Remove all effects from your linked players
+> - Linked players will get regneration for 5 seconds. Absorption for 15 seconds
+> - Cooldown of 1 minute
+
+> **QUATERNARY (Load Hotbar Activator): Veil of the Beyond**
+> - Toggle this ability on and off
+> - While toggled on you are completely invisible and can phase through most non-solid blocks
+> - While on, you cannot interact with blocks and entities
+> - While on, you are much faster
+> - You can only have this ability toggled on for a certain amount of time, 5 seconds being the max with a recharge time of 30 seconds + 1 second delay
+
+> **QUINARY (Highlight Players (Spectators)): Echo Sight**
+> - All entities around you in a 64 block radius will glow only for you
+> - Only entities considered "alive" will be seen. This excludes undead mobs and entities such as minecarts, armor stands, item frames, items, etc.
+> - Entities will be seen for 5 seconds
+> - Cooldown of 30 seconds
+
+> **PASSIVE [+]: Light Soul**
+> - You take no fall damage
+
+> **PASSIVE [-]: Unwoven**
+> - When you aren't linked to anyone, you walk 40% slower
+> - When you aren't linked to anyone, you mine 30% slower
+
+> **PASSIVE [-]: Unwieldy**
+> - You cannot use shields
+
+> **PASSIVE [-]: Fragmented Shell**
+> - You have 2 less hearts
+> - You deal 40% less damage
+
+> **PASSIVE [=]: No Rest for the Dead**
+> - You dont gain insomnia
+> - You cannot sleep, but you still set your spawn point
+
+</details>

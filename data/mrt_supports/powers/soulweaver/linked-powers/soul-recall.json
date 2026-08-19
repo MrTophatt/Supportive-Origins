@@ -1,0 +1,568 @@
+{
+    "name": "Soul Recall",
+    "description": "No distance can wholly silence a thread woven into your soul. Call a chosen woven soul to your side, or gather every soul in your weave.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Recall a selected soul, or hold the key without a selection to gather every woven soul, with %s"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/soul-wisp.png",
+            "text": {
+                "text": "Single recall requires at least 1 woven soul",
+                "color": "aqua"
+            }
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/soul-wisp.png",
+            "text": {
+                "text": "Mass recall requires at least 2 woven souls",
+                "color": "aqua"
+            }
+        }
+    ],
+
+    "type": "origins:multiple",
+
+    "single-tp-cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 3
+        }
+    },
+
+    "all-tp-cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 3
+        }
+    },
+
+    "all-tp-resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 3,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-resource",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+        "max_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "apoli:entity_set_size",
+                "set": "mrt_supports:soulweaver/link_stand-set",
+                "comparison": ">=",
+                "compare_to": 2
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:soulweaver/advancements/recall"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:soulweaver/advancements/mass-recall"
+                    },
+                    {
+                        "type": "apoli:action_on_entity_set",
+                        "set": "mrt_supports:soulweaver/link_linked-set",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:dimension",
+                                            "dimension": "minecraft:overworld"
+                                        }
+                                    },
+                                    "if_action": {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "scoreboard players set #Overworld SW.AdvRealm 1"
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:nothing"
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:dimension",
+                                            "dimension": "minecraft:the_nether"
+                                        }
+                                    },
+                                    "if_action": {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "scoreboard players set #Nether SW.AdvRealm 1"
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:nothing"
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:dimension",
+                                            "dimension": "minecraft:the_end"
+                                        }
+                                    },
+                                    "if_action": {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "scoreboard players set #End SW.AdvRealm 1"
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:nothing"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:soulweaver/advancements/mass-recall-check"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:soulweaver/advancements/everybody-in"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function mrt_supports:soulweaver/effects/soul-recall-mass"
+                    },
+                    {
+                        "type": "apoli:action_on_entity_set",
+                        "set": "mrt_supports:soulweaver/link_linked-set",
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:soulweaver/effects/soul-recall-depart"
+                                    }
+                                },
+                                {
+                                    "type": "sync:execute_command",
+                                    "command": "tp %t %a",
+                                    "actor_selector": "%a",
+                                    "target_selector": "%t"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:soulweaver/effects/soul-recall-arrive"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-cooldown"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-resource",
+                        "operation": "set",
+                        "change": 0
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-resource",
+                "operation": "set",
+                "change": 0
+            }
+        }
+    },
+
+    "single-tp": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/advancements/recall"
+                },
+                {
+                    "type": "apoli:action_on_entity_set",
+                    "set": "mrt_supports:soulweaver/link_selected-set",
+                    "bientity_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:actor_condition",
+                            "condition": {
+                                "type": "origins:sneaking"
+                            }
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:distance",
+                                        "comparison": ">",
+                                        "compare_to": 1000000.0
+                                    },
+                                    "if_action": {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:grant_advancement",
+                                            "advancement": "mrt_supports:soulweaver/long_distance_relationship"
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:nothing"
+                                    }
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:soulweaver/effects/soul-recall-depart"
+                                    }
+                                },
+                                {
+                                    "type": "sync:execute_command",
+                                    "command": "tp %a %t",
+                                    "actor_selector": "%a",
+                                    "target_selector": "%t"
+                                },
+                                {
+                                    "type": "origins:actor_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:soulweaver/effects/soul-recall-arrive"
+                                    }
+                                }
+                            ]
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:distance",
+                                        "comparison": ">",
+                                        "compare_to": 1000000.0
+                                    },
+                                    "if_action": {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:grant_advancement",
+                                            "advancement": "mrt_supports:soulweaver/long_distance_relationship"
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:nothing"
+                                    }
+                                },
+                                {
+                                    "type": "origins:if_else",
+                                    "condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:health",
+                                            "comparison": "<=",
+                                            "compare_to": 2.0
+                                        }
+                                    },
+                                    "if_action": {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:grant_advancement",
+                                            "advancement": "mrt_supports:soulweaver/by_a_thread"
+                                        }
+                                    },
+                                    "else_action": {
+                                        "type": "origins:nothing"
+                                    }
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:soulweaver/effects/soul-recall-depart"
+                                    }
+                                },
+                                {
+                                    "type": "sync:execute_command",
+                                    "command": "tp %t %a",
+                                    "actor_selector": "%a",
+                                    "target_selector": "%t"
+                                },
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "function mrt_supports:soulweaver/effects/soul-recall-arrive"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "apoli:entity_set_size",
+                        "set": "mrt_supports:soulweaver/link_stand-set",
+                        "comparison": ">",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:trigger_cooldown",
+                        "power": "mrt_supports:soulweaver/linked-powers/soul-recall_single-tp-cooldown"
+                    },
+                    "else_action": {
+                        "type": "origins:trigger_cooldown",
+                        "power": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-cooldown"
+                    }
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.quaternary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:entity_set_size",
+                    "set": "mrt_supports:soulweaver/link_stand-set",
+                    "comparison": ">=",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:entity_set_size",
+                    "set": "mrt_supports:soulweaver/link_selected-set",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_single-tp-cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "all-tp-charge": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-resource",
+            "change": 1
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.quaternary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:entity_set_size",
+                    "set": "mrt_supports:soulweaver/link_stand-set",
+                    "comparison": ">=",
+                    "compare_to": 2
+                },
+                {
+                    "type": "apoli:entity_set_size",
+                    "set": "mrt_supports:soulweaver/link_selected-set",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_single-tp-cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "no-links-message": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:soulweaver/passives/see-health_cooldown"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar {\"text\":\"Need at least 1 woven soul to use Soul Recall\",\"color\":\"#21AEFF\",\"bold\":true}"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.quaternary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "apoli:entity_set_size",
+            "set": "mrt_supports:soulweaver/link_stand-set",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+
+    "mass-needs-two-message": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:soulweaver/passives/see-health_cooldown"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar {\"text\":\"Need at least 2 woven souls to use Mass Soul Recall\",\"color\":\"#21AEFF\",\"bold\":true}"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.quaternary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:entity_set_size",
+                    "set": "mrt_supports:soulweaver/link_stand-set",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "apoli:entity_set_size",
+                    "set": "mrt_supports:soulweaver/link_selected-set",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+
+    "all-tp-resource-reset": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "apoli:entity_set_size",
+                        "set": "mrt_supports:soulweaver/link_stand-set",
+                        "comparison": ">=",
+                        "compare_to": 2
+                    },
+                    {
+                        "type": "apoli:entity_set_size",
+                        "set": "mrt_supports:soulweaver/link_selected-set",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "apoli:key_pressed",
+                        "key": {
+                            "key": "key.origins.quaternary_active",
+                            "continuous": true
+                        }
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_single-tp-cooldown",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-cooldown",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                ]
+            },
+            "if_action": {
+                "type": "origins:nothing"
+            },
+            "else_action": {
+                "type": "origins:change_resource",
+                "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-resource",
+                "operation": "set",
+                "change": 0
+            }
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-resource",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    }
+}

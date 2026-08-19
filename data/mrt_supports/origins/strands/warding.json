@@ -1,0 +1,9 @@
+{
+    "name": "Strand of Warding",
+    "description": "The soul lantern's protective strand.",
+    "powers": ["mrt_supports:soulweaver/strands/warding"],
+    "icon": {"item": "minecraft:shield"},
+    "order": 1,
+    "impact": 0,
+    "unchoosable": true
+}

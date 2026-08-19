@@ -1,0 +1,8 @@
+{
+    "death.attack.unravel": "%1$s a été défait par un fil d'âme",
+    "death.attack.unravel.player": "%1$s a été défait par le fil d'âme de %2$s",
+    "death.attack.soul_dissolution": "L'eau a affaibli l'âme de %1$s",
+    "death.attack.soul_dissolution.player": "L'eau de %2$s a affaibli l'âme de %1$s",
+    "death.attack.snapped_thread": "%1$s a été déchiré par un fil d'âme rompu",
+    "death.attack.snapped_thread.player": "%1$s a été déchiré par le fil d'âme rompu de %2$s"
+}

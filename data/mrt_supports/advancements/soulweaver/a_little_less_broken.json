@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:lantern"
+        },
+        "title": {
+            "text": "A Little Less Broken"
+        },
+        "description": {
+            "text": "Die with a lantern to shorten your Fractured Weaver state."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

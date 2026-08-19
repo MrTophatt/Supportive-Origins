@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/thread_the_needle",
+    "display": {
+        "icon": {
+            "item": "minecraft:shears"
+        },
+        "title": {
+            "text": "Unraveled Weave"
+        },
+        "description": {
+            "text": "Kill a woven soul with an Unravel projectile."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

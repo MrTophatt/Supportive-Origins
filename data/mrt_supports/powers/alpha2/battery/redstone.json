@@ -1,0 +1,25 @@
+{
+    "name": "Power Hungry",
+    "description": "Eating redstone restores 4 energy, providing a reliable charge when light is unavailable.",
+    "type": "apoli:edible_item",
+    "use_action": "eat",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:redstone"
+        }
+    },
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "function mrt_supports:alpha2/redstone-charge-effects"
+    },
+    "item_action": {
+        "type": "origins:consume"
+    },
+    "food_component": {
+        "always_edible": false,
+        "hunger": 4,
+        "saturation": 0.5
+    },
+    "consume_sound": "minecraft:entity.generic.eat"
+}

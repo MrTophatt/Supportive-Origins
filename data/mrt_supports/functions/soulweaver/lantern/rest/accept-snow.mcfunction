@@ -1,0 +1,9 @@
+execute if block ~ ~-1 ~ minecraft:snow[layers=1] run summon minecraft:marker ~ ~-0.375 ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow1"]}
+execute if block ~ ~-1 ~ minecraft:snow[layers=2] run summon minecraft:marker ~ ~-0.25 ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow2"]}
+execute if block ~ ~-1 ~ minecraft:snow[layers=3] run summon minecraft:marker ~ ~-0.125 ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow3"]}
+execute if block ~ ~-1 ~ minecraft:snow[layers=4] run summon minecraft:marker ~ ~ ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow4"]}
+execute if block ~ ~-1 ~ minecraft:snow[layers=5] run summon minecraft:marker ~ ~0.125 ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow5"]}
+execute if block ~ ~-1 ~ minecraft:snow[layers=6] run summon minecraft:marker ~ ~0.25 ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow6"]}
+execute if block ~ ~-1 ~ minecraft:snow[layers=7] run summon minecraft:marker ~ ~0.375 ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow7"]}
+execute if block ~ ~-1 ~ minecraft:snow[layers=8] run summon minecraft:marker ~ ~0.5 ~ {Tags:["Supports.Soulweaver.LanternRestTarget","Supports.Soulweaver.NewLanternRestTarget","Supports.Soulweaver.LanternRestSnow8"]}
+tag @s add Supports.Soulweaver.LanternRestFound

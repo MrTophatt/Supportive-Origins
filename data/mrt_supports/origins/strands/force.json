@@ -1,0 +1,9 @@
+{
+    "name": "Strand of Force",
+    "description": "The soul lantern's repelling strand.",
+    "powers": ["mrt_supports:soulweaver/strands/force"],
+    "icon": {"item": "minecraft:echo_shard"},
+    "order": 3,
+    "impact": 0,
+    "unchoosable": true
+}

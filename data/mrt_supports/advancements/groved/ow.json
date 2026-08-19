@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:groved/trickshot",
+    "display": {
+        "icon": {
+            "item": "minecraft:arrow"
+        },
+        "title": {
+            "text": "OW!             "
+        },
+        "description": {
+            "text": "Hit yourself with your own projectile after it ricochets from inside your Sanctuary Bloom."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

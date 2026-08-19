@@ -1,0 +1,8 @@
+{
+    "death.attack.unravel": "%1$s'S SOUL YARN GOT UNRAVLD",
+    "death.attack.unravel.player": "%2$s UNRAVLD %1$s'S SOUL YARN",
+    "death.attack.soul_dissolution": "%1$s FORGOT GHOSTS R NOT WATRPROOF",
+    "death.attack.soul_dissolution.player": "%2$s REMINDD %1$s GHOSTS R NOT WATRPROOF",
+    "death.attack.snapped_thread": "%1$s'S SOUL THRED WENT SNAP",
+    "death.attack.snapped_thread.player": "%2$s SNAPPD %1$s'S SOUL THRED"
+}

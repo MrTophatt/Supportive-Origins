@@ -1,0 +1,444 @@
+{
+    "name": "Lantern Strands",
+    "description": "The flame within your lantern separates into ancient threads of purpose. Shift between its strands to call on renewal, protection, fervor, force, or resolve.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/arrow_left.png",
+            "text": [
+                "Scroll back using [",
+                {
+                    "keybind": "key.origins.secondary_active"
+                },
+                "]"
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/arrow_right.png",
+            "text": [
+                "Scroll forward using [",
+                {
+                    "keybind": "key.origins.primary_active"
+                },
+                "]"
+            ]
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/soul-wisp.png",
+            "text": {
+                "text": "Force requires 2 woven souls. Resolve requires 4 woven souls.",
+                "color": "aqua"
+            }
+        }
+    ],
+    "type": "origins:multiple",
+
+    "state": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 4,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "cycle-cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "strand-origin": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:soulweaver/strands/apply-origin"
+        }
+    },
+
+    "cycle-forward": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                        "comparison": "==",
+                        "compare_to": 2
+                    },
+                    "if_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "mrt_supports:soulweaver/link_counter",
+                            "comparison": ">=",
+                            "compare_to": 2
+                        },
+                        "if_action": {
+                            "type": "origins:change_resource",
+                            "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                            "change": 1
+                        },
+                        "else_action": {
+                            "type": "origins:change_resource",
+                            "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                            "operation": "set",
+                            "change": 0
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        "if_action": {
+                            "type": "origins:if_else",
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "mrt_supports:soulweaver/link_counter",
+                                "comparison": ">=",
+                                "compare_to": 4
+                            },
+                            "if_action": {
+                                "type": "origins:change_resource",
+                                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                                "change": 1
+                            },
+                            "else_action": {
+                                "type": "origins:change_resource",
+                                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                                "operation": "set",
+                                "change": 0
+                            }
+                        },
+                        "else_action": {
+                            "type": "origins:if_else",
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "if_action": {
+                                "type": "origins:change_resource",
+                                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                                "operation": "set",
+                                "change": 0
+                            },
+                            "else_action": {
+                                "type": "origins:change_resource",
+                                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                                "change": 1
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/strands/apply-origin"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/resonant-strand_strands-function",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "mrt_supports:soulweaver/lantern-strands_cycle-cooldown"
+                }
+            ]
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/lantern-strands_cycle-cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+
+    "cycle-backward": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "mrt_supports:soulweaver/link_counter",
+                            "comparison": ">=",
+                            "compare_to": 4
+                        },
+                        "if_action": {
+                            "type": "origins:change_resource",
+                            "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                            "operation": "set",
+                            "change": 4
+                        },
+                        "else_action": {
+                            "type": "origins:if_else",
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "mrt_supports:soulweaver/link_counter",
+                                "comparison": ">=",
+                                "compare_to": 2
+                            },
+                            "if_action": {
+                                "type": "origins:change_resource",
+                                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                                "operation": "set",
+                                "change": 3
+                            },
+                            "else_action": {
+                                "type": "origins:change_resource",
+                                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                                "operation": "set",
+                                "change": 2
+                            }
+                        }
+                    },
+                    "else_action": {
+                        "type": "origins:change_resource",
+                        "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                        "change": -1
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/strands/apply-origin"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/resonant-strand_strands-function",
+                    "operation": "set",
+                    "change": 1
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "mrt_supports:soulweaver/lantern-strands_cycle-cooldown"
+                }
+            ]
+        },
+        "cooldown": 20,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "mrt_supports:soulweaver/lantern-strands_cycle-cooldown",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+
+    "force-fallback": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                    "operation": "set",
+                    "change": 2
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/strands/apply-origin"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/resonant-strand_strands-function",
+                    "operation": "set",
+                    "change": 1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                    "comparison": "==",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/link_counter",
+                    "comparison": "<",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+
+    "resolve-fallback": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:soulweaver/link_counter",
+                        "comparison": ">=",
+                        "compare_to": 2
+                    },
+                    "if_action": {
+                        "type": "origins:change_resource",
+                        "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                        "operation": "set",
+                        "change": 3
+                    },
+                    "else_action": {
+                        "type": "origins:change_resource",
+                        "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                        "operation": "set",
+                        "change": 2
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/strands/apply-origin"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "mrt_supports:soulweaver/linked-powers/resonant-strand_strands-function",
+                    "operation": "set",
+                    "change": 1
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                    "comparison": "==",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/link_counter",
+                    "comparison": "<",
+                    "compare_to": 4
+                }
+            ]
+        }
+    },
+
+    "display-without-health": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "title @s actionbar [{\"text\":\"Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Renewal\",\"color\":\"#33FF59\"}]"
+            },
+            "else_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                "if_action": {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar [{\"text\":\"Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Warding\",\"color\":\"#3373FF\"}]"
+                },
+                "else_action": {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                        "comparison": "==",
+                        "compare_to": 2
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "title @s actionbar [{\"text\":\"Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Fervor\",\"color\":\"#FF400D\"}]"
+                    },
+                    "else_action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "mrt_supports:soulweaver/lantern-strands_state",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        "if_action": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar [{\"text\":\"Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Force\",\"color\":\"#A633FF\"}]"
+                        },
+                        "else_action": {
+                            "type": "origins:execute_command",
+                            "command": "title @s actionbar [{\"text\":\"Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Resolve\",\"color\":\"#FFBF26\"}]"
+                        }
+                    }
+                }
+            }
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:entity_set_size",
+                    "set": "mrt_supports:soulweaver/link_linked-set",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "mrt_supports:soulweaver/passives/see-health_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    }
+}

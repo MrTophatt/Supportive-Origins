@@ -1,0 +1,8 @@
+{
+    "death.attack.unravel": "%1$s's mortal thread was most grievously unspun",
+    "death.attack.unravel.player": "%1$s's mortal thread was unspun by %2$s",
+    "death.attack.soul_dissolution": "Cruel waters washed %1$s's wayward soul away",
+    "death.attack.soul_dissolution.player": "%2$s's cruel waters washed %1$s's wayward soul away",
+    "death.attack.snapped_thread": "%1$s was rent asunder by a sundered soul-thread",
+    "death.attack.snapped_thread.player": "%1$s was rent asunder by %2$s's sundered soul-thread"
+}

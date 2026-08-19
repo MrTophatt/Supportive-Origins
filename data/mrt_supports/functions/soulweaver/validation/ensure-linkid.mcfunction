@@ -1,0 +1,2 @@
+execute unless score @s Supports.SW.LinkID matches 1.. run scoreboard players add $NextLink Supports.SW.LinkID 1
+execute unless score @s Supports.SW.LinkID matches 1.. run scoreboard players operation @s Supports.SW.LinkID = $NextLink Supports.SW.LinkID

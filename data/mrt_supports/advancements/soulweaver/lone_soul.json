@@ -1,0 +1,47 @@
+{
+    "parent": "mrt_supports:soulweaver/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:dragon_head"
+        },
+        "title": {
+            "text": "Lone Soul"
+        },
+        "description": {
+            "text": "Defeat the Ender Dragon without weaving a single soul during that life."
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "kill_ender_dragon": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "player": [
+                    {
+                        "condition": "minecraft:entity_properties",
+                        "entity": "this",
+                        "predicate": {
+                            "nbt": "{Tags:[\"Supports.Soulweaver.Owner\"]}"
+                        }
+                    },
+                    {
+                        "condition": "minecraft:inverted",
+                        "term": {
+                            "condition": "minecraft:entity_properties",
+                            "entity": "this",
+                            "predicate": {
+                                "nbt": "{Tags:[\"Supports.Soulweaver.Adv.LoneSoulFailed\"]}"
+                            }
+                        }
+                    }
+                ],
+                "entity": {
+                    "type": "minecraft:ender_dragon"
+                }
+            }
+        }
+    }
+}

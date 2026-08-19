@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:water",
+        "minecraft:lava",
+        "minecraft:bubble_column",
+        "minecraft:powder_snow",
+        "minecraft:nether_portal",
+        "minecraft:end_portal",
+        "minecraft:end_gateway"
+    ]
+}

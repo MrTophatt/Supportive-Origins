@@ -1,0 +1,35 @@
+{
+    "parent": "mrt_supports:groved/trickshot",
+    "display": {
+        "icon": {
+            "item": "minecraft:flowering_azalea_leaves"
+        },
+        "title": {
+            "text": "Safe Haven"
+        },
+        "description": {
+            "text": "While inside Sanctuary Bloom, reflect five different projectiles that entered from outside."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "projectile_1": {
+            "trigger": "minecraft:impossible"
+        },
+        "projectile_2": {
+            "trigger": "minecraft:impossible"
+        },
+        "projectile_3": {
+            "trigger": "minecraft:impossible"
+        },
+        "projectile_4": {
+            "trigger": "minecraft:impossible"
+        },
+        "projectile_5": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

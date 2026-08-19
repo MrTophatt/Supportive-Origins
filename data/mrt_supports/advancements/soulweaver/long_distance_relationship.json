@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/first_thread",
+    "display": {
+        "icon": {
+            "item": "minecraft:compass"
+        },
+        "title": {
+            "text": "Long-Distance Relationship"
+        },
+        "description": {
+            "text": "Recall yourself or a woven soul across more than one million blocks."
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

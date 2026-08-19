@@ -1,0 +1,38 @@
+{
+    "parent": "mrt_supports:groved/root",
+    "display": {
+        "icon": {
+            "item": "minecraft:wheat"
+        },
+        "title": {
+            "text": "Love Is in the Air"
+        },
+        "description": {
+            "text": "Breed animals six times inside Sanctuary Bloom."
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "breeding_1": {
+            "trigger": "minecraft:impossible"
+        },
+        "breeding_2": {
+            "trigger": "minecraft:impossible"
+        },
+        "breeding_3": {
+            "trigger": "minecraft:impossible"
+        },
+        "breeding_4": {
+            "trigger": "minecraft:impossible"
+        },
+        "breeding_5": {
+            "trigger": "minecraft:impossible"
+        },
+        "breeding_6": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

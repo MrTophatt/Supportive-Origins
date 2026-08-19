@@ -1,0 +1,9 @@
+{
+    "name": "Strand of Renewal",
+    "description": "The soul lantern's restorative strand.",
+    "powers": ["mrt_supports:soulweaver/strands/renewal"],
+    "icon": {"item": "minecraft:moss_block"},
+    "order": 0,
+    "impact": 0,
+    "unchoosable": true
+}

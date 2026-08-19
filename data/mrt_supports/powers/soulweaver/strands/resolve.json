@@ -1,0 +1,147 @@
+{
+    "name": "Strand of Resolve",
+    "description": "A steadfast flame anchors itself against the pull of every cruel current. It makes you harder to throw aside and helps hostile afflictions fade sooner.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Steadies your body against force and hastens the passing of harmful effects."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/soul-wisp.png",
+            "text": {
+                "text": "Requires at least 4 woven souls.",
+                "color": "aqua"
+            }
+        }
+    ],
+    "type": "origins:multiple",
+
+    "switch-effects": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s SW.LanternStrand 4"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/strands/strand-switch-player-vfx"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "amplifier": 5,
+                        "duration": 10,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "apoli:action_on_entity_set",
+                    "set": "mrt_supports:soulweaver/lantern/animations_lantern-display-set",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s SW.LanternStrand 4"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "function mrt_supports:soulweaver/strands/strand-switch"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    
+    "knockback-4": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.knockback_resistance",
+            "operation": "addition",
+            "value": 0.20
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "effects-4": {
+        "type": "origins:modify_status_effect_duration",
+        "status_effects": [
+            "minecraft:slowness",
+            "minecraft:mining_fatigue",
+            "minecraft:nausea",
+            "minecraft:blindness",
+            "minecraft:weakness",
+            "minecraft:poison",
+            "minecraft:levitation",
+            "minecraft:unluck",
+            "minecraft:bad_omen",
+            "minecraft:darkness"
+        ],
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.30
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+
+    "knockback-5": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.knockback_resistance",
+            "operation": "addition",
+            "value": 0.30
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": ">=",
+            "compare_to": 5
+        }
+    },
+    "effects-5": {
+        "type": "origins:modify_status_effect_duration",
+        "status_effects": [
+            "minecraft:slowness",
+            "minecraft:mining_fatigue",
+            "minecraft:nausea",
+            "minecraft:blindness",
+            "minecraft:weakness",
+            "minecraft:poison",
+            "minecraft:levitation",
+            "minecraft:unluck",
+            "minecraft:bad_omen",
+            "minecraft:darkness"
+        ],
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.40
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": ">=",
+            "compare_to": 5
+        }
+    }
+}

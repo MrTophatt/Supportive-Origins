@@ -1,0 +1,11 @@
+{
+    "name": "Fractured Form",
+    "description": "The lantern's broken promise leaves your spirit threadbare. Only the faintest sliver of life remains to hold you together.",
+    "type": "origins:attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.max_health",
+        "operation": "addition",
+        "value": -19.0
+    },
+    "update_health": true
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Strand of Fervor",
+    "description": "The soul lantern's aggressive strand.",
+    "powers": ["mrt_supports:soulweaver/strands/fervor"],
+    "icon": {"item": "minecraft:blaze_powder"},
+    "order": 2,
+    "impact": 0,
+    "unchoosable": true
+}

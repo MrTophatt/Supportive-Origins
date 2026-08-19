@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/second_thread",
+    "display": {
+        "icon": {
+            "item": "minecraft:milk_bucket"
+        },
+        "title": {
+            "text": "Could Be Worse"
+        },
+        "description": {
+            "text": "Use Soul Cleanse while a linked soul has every negative vanilla effect."
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

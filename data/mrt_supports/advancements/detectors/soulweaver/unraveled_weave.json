@@ -1,0 +1,21 @@
+{
+    "criteria": {
+        "kill": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "nbt": "{Tags:[\"Supports.Soulweaver.LinkedEntity\"]}"
+                },
+                "killing_blow": {
+                    "direct_entity": {
+                        "type": "minecraft:llama_spit",
+                        "nbt": "{Tags:[\"Supports.Soulweaver.UnravelProjectile\"]}"
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "mrt_supports:soulweaver/advancements/unraveled-weave"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Strand of Resolve",
+    "description": "The soul lantern's steadfast strand.",
+    "powers": ["mrt_supports:soulweaver/strands/resolve"],
+    "icon": {"item": "minecraft:golden_apple"},
+    "order": 4,
+    "impact": 0,
+    "unchoosable": true
+}

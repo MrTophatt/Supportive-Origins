@@ -1,0 +1,24 @@
+{
+    "parent": "mrt_supports:soulweaver/a_little_less_broken",
+    "display": {
+        "icon": {
+            "item": "minecraft:soul_lantern",
+            "nbt": "{CustomModelData:6777801}"
+        },
+        "title": {
+            "text": "A Lot Less Broken"
+        },
+        "description": {
+            "text": "Die with a soul lantern to greatly shorten your Fractured Weaver state."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,197 @@
+{
+    "name": "Strand of Fervor",
+    "description": "A fervent flame remembers the courage of souls who burned brightly. It quickens your strikes and lends them the strength of a burning soul.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Lends speed and strength to your attacks, both grow with woven souls."
+        }
+    ],
+    "type": "origins:multiple",
+
+    "switch-effects": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s SW.LanternStrand 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/strands/strand-switch-player-vfx"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "amplifier": 5,
+                        "duration": 10,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "apoli:action_on_entity_set",
+                    "set": "mrt_supports:soulweaver/lantern/animations_lantern-display-set",
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players set @s SW.LanternStrand 2"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "function mrt_supports:soulweaver/strands/strand-switch"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    
+    "speed-0-1": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "multiply_total",
+            "value": 0.10
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "<=",
+            "compare_to": 1
+        }
+    },
+    "damage-0-1": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 0.5
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "<=",
+            "compare_to": 1
+        }
+    },
+
+    "speed-2-3": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "multiply_total",
+            "value": 0.125
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:scoreboard",
+                    "objective": "SW.StrandLinks",
+                    "comparison": "<=",
+                    "compare_to": 3
+                },
+                {
+                    "type": "apoli:scoreboard",
+                    "objective": "SW.StrandLinks",
+                    "comparison": ">=",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+    "damage-2-3": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 1.0
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:scoreboard",
+                    "objective": "SW.StrandLinks",
+                    "comparison": "<=",
+                    "compare_to": 3
+                },
+                {
+                    "type": "apoli:scoreboard",
+                    "objective": "SW.StrandLinks",
+                    "comparison": ">=",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+
+    "speed-4": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "multiply_total",
+            "value": 0.15
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+    "damage-4": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 1.0
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": "==",
+            "compare_to": 4
+        }
+    },
+
+    "speed-5": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_speed",
+            "operation": "multiply_total",
+            "value": 0.175
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": ">=",
+            "compare_to": 5
+        }
+    },
+    "damage-5": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 1.5
+        },
+        "condition": {
+            "type": "apoli:scoreboard",
+            "objective": "SW.StrandLinks",
+            "comparison": ">=",
+            "compare_to": 5
+        }
+    }
+}

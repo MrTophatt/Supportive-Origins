@@ -1,0 +1,223 @@
+{
+    "name": "Echo Sight",
+    "description": "The living leave ripples in the soul tide, and you have learned to read them. Awaken your sight to reveal the souls of nearby unbound creatures.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Sense the souls around you with %s"
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "mrt_supports:textures/gui/badge/soul-wisp.png",
+            "text": {
+                "text": "Requires at least 1 woven soul",
+                "color": "aqua"
+            }
+        }
+    ],
+    "type": "origins:multiple",
+
+    "glow-timer": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+
+    "activate-glow": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:soulweaver/advancements/echo-sight"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "mrt_supports:soulweaver/linked-powers/echo-sight_glow-timer"
+                }
+            ]
+        },
+        "cooldown": 600,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 7
+        },
+        "key": {
+            "key": "key.origins.ternary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "apoli:entity_set_size",
+            "set": "mrt_supports:soulweaver/link_stand-set",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+    },
+
+    "not-enough-souls-message": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:soulweaver/passives/see-health_cooldown"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar {\"text\":\"Need at least 1 woven soul to use Echo Sight\",\"color\":\"#21AEFF\",\"bold\":true}"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "key": {
+            "key": "key.origins.ternary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "apoli:entity_set_size",
+            "set": "mrt_supports:soulweaver/link_stand-set",
+            "comparison": "==",
+            "compare_to": 0
+        }
+    },
+
+    "glow": {
+        "type": "origins:entity_glow",
+        "use_teams": false,
+        "red": 0.843,
+        "green": 0.91,
+        "blue": 0.941,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "apoli:in_entity_set",
+                    "set": "mrt_supports:soulweaver/link_linked-set",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:in_tag",
+                        "tag": "mrt_supports:non-living",
+                        "inverted": true
+                    }
+                },
+                {
+                    "type": "origins:actor_condition",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "mrt_supports:soulweaver/linked-powers/echo-sight_glow-timer",
+                        "comparison": "!=",
+                        "compare_to": 0
+                    }
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "apoli:entity_set_size",
+                                        "set": "mrt_supports:soulweaver/link_stand-set",
+                                        "comparison": ">=",
+                                        "compare_to": 5
+                                    }
+                                },
+                                {
+                                    "type": "origins:distance",
+                                    "comparison": "<=",
+                                    "compare_to": 64
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "apoli:entity_set_size",
+                                        "set": "mrt_supports:soulweaver/link_stand-set",
+                                        "comparison": "==",
+                                        "compare_to": 4
+                                    }
+                                },
+                                {
+                                    "type": "origins:distance",
+                                    "comparison": "<=",
+                                    "compare_to": 48
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "apoli:entity_set_size",
+                                        "set": "mrt_supports:soulweaver/link_stand-set",
+                                        "comparison": "==",
+                                        "compare_to": 3
+                                    }
+                                },
+                                {
+                                    "type": "origins:distance",
+                                    "comparison": "<=",
+                                    "compare_to": 32
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "apoli:entity_set_size",
+                                        "set": "mrt_supports:soulweaver/link_stand-set",
+                                        "comparison": "==",
+                                        "compare_to": 2
+                                    }
+                                },
+                                {
+                                    "type": "origins:distance",
+                                    "comparison": "<=",
+                                    "compare_to": 24
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:actor_condition",
+                                    "condition": {
+                                        "type": "apoli:entity_set_size",
+                                        "set": "mrt_supports:soulweaver/link_stand-set",
+                                        "comparison": "==",
+                                        "compare_to": 1
+                                    }
+                                },
+                                {
+                                    "type": "origins:distance",
+                                    "comparison": "<=",
+                                    "compare_to": 16
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

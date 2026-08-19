@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/inefficiency_at_its_finest",
+    "display": {
+        "icon": {
+            "item": "minecraft:iron_ingot"
+        },
+        "title": {
+            "text": "Efficiency at Its Finest"
+        },
+        "description": {
+            "text": "Smelt a full stack of items at once using Thermal Converter."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

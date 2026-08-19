@@ -1,0 +1,27 @@
+tag @s add Supports.Soulweaver.LanternRestInvalid
+
+execute if entity @s[tag=Supports.Soulweaver.LanternRestFull] if block ~ ~-1 ~ #mrt_supports:lantern_resting_blocks if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestThin] if block ~ ~-1 ~ #mrt_supports:lantern_resting_thin_blocks if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSlabBottom] if block ~ ~-0.5 ~ #minecraft:slabs[type=bottom] if block ~ ~0.5 ~ #mrt_supports:lantern_empty if block ~ ~1.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSlabTop] if block ~ ~-1 ~ #minecraft:slabs[type=top] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSlabDouble] if block ~ ~-1 ~ #minecraft:slabs[type=double] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestStairBottom] if block ~ ~-0.5 ~ #minecraft:stairs[half=bottom] if block ~ ~0.5 ~ #mrt_supports:lantern_empty if block ~ ~1.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestStairTop] if block ~ ~-1 ~ #minecraft:stairs[half=top] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+
+execute if entity @s[tag=Supports.Soulweaver.LanternRestLow] if block ~ ~-0.5 ~ #mrt_supports:lantern_resting_low_blocks if block ~ ~0.5 ~ #mrt_supports:lantern_empty if block ~ ~1.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestTall] if block ~ ~-1.5 ~ #minecraft:fences if block ~ ~-0.5 ~ #mrt_supports:lantern_empty if block ~ ~0.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestTall] if block ~ ~-1.5 ~ #minecraft:walls if block ~ ~-0.5 ~ #mrt_supports:lantern_empty if block ~ ~0.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestTall] if block ~ ~-1.5 ~ #minecraft:fence_gates[open=false] if block ~ ~-0.5 ~ #mrt_supports:lantern_empty if block ~ ~0.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+
+execute if entity @s[tag=Supports.Soulweaver.LanternRestTrapdoorBottom] if block ~ ~-0.5 ~ #minecraft:trapdoors[half=bottom,open=false] if block ~ ~0.5 ~ #mrt_supports:lantern_empty if block ~ ~1.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestTrapdoorTop] if block ~ ~-1 ~ #minecraft:trapdoors[half=top,open=false] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow1] if block ~ ~-0.6 ~ minecraft:snow[layers=1] if block ~ ~0.5 ~ #mrt_supports:lantern_empty if block ~ ~1.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow2] if block ~ ~-0.6 ~ minecraft:snow[layers=2] if block ~ ~0.5 ~ #mrt_supports:lantern_empty if block ~ ~1.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow3] if block ~ ~-0.6 ~ minecraft:snow[layers=3] if block ~ ~0.5 ~ #mrt_supports:lantern_empty if block ~ ~1.5 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow4] if block ~ ~-0.6 ~ minecraft:snow[layers=4] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow5] if block ~ ~-0.6 ~ minecraft:snow[layers=5] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow6] if block ~ ~-0.6 ~ minecraft:snow[layers=6] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow7] if block ~ ~-0.6 ~ minecraft:snow[layers=7] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid
+execute if entity @s[tag=Supports.Soulweaver.LanternRestSnow8] if block ~ ~-0.6 ~ minecraft:snow[layers=8] if block ~ ~ ~ #mrt_supports:lantern_empty if block ~ ~1 ~ #mrt_supports:lantern_empty run tag @s remove Supports.Soulweaver.LanternRestInvalid

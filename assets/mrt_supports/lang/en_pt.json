@@ -1,0 +1,8 @@
+{
+    "death.attack.unravel": "%1$s got their soul-riggin' cut loose",
+    "death.attack.unravel.player": "%1$s got their soul-riggin' cut loose by %2$s",
+    "death.attack.soul_dissolution": "%1$s's soul sprang a leak and sank",
+    "death.attack.soul_dissolution.player": "%2$s sent %1$s's leaky soul to Davy Jones",
+    "death.attack.snapped_thread": "%1$s's soul-riggin' snapped clean through",
+    "death.attack.snapped_thread.player": "%2$s snapped %1$s's soul-riggin' clean through"
+}

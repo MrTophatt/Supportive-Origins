@@ -1,0 +1,31 @@
+{
+    "name": "Light Soul",
+    "description": "Unburdened by flesh, you drift where waking thoughts cannot follow. Falls cannot break your spirit, but ordinary sleep can no longer find you.",
+    "type": "origins:multiple",
+
+    "weightless": {
+        "type": "origins:modify_falling",
+        "velocity": 0.01,
+        "take_fall_damage": false
+    },
+
+    "no-insomnia": {
+        "type": "origins:modify_insomnia_ticks",
+        "modifier": {
+            "operation": "set_total",
+            "value": 0
+        }
+    },
+
+    "no-sleep": {
+        "type": "origins:prevent_sleep",
+        "message": "Dreams no longer reach you.",
+        "set_spawn_point": true
+    },
+
+    "soul-light": {
+        "type": "apoli:emissive",
+        "light": 15,
+        "dynamic_light": 15
+    }
+}

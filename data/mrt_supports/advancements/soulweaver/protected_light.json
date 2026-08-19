@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/tired_light",
+    "display": {
+        "icon": {
+            "item": "minecraft:shield"
+        },
+        "title": {
+            "text": "Protected Light"
+        },
+        "description": {
+            "text": "Surround yourself with blocks until your soul lantern tucks against your chest."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

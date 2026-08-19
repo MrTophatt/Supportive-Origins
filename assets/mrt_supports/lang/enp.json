@@ -1,0 +1,8 @@
+{
+    "death.attack.unravel": "%1$s got unspooled into the after-afterlife",
+    "death.attack.unravel.player": "%2$s unspooled %1$s into the after-afterlife",
+    "death.attack.soul_dissolution": "%1$s discovered that ghosts are not waterproof",
+    "death.attack.soul_dissolution.player": "%2$s reminded %1$s that ghosts are not waterproof",
+    "death.attack.snapped_thread": "%1$s's last soul-thread snapped at the worst possible moment",
+    "death.attack.snapped_thread.player": "%2$s snapped %1$s's last soul-thread"
+}

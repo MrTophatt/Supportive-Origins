@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/thread_the_needle",
+    "display": {
+        "icon": {
+            "item": "minecraft:spectral_arrow"
+        },
+        "title": {
+            "text": "Marked for Trouble"
+        },
+        "description": {
+            "text": "While an entity is marked by Unravel, have it be hit by you and every linked soul."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

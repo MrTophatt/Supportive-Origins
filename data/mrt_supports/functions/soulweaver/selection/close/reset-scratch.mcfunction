@@ -1,0 +1,13 @@
+scoreboard players reset $Best SW.Distance
+scoreboard players reset $BestLink Supports.SW.LinkID
+scoreboard players reset $RayX SW.ax
+scoreboard players reset $RayY SW.ay
+scoreboard players reset $RayZ SW.az
+scoreboard players reset $CandidateX SW.px
+scoreboard players reset $CandidateY SW.py
+scoreboard players reset $CandidateZ SW.pz
+scoreboard players reset $CenterOffset SW.Distance
+scoreboard players reset $DeltaX SW.dx
+scoreboard players reset $DeltaY SW.dy
+scoreboard players reset $DeltaZ SW.dz
+scoreboard players reset $Sample SW.Distance

@@ -1,0 +1,41 @@
+{
+	"name": "Soul Weaver",
+	"description": "An old and protective soul trapped in the land of the living, bound to it's soul lantern.",
+	"powers": [
+                "mrt_supports:soulweaver/root",
+                "mrt_supports:soulweaver/advancements/tracking",
+                "mrt_supports:soulweaver/link",
+                "mrt_supports:soulweaver/selection",
+                "mrt_supports:soulweaver/passives/ability-unlocks",
+                "mrt_supports:soulweaver/passives/death",
+
+                "mrt_supports:soulweaver/lantern-strands",
+                "mrt_supports:soulweaver/linked-powers/echo-sight",
+                "mrt_supports:soulweaver/linked-powers/soul-recall",
+                "mrt_supports:soulweaver/linked-powers/cleanse",
+                "mrt_supports:soulweaver/linked-powers/resonant-strand",
+                "mrt_supports:soulweaver/linked-powers/veil-beyond",
+                "mrt_supports:soulweaver/linked-powers/unravel",
+                "mrt_supports:soulweaver/linked-powers/guardian-weaver",
+                
+                "mrt_supports:soulweaver/strands/force-pulse-cooldown",
+
+                "mrt_supports:soulweaver/lantern/animations",
+                
+                "mrt_supports:soulweaver/passives/fragmented-shell",
+                "mrt_supports:soulweaver/passives/light-soul",
+                "mrt_supports:soulweaver/passives/spectral-vulnerabilities",
+                "mrt_supports:soulweaver/passives/soul-physiology",
+                "mrt_supports:soulweaver/passives/soul-speed",
+                "mrt_supports:soulweaver/passives/soul-transmutation",
+                "mrt_supports:soulweaver/passives/see-health",
+                "mrt_supports:soulweaver/passives/unwoven",
+                "origins:no_shield"
+        ],
+        "icon": {
+                "item": "minecraft:soul_lantern"
+        },
+        "order": 1,
+        "impact": 3,
+        "hidden": false
+}

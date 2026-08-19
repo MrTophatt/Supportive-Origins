@@ -1,0 +1,58 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+
+    "woven-speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 0.02
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "mrt_supports:soulweaver",
+            "layer": "origins:origin",
+            "inverted": true
+        }
+    },
+    "woven-mining-speed": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.05
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "mrt_supports:soulweaver",
+            "layer": "origins:origin",
+            "inverted": true
+        }
+    },
+
+    "weaver-speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 0.01
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "mrt_supports:soulweaver",
+            "layer": "origins:origin"
+        }
+    },
+    "weaver-mining-speed": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": 0.05
+        },
+        "condition": {
+            "type": "origins:origin",
+            "origin": "mrt_supports:soulweaver",
+            "layer": "origins:origin"
+        }
+    }
+}

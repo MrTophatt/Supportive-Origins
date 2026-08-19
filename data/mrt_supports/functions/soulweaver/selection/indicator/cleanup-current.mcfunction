@@ -1,0 +1,2 @@
+execute as @e[type=minecraft:block_display,tag=Supports.Soulweaver.LinkIndicator] if score @s Supports.SW.ID = $IndicatorOwner Supports.SW.ID if score @s Supports.SW.LinkID = $IndicatorLink Supports.SW.LinkID run kill @s
+execute as @e[type=minecraft:marker,tag=Supports.Soulweaver.IndicatorMoveTarget] if score @s Supports.SW.ID = $IndicatorOwner Supports.SW.ID if score @s Supports.SW.LinkID = $IndicatorLink Supports.SW.LinkID run kill @s

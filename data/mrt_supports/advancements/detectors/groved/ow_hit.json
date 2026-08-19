@@ -1,0 +1,37 @@
+{
+    "criteria": {
+        "hit": {
+            "trigger": "minecraft:entity_hurt_player",
+            "conditions": {
+                "player": [
+                    {
+                        "condition": "minecraft:entity_properties",
+                        "entity": "this",
+                        "predicate": {
+                            "nbt": "{Tags:[\"Supports.Groved.OwShooter\"]}"
+                        }
+                    }
+                ],
+                "damage": {
+                    "type": {
+                        "direct_entity": {
+                            "nbt": "{Tags:[\"Supports.Groved.OwCandidate\"]}"
+                        },
+                        "source_entity": {
+                            "nbt": "{Tags:[\"Supports.Groved.OwShooter\"]}"
+                        },
+                        "tags": [
+                            {
+                                "id": "minecraft:is_projectile",
+                                "expected": true
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "mrt_supports:groved/advancements/sanctuary/ow/award"
+    }
+}

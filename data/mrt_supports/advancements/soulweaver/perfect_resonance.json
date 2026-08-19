@@ -1,0 +1,35 @@
+{
+    "parent": "mrt_supports:soulweaver/third_thread",
+    "display": {
+        "icon": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "title": {
+            "text": "Perfect Resonance"
+        },
+        "description": {
+            "text": "Maintain Resonant Strand on one linked soul while cycling through every Strand."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "renewal": {
+            "trigger": "minecraft:impossible"
+        },
+        "warding": {
+            "trigger": "minecraft:impossible"
+        },
+        "fervor": {
+            "trigger": "minecraft:impossible"
+        },
+        "force": {
+            "trigger": "minecraft:impossible"
+        },
+        "resolve": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mrt_supports:item/broken-lantern"
+  }
+}

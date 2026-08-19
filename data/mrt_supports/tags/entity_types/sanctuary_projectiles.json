@@ -1,0 +1,17 @@
+{
+    "replace": false,
+    "values": [
+        "#minecraft:arrows",
+        "minecraft:trident",
+        "minecraft:snowball",
+        "minecraft:egg",
+        "minecraft:potion",
+        "minecraft:small_fireball",
+        "minecraft:fireball",
+        "minecraft:dragon_fireball",
+        "minecraft:wither_skull",
+        "minecraft:llama_spit",
+        "minecraft:shulker_bullet",
+        "minecraft:ender_pearl"
+    ]
+}

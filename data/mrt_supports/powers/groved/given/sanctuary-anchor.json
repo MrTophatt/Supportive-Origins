@@ -1,0 +1,262 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "field-tick": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:groved/sanctuary/field/anchor_tick"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:groved/sanctuary/field/prepare"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @e[tag=Supports.Groved.MenagerieCandidate] remove Supports.Groved.MenagerieCandidate"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=!#mrt_supports:non-living,distance=..8]",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{Tags:[\"Supports.Groved.SanctuaryAnchorValid\"]}"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function mrt_supports:groved/sanctuary/field/candidate"
+                                }
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"Supports.Groved.InSanctuary\"]}"
+                                    }
+                                },
+                                "if_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "apoli:grant_power",
+                                                "power": "mrt_supports:groved/given/grove-shelter",
+                                                "source": "mrt_supports:groved_sanctuary"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "resource set @s mrt_supports:groved/given/grove-shelter_expiry 6"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute if entity @s[type=#mrt_supports:groved_menagerie_mobs] run tag @s add Supports.Groved.MenagerieCandidate"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "function mrt_supports:groved/advancements/sanctuary/breeding/mark-inside"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "execute if entity @s[type=#mrt_supports:breedable_animals] run function mrt_supports:groved/sanctuary/field/reduce_breeding_cooldown"
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s remove Supports.Groved.InSanctuary"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "else_action": {
+                                    "type": "origins:nothing"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function mrt_supports:groved/advancements/sanctuary/menagerie/check"
+                },
+                {
+                    "type": "origins:selector_action",
+                    "selector": "@e[type=#mrt_supports:sanctuary_projectiles,distance=..16]",
+                    "bientity_condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[\"Supports.Groved.SanctuaryAnchorValid\"]}"
+                        }
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "sync:execute_command",
+                                "command": "scoreboard players operation %t Groved.AnchorSel = %a Groved.OwnerID",
+                                "actor_selector": "%a",
+                                "target_selector": "%t"
+                            },
+                            {
+                                "type": "sync:execute_command",
+                                "command": "execute store result score %t Groved.AnchorX run data get entity %a Pos[0] 1000",
+                                "actor_selector": "%a",
+                                "target_selector": "%t"
+                            },
+                            {
+                                "type": "sync:execute_command",
+                                "command": "execute store result score %t Groved.AnchorY run data get entity %a Pos[1] 1000",
+                                "actor_selector": "%a",
+                                "target_selector": "%t"
+                            },
+                            {
+                                "type": "sync:execute_command",
+                                "command": "execute store result score %t Groved.AnchorZ run data get entity %a Pos[2] 1000",
+                                "actor_selector": "%a",
+                                "target_selector": "%t"
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scoreboard players add @s Groved.HitGuard 0"
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function mrt_supports:groved/sanctuary/ricochet/tracking/observe"
+                                }
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{Tags:[\"Supports.Groved.SanctuaryImpact\"]}"
+                                    }
+                                },
+                                "if_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:spawn_particles",
+                                                "particle": "minecraft:composter",
+                                                "count": 4,
+                                                "speed": 0.045,
+                                                "spread": {
+                                                    "x": 0.13,
+                                                    "y": 0.13,
+                                                    "z": 0.13
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:play_sound",
+                                                "sound": "minecraft:block.flowering_azalea.hit",
+                                                "volume": 0.32,
+                                                "pitch": 1.25
+                                            },
+                                            {
+                                                "type": "origins:play_sound",
+                                                "sound": "minecraft:block.amethyst_block.hit",
+                                                "volume": 0.16,
+                                                "pitch": 1.65
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "tag @s remove Supports.Groved.SanctuaryImpact"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "else_action": {
+                                    "type": "origins:nothing"
+                                }
+                            },
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[\"Supports.Groved.SanctuaryNeutralize\"]}"
+                                    }
+                                },
+                                "if_action": {
+                                    "type": "origins:target_action",
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "kill @s"
+                                    }
+                                },
+                                "else_action": {
+                                    "type": "origins:nothing"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove Supports.Groved.SanctuaryAnchorValid"
+                }
+            ]
+        }
+    },
+    "boundary": {
+        "type": "origins:action_over_time",
+        "interval": 4,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:groved/sanctuary/effects/ceiling_ring"
+        }
+    },
+    "floor-boundary": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:groved/sanctuary/effects/floor_ring"
+        }
+    },
+    "lifetime": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 900,
+        "start_value": 900,
+        "hud_render": {
+            "should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "function mrt_supports:groved/sanctuary/ricochet/tracking/remove_anchor"
+        }
+    },
+    "lifetime-tick": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "mrt_supports:groved/given/sanctuary-anchor_lifetime",
+            "change": -1
+        }
+    }
+}

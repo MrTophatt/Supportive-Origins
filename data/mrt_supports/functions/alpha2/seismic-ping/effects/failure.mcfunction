@@ -1,0 +1,1 @@
+playsound minecraft:block.lever.click player @a ~ ~ ~ 0.55 0.65

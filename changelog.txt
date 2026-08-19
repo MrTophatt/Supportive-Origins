@@ -1,0 +1,134 @@
+# General
+- Advancements have been added to give you fun small challenges to complete with each origin.
+- All three origins have been given at least 1 new ability.
+- Textures have been updated so please put this datapack in BOTH your datapack and resource pack folders.
+
+# Changes
+### Groved
+- **Natured Embrace**
+  - Added more flowers you can use with this ability.
+  - Now you can use mushrooms and fungi.
+- **NEW: Sanctuary Bloom [Ternary Ability]**
+  - Press the ternary ability key to activate, summoning a cylindrical area around you, this area is the Sanctuary.
+  - The Sanctuary can be toggled off any time with the same ability key, but must be fully charged to summon it.
+  - The Sanctuary can last up to `45 seconds`. The resource meter refills overtime at `+1/4 ticks` when in shade, and twice as fast in sunlight.
+  - Entities inside the Sanctuary are slightly translucent, take `-25%` damage, and certain mobs heal `1 hp/4 seconds`.
+  - Breedable mobs inside the Sanctuary have their breeding cooldown reduced to `10 seconds`.
+  - Projectiles bounce off the walls of the Sanctuary, losing a bit of speed with each bounce, some projectiles do not lose speed, and some are unaffected by the Sanctuary.
+
+### α-02
+- **Internal Batteries**
+  - You no longer have saturation.
+  - Exhaustion increased from `x2` -> `x2.5`.
+- **Solar Panels**
+  - Decrease charging when in sunlight from `+1 energy/2.5 seconds` -> `+1 energy/5 seconds`
+  - Decrease charging when not in sunlight from `+1 energy/8 seconds` -> `+1 energy/15 seconds`
+- **Iron Clad**
+  - Increased additional hp from `+4 hp` -> `+5 hp`.
+- **Self Repair**
+  - Decreased cooldown between repair from `+1 hp/2 seconds` -> +1 hp/1.75 seconds`
+- **Thermal Converter**
+  - Changed keybind from `Save Hotbar Activator` to `Ternary`.
+- **Seismic Ping**
+  - Reworked the ping so now ores in increasing radii will glow, creating a ping/ripple effect of highlighted ores, and to decrease entity count.
+  - Changed keybind from `Load Hotbar Activator` to `Quaternary`.
+- **NEW: Winch [Quinary Ability]**
+  - Launch a rope up to 64 block away, holding space retracts the rope, holding shift increases the rope's length up to the maximum 64 blocks.
+  - The winch is a toggle.
+  - Costs `5 energy` points, but requires `6 energy` points minimum to activate.
+- **NEW: Passenger Chassis [Passive]**
+  - Other players can ride you.
+
+### Soul Weaver
+Soul Weaver had a small rework. Now abilities are unlocked with the amount of souls you have woven to, plus the linkages of the weaver are much more stable and less resource intensive.
+
+I won't go over all the changes here, I will focus on the new stuff!
+- **General**
+  - You now have a soul lantern pet that will follow you, this soul lantern is mostly visual and for lore purposes.
+  - The range for selecting a woven soul has increased to infinity thanks to the new system for selection detection.
+  - Chunk 0, 0 will always be force loaded.
+  - Limits for the amount of Soul Weavers on a single server is gone completely!
+- **NEW: Fractured Weaver [Passive]**
+  - When you die you respawn as a Fractured Weaver, while in this state you cannot interact with the world, and the world cannot interact with you, once the timer reaches 0 you will become a Soul Weaver again.
+  - You can decrease the time being a Fractured Weaver by having any lantern in your inventory upon death.
+    - Regular time: `1.5 minutes`
+    - Time with lantern: `50 seconds`
+    - Time with soul lantern: `25 seconds`
+- **NEW: Strands [Passives]**
+  - A new origin layer specific to the Soul Weaver, cycle through strands with the Primary and Secondary ability keys.
+  - You start with 3 strands unlocked but there are 5 in total
+  - Strand of Renewal
+    - Regnerates health slowly, speed of regen increases with bonds.
+  - Strand of Warding
+    - Decrease the damage taken, percentage of damage decreased increases with bonds.
+  - Strand of Fervor
+    - Increase attack speed and damage, increasing both with bonds.
+  - Strand of Force
+    - Increase knockback, increasing knockback with bonds.
+    - Right click with an empty hand to send a delayed shockwave that pushed entities
+    - Requires at least 2 woven souls.
+  - Strand of Resolve
+    - Inceases knockback resistance, increasing resistance with bonds.
+    - Decrease duration of harmful effects, duration decrease increases with bonds.
+    - Requires at least 4 woven souls.
+- **Woven Soul Buffs**
+  - All levels of buffs have been nerfed, but they now also give increased mining speed.
+- **Woven Bond**
+  - Mostly backend changes, bonds are handled via an armorstand for each woven soul, killing these armorstands kills the bond, even syncing it for offline players.
+  - Woven souls can type "Unlink" in chat to unweave themselves.
+- **Echo Sight**
+  - Requires at least 1 woven soul to use now.
+  - Range increases with woven souls, maxing at a range of a 64 block radius at 5 woven souls.
+  - Changes keybind from `Highlight Players (Spectators)` to `Ternary`.
+- **Soul Recall**
+  - Single teleport requires at least 1 woven soul.
+    - Cooldown will be twice as long as normal at `20 seconds`.
+    - Range is now infinite.
+  - Mass teleport requires at least 2 woven souls.
+    - Single teleport cooldown will become `10 seconds`.
+  - Changed keybind from `Secondary` to `Quaternary`.
+- **Soul Cleanse**
+  - Requires at least 2 woven souls.
+  - Changed the regeneration given from Regeneration II -> Regeneration IV
+  - Changed keybind from `Save Hotbar Activator` to `Quinary`.
+- **Veil of the Beyond**
+  - Requires at least 3 woven souls.
+  - Changed keybind from `Load Hotbar Activator` to `Septenary`.
+- **NEW: Resonant Strand [Senary Ability]**
+  - Select a woven soul within a 100 block range, you will now share your current Strand with that woven soul.
+  - If the woven soul leaves the world, the Strand is removed from them.
+  - If the Soul Weaver leaves the world, the Strand is removed from the woven soul.
+  - If the Soul Weaver and woven soul are too far or are in different dimensions, then the Strand is removed from the woven soul.
+  - Requires at least 3 woven souls.
+- **NEW: Unravel [Octonary Ability]**
+  - This is the Soul Weaver's first offensive ability, after a short delay you will shoot a peircing projectile. This projectile will mark entities with a deep blue outline, this outline is only visible to the Soul Weaver and woven souls of that Weaver.
+  - The projectile deals a bit of damage.
+  - Marked entities will remain marked for 6 seconds, while marked they take `+15%` damage from all sources.
+  - Requires at least 4 woven souls.
+- **NEW: Guardian Weaver [Nonary Ability]**
+  - Select a woven soul to guard, while guarded every third hit will be redirected to the Soul Weaver.
+  - Guarded link persists through dimensions, but breaks if either the guarded soul or the Soul Weaver leaves the world.
+  - You cannot guard a soul and resonate that soul at the same time.
+  - If a guarded soul dies, their death is prevented and the bond is severed between the soul and the Weaver, the Weaver gains a lot of negative effects and loses a bit of health.
+  - `1 hour` cooldown after saving a guarded soul.
+  - Requires 5 woven souls.
+- **Fragmented Shell**
+  - You are not immune to Hunger, Saturation, and Poison.
+- **Light Soul**
+  - Moved `No Rest for the Dead` into `Light Soul`.
+  - You emit level 15 light (Requires LambDynamicLights)
+  - You naturally float down.
+- **REMOVED: Burnt Spirit**
+- **NEW: Soul Physiology [Passive]**
+  - You cannot eat, you do not exhaust, you do not naturally regen.
+  - You are immune to fire and take `-50%` damage from lava.
+  - You gain `+50%` more exp from exp orbs.
+  - You take damage in water, rain, and snow.
+  - You take damage from snowballs
+- **NEW: Soul Speed [Passive]**
+  - You are `70%` faster on soul sand and soul soil.
+- **NEW: Soul Transmutation [Passive]**
+  - You can use soul sand and soul soil with certain items in a crafting grid to make the soul versions of those items.
+- **NEW: Spectral Vulnerabilities [Passive]**
+  - Total armor is decreased by `10%`.
+  - You take `+30%` damage from magic.

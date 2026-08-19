@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:soulweaver/third_thread",
+    "display": {
+        "icon": {
+            "item": "minecraft:iron_sword"
+        },
+        "title": {
+            "text": "Now You See Me..."
+        },
+        "description": {
+            "text": "Drop the Veil of the Beyond while surrounded by at least three hostile mobs."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

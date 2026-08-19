@@ -1,0 +1,23 @@
+{
+    "parent": "mrt_supports:alpha2/payday",
+    "display": {
+        "icon": {
+            "item": "minecraft:iron_ore"
+        },
+        "title": {
+            "text": "Bounty"
+        },
+        "description": {
+            "text": "Detect at least 256 ores with one use of Seismic Ping."
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "complete": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

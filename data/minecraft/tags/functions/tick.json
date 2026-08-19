@@ -1,0 +1,9 @@
+{
+    "values": [
+        "mrt_supports:soulweaver/lantern/tick",
+        "mrt_supports:soulweaver/environment/tick",
+        "mrt_supports:soulweaver/advancements/tick",
+        "mrt_supports:groved/sanctuary/global_tick",
+        "mrt_supports:groved/advancements/tick"
+    ]
+}

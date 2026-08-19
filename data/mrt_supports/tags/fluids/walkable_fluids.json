@@ -1,0 +1,235 @@
+{
+    "replace": false,
+    "values": [
+        "#minecraft:water",
+        "#minecraft:lava",
+        {
+            "id": "#create:create_fluids",
+            "required": false
+        },
+        {
+            "id": "#c:tea",
+            "required": false
+        },
+        {
+            "id": "#c:biofuel",
+            "required": false
+        },
+        {
+            "id": "#c:plantoil",
+            "required": false
+        },
+        {
+            "id": "#c:creosote",
+            "required": false
+        },
+        {
+            "id": "#c:crude_oil",
+            "required": false
+        },
+        {
+            "id": "#c:molten_adamantite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_aeternium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_andesite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_andesite_alloy",
+            "required": false
+        },
+        {
+            "id": "#c:molten_aquarium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_banglum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_brass",
+            "required": false
+        },
+        {
+            "id": "#c:molten_bronze",
+            "required": false
+        },
+        {
+            "id": "#c:molten_calorite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_carmot",
+            "required": false
+        },
+        {
+            "id": "#c:molten_celestium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_cincinnasite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_copper",
+            "required": false
+        },
+        {
+            "id": "#c:molten_desh",
+            "required": false
+        },
+        {
+            "id": "#c:molten_durasteel",
+            "required": false
+        },
+        {
+            "id": "#c:molten_electrum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_enderium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_enriched_nikolite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_gold",
+            "required": false
+        },
+        {
+            "id": "#c:molten_hallowed",
+            "required": false
+        },
+        {
+            "id": "#c:molten_iron",
+            "required": false
+        },
+        {
+            "id": "#c:molten_kyber",
+            "required": false
+        },
+        {
+            "id": "#c:molten_kyrmot",
+            "required": false
+        },
+        {
+            "id": "#c:molten_lead",
+            "required": false
+        },
+        {
+            "id": "#c:molten_manganese",
+            "required": false
+        },
+        {
+            "id": "#c:molten_metallurgium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_midas_gold",
+            "required": false
+        },
+        {
+            "id": "#c:molten_morkite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_mythantite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_mythril",
+            "required": false
+        },
+        {
+            "id": "#c:molten_netherite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_nikolite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_orichadium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_orichalcum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_osmium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_ostrum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_palladium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_platinum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_prometheum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_quadrillum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_runite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_silver",
+            "required": false
+        },
+        {
+            "id": "#c:molten_star_platinum",
+            "required": false
+        },
+        {
+            "id": "#c:molten_starrite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_steel",
+            "required": false
+        },
+        {
+            "id": "#c:molten_stormyx",
+            "required": false
+        },
+        {
+            "id": "#c:molten_terminite",
+            "required": false
+        },
+        {
+            "id": "#c:molten_thallasium",
+            "required": false
+        },
+        {
+            "id": "#c:molten_tin",
+            "required": false
+        },
+        {
+            "id": "#c:molten_tungsten",
+            "required": false
+        },
+        {
+            "id": "#c:molten_zinc",
+            "required": false
+        }
+    ]
+}
