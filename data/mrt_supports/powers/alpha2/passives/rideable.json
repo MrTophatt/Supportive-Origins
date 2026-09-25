@@ -1,28 +1,28 @@
 {
     "name": "Passenger Chassis",
     "description": "A player can right-click you to ride on your chassis. You can carry one passenger at a time.",
-    "type": "origins:action_on_being_used",
+    "type": "apoli:action_on_being_used",
     "bientity_action": {
         "type": "apoli:mount"
     },
     "bientity_condition": {
-        "type": "origins:target_condition",
+        "type": "apoli:target_condition",
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:passenger",
+                    "type": "apoli:passenger",
                     "inverted": true
                 },
                 {
-                    "type": "origins:sneaking",
+                    "type": "apoli:sneaking",
                     "inverted": true
                 }
             ]
         }
     },
     "item_condition": {
-        "type": "origins:empty"
+        "type": "apoli:empty"
     },
     "hands": [
         "main_hand"

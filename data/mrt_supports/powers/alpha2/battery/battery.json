@@ -1,7 +1,7 @@
 {
     "name": "Internal Batteries",
     "description": "Instead of hunger, you run off of energy from your internal batteries.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "battery": {
         "type": "origins:status_bar_texture",
@@ -9,7 +9,7 @@
     },
 
     "exhaust": {
-        "type": "origins:modify_exhaustion",
+        "type": "apoli:modify_exhaustion",
         "modifier": {
             "name": "Increased exhaustion",
             "operation": "multiply_base",
@@ -18,14 +18,14 @@
     },
 
     "no-saturation": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_gained": {
-            "type": "origins:feed",
+            "type": "apoli:feed",
             "food": 1,
             "saturation": -20
         },
         "entity_action_respawned": {
-            "type": "origins:feed",
+            "type": "apoli:feed",
             "food": 1,
             "saturation": -20
         }

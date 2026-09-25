@@ -1,23 +1,23 @@
 {
     "hidden": true,
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "track-death-lanterns": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:inventory",
+                        "type": "apoli:inventory",
                         "inventory_types": [
                             "inventory"
                         ],
                         "process_mode": "items",
                         "item_condition": {
-                            "type": "origins:ingredient",
+                            "type": "apoli:ingredient",
                             "ingredient": {
                                 "item": "minecraft:soul_lantern"
                             }
@@ -26,24 +26,24 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "tag @s add Supports.Soulweaver.HasSoulLantern"
                     },
                     "else_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "tag @s remove Supports.Soulweaver.HasSoulLantern"
                     }
                 },
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:inventory",
+                        "type": "apoli:inventory",
                         "inventory_types": [
                             "inventory"
                         ],
                         "process_mode": "items",
                         "item_condition": {
-                            "type": "origins:ingredient",
+                            "type": "apoli:ingredient",
                             "ingredient": {
                                 "item": "minecraft:lantern"
                             }
@@ -52,11 +52,11 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "tag @s add Supports.Soulweaver.HasLantern"
                     },
                     "else_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "tag @s remove Supports.Soulweaver.HasLantern"
                     }
                 }
@@ -67,16 +67,16 @@
     "clear-links-on-death": {
         "type": "apoli:action_on_death",
         "bientity_action": {
-            "type": "origins:target_action",
+            "type": "apoli:target_action",
             "action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/death/capture"
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/effects/death-weaver"
                     },
                     {
@@ -91,18 +91,18 @@
                         "type": "apoli:action_on_entity_set",
                         "set": "mrt_supports:soulweaver/link_linked-set",
                         "bientity_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "sync:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "execute as %t run title @s actionbar [{\"text\":\"⚠ \"},{\"selector\":\"%a\",\"color\":\"#65E9F7\",\"bold\":true},{\"text\":\"'s soul has fractured. Your woven link has been severed.\",\"color\":\"#21AEFF\"}]",
                                     "actor_selector": "%a",
                                     "target_selector": "%t"
                                 },
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/effects/death-linked"
                                     }
                                 },
@@ -115,9 +115,9 @@
                                     "set": "mrt_supports:soulweaver/link_linked-set"
                                 },
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/validation/cleanup-linked-self"
                                     }
                                 }
@@ -128,9 +128,9 @@
                         "type": "apoli:action_on_entity_set",
                         "set": "mrt_supports:soulweaver/link_stand-set",
                         "bientity_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "kill @s"
                             }
                         }
@@ -139,21 +139,21 @@
                         "type": "apoli:action_on_entity_set",
                         "set": "mrt_supports:soulweaver/link_indicator-set",
                         "bientity_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "kill @s"
                             }
                         }
                     },
                     {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:soulweaver/link_counter",
                         "operation": "set",
                         "change": 0
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/death/after-death"
                     }
                 ]
@@ -162,35 +162,35 @@
     },
 
     "apply-fracture-after-respawn": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_respawned": {
-            "type": "origins:delay",
+            "type": "apoli:delay",
             "ticks": 1,
             "action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:or",
+                    "type": "apoli:or",
                     "conditions": [
                                 {
-                                    "type": "origins:nbt",
+                                    "type": "apoli:nbt",
                                     "nbt": "{Tags:[\"Supports.Soulweaver.SoulFracture\"]}"
                                 },
                                 {
-                                    "type": "origins:nbt",
+                                    "type": "apoli:nbt",
                                     "nbt": "{Tags:[\"Supports.Soulweaver.ShortFracture\"]}"
                                 },
                                 {
-                                    "type": "origins:nbt",
+                                    "type": "apoli:nbt",
                                     "nbt": "{Tags:[\"Supports.Soulweaver.LongFracture\"]}"
                                 }
                     ]
                 },
                 "if_action": {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "origin set @s origins:origin mrt_supports:fractured_weaver"
                 },
                 "else_action": {
-                    "type": "origins:nothing"
+                    "type": "apoli:nothing"
                 }
             }
         }

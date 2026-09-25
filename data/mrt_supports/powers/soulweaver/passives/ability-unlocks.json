@@ -2,10 +2,10 @@
     "name": "Soul Weaver Ability Unlocks",
     "description": "Announces newly unlocked Soul Weaver abilities.",
     "hidden": true,
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "one-link-notified": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
@@ -13,13 +13,13 @@
             "should_render": false
         },
         "max_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/unlocks/one-link"
         }
     },
 
     "two-link-notified": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
@@ -27,13 +27,13 @@
             "should_render": false
         },
         "max_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/unlocks/two-links"
         }
     },
 
     "three-link-notified": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
@@ -41,13 +41,13 @@
             "should_render": false
         },
         "max_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/unlocks/three-links"
         }
     },
 
     "four-link-notified": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
@@ -55,13 +55,13 @@
             "should_render": false
         },
         "max_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/unlocks/four-links"
         }
     },
 
     "five-link-notified": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
@@ -69,16 +69,16 @@
             "should_render": false
         },
         "max_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "tellraw @s [{\"text\":\"Ability unlocked: \",\"color\":\"#21AEFF\"},{\"text\":\"Guardian Weaver \",\"color\":\"aqua\",\"bold\":true},{\"text\":\"[\",\"color\":\"dark_aqua\"},{\"keybind\":\"key.origins.nonary_active\",\"color\":\"white\"},{\"text\":\"]\",\"color\":\"dark_aqua\"}]"
         }
     },
 
     "one-link-watcher": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "mrt_supports:soulweaver/link_stand-set",
@@ -86,25 +86,25 @@
                 "compare_to": 1
             },
             "if_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_one-link-notified",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 "if_action": {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_one-link-notified",
                     "operation": "set",
                     "change": 1
                 },
                 "else_action": {
-                    "type": "origins:nothing"
+                    "type": "apoli:nothing"
                 }
             },
             "else_action": {
-                "type": "origins:change_resource",
+                "type": "apoli:change_resource",
                 "resource": "mrt_supports:soulweaver/passives/ability-unlocks_one-link-notified",
                 "operation": "set",
                 "change": 0
@@ -113,10 +113,10 @@
     },
 
     "two-link-watcher": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "mrt_supports:soulweaver/link_stand-set",
@@ -124,25 +124,25 @@
                 "compare_to": 2
             },
             "if_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_two-link-notified",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 "if_action": {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_two-link-notified",
                     "operation": "set",
                     "change": 1
                 },
                 "else_action": {
-                    "type": "origins:nothing"
+                    "type": "apoli:nothing"
                 }
             },
             "else_action": {
-                "type": "origins:change_resource",
+                "type": "apoli:change_resource",
                 "resource": "mrt_supports:soulweaver/passives/ability-unlocks_two-link-notified",
                 "operation": "set",
                 "change": 0
@@ -151,10 +151,10 @@
     },
 
     "three-link-watcher": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "mrt_supports:soulweaver/link_stand-set",
@@ -162,25 +162,25 @@
                 "compare_to": 3
             },
             "if_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_three-link-notified",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 "if_action": {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_three-link-notified",
                     "operation": "set",
                     "change": 1
                 },
                 "else_action": {
-                    "type": "origins:nothing"
+                    "type": "apoli:nothing"
                 }
             },
             "else_action": {
-                "type": "origins:change_resource",
+                "type": "apoli:change_resource",
                 "resource": "mrt_supports:soulweaver/passives/ability-unlocks_three-link-notified",
                 "operation": "set",
                 "change": 0
@@ -189,10 +189,10 @@
     },
 
     "four-link-watcher": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "mrt_supports:soulweaver/link_stand-set",
@@ -200,25 +200,25 @@
                 "compare_to": 4
             },
             "if_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_four-link-notified",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 "if_action": {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_four-link-notified",
                     "operation": "set",
                     "change": 1
                 },
                 "else_action": {
-                    "type": "origins:nothing"
+                    "type": "apoli:nothing"
                 }
             },
             "else_action": {
-                "type": "origins:change_resource",
+                "type": "apoli:change_resource",
                 "resource": "mrt_supports:soulweaver/passives/ability-unlocks_four-link-notified",
                 "operation": "set",
                 "change": 0
@@ -227,10 +227,10 @@
     },
 
     "five-link-watcher": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "mrt_supports:soulweaver/link_stand-set",
@@ -238,25 +238,25 @@
                 "compare_to": 5
             },
             "if_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_five-link-notified",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 "if_action": {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:soulweaver/passives/ability-unlocks_five-link-notified",
                     "operation": "set",
                     "change": 1
                 },
                 "else_action": {
-                    "type": "origins:nothing"
+                    "type": "apoli:nothing"
                 }
             },
             "else_action": {
-                "type": "origins:change_resource",
+                "type": "apoli:change_resource",
                 "resource": "mrt_supports:soulweaver/passives/ability-unlocks_five-link-notified",
                 "operation": "set",
                 "change": 0

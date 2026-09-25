@@ -1,59 +1,62 @@
 {
     "name": "Intangible",
     "description": "For a time, the world passes through your loosened soul. You cannot touch the physical world while unbound.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "prevent-block-selection": {
-        "type": "origins:prevent_block_selection"
+        "type": "apoli:prevent_block_selection"
     },
 
     "prevent-block-use": {
-        "type": "apoli:prevent_block_use"
+        "type": "apoli:prevent_block_use",
+        "block_condition": {
+            "type": "apoli:constant",
+            "value": true
+        }
     },
 
     "prevent-entity-use": {
-        "type": "origins:prevent_entity_use"
+        "type": "apoli:prevent_entity_use"
     },
 
     "prevent-entity-collision": {
-        "type": "origins:prevent_entity_collision"
+        "type": "apoli:prevent_entity_collision"
     },
 
     "mobs-ignore": {
-        "type": "sync:mobs_ignore",
-        "provokable": false
+        "type": "apoli:scare_mobs"
     },
 
     "prevent-vibrations": {
-        "type": "origins:prevent_game_event",
+        "type": "apoli:prevent_game_event",
         "tag": "minecraft:vibrations"
     },
 
     "prevent-item-pickup": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "execute as @e[type=minecraft:item,distance=..3] run data merge entity @s {PickupDelay:10s}"
         }
     },
 
     "prevent-item-use": {
-        "type": "origins:prevent_item_use"
+        "type": "apoli:prevent_item_use"
     },
 
     "prevent-sleep": {
-        "type": "origins:prevent_sleep",
+        "type": "apoli:prevent_sleep",
         "message": "Your fractured soul cannot rest.",
         "set_spawn_point": false
     },
 
     "prevent-being-used": {
-        "type": "origins:prevent_being_used"
+        "type": "apoli:prevent_being_used"
     },
 
     "prevent-damage-dealt": {
-        "type": "origins:modify_damage_dealt",
+        "type": "apoli:modify_damage_dealt",
         "modifier": {
             "operation": "multiply_total",
             "value": -1
@@ -61,7 +64,7 @@
     },
 
     "prevent-projectile-damage-dealt": {
-        "type": "origins:modify_projectile_damage",
+        "type": "apoli:modify_projectile_damage",
         "modifier": {
             "operation": "multiply_total",
             "value": -1
@@ -69,27 +72,27 @@
     },
 
     "damage-immunity": {
-        "type": "origins:invulnerability",
+        "type": "apoli:invulnerability",
         "damage_condition": {
-            "type": "origins:constant",
+            "type": "apoli:constant",
             "value": true
         }
     },
 
     "effect-immunity": {
-        "type": "origins:effect_immunity",
+        "type": "apoli:effect_immunity",
         "effects": [],
         "inverted": true
     },
 
     "invisibility": {
-        "type": "origins:invisibility",
+        "type": "apoli:invisibility",
         "render_armor": false,
         "render_outline": false
     },
 
     "desaturate": {
-        "type": "origins:shader",
+        "type": "apoli:shader",
         "shader": "mrt_supports:shaders/post/intangible_desaturate.json",
         "toggleable": false
     }

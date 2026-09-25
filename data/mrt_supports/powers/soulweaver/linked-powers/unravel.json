@@ -4,7 +4,8 @@
     "badges": [
         {
             "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/active.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/active.png",
+            "key": "key.origins.octonary_active",
             "text": "Cast Unravel with %s"
         },
         {
@@ -16,7 +17,7 @@
             }
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "hit-set": {
         "type": "apoli:entity_set"
@@ -27,7 +28,7 @@
     },
 
     "hit-glow": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.04,
         "green": 0.18,
@@ -39,9 +40,9 @@
     },
 
     "cast": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
                     "type": "apoli:action_on_entity_set",
@@ -52,28 +53,28 @@
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players set @s SW.UnravelHits 0"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "mrt_supports:soulweaver/lantern/animations_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s add Supports.Soulweaver.UnravelTuck"
                         }
                     }
                 },
                 {
-                    "type": "origins:delay",
+                    "type": "apoli:delay",
                     "ticks": 9,
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:fire_projectile",
+                                "type": "apoli:fire_projectile",
                                 "entity_type": "minecraft:llama_spit",
                                 "speed": 3.0,
                                 "divergence": 0.0,
@@ -81,16 +82,16 @@
                                 "tag": "{Tags:[\"Supports.Soulweaver.UnravelProjectile\"]}"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "playsound minecraft:entity.illusioner.cast_spell master @a[distance=..24] ~ ~ ~ 0.7 1.4"
                             },
                             {
                                 "type": "apoli:action_on_entity_set",
                                 "set": "mrt_supports:soulweaver/lantern/animations_lantern-carrier-set",
                                 "bientity_action": {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "tag @s remove Supports.Soulweaver.UnravelTuck"
                                     }
                                 }
@@ -102,7 +103,7 @@
         },
         "cooldown": 500,
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "sprite_location": "origins:textures/gui/sprites/hud_render/huang/resource_bar_01.png",
             "bar_index": 3
         },
         "key": {
@@ -117,16 +118,16 @@
     },
 
     "not-enough-souls-message": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "*:soulweaver/passives/see-health_cooldown"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "title @s actionbar {\"text\":\"Need at least 4 woven souls to use Unravel\",\"color\":\"#21AEFF\",\"bold\":true}"
                 }
             ]
@@ -145,10 +146,10 @@
     },
 
     "unravel-hit": {
-        "type": "origins:action_on_hit",
+        "type": "apoli:action_on_hit",
         "cooldown": 1,
         "bientity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
                     "type": "apoli:add_to_entity_set",
@@ -160,65 +161,65 @@
                     "set": "*:*_advancement-hit-set"
                 },
                 {
-                    "type": "origins:actor_action",
+                    "type": "apoli:actor_action",
                     "action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/advancements/unravel-hit"
                     }
                 },
                 {
-                    "type": "origins:actor_action",
+                    "type": "apoli:actor_action",
                     "action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/advancements/marked-for-trouble/prepare"
                     }
                 },
                 {
-                    "type": "sync:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation %t SW.MarkOwner = %a Supports.SW.ID",
                     "actor_selector": "%a",
                     "target_selector": "%t"
                 },
                 {
-                    "type": "sync:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation %t SW.MarkID = $NextMark SW.MarkID",
                     "actor_selector": "%a",
                     "target_selector": "%t"
                 },
                 {
-                    "type": "sync:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "execute if entity %t[tag=Supports.Soulweaver.Adv.EchoSeen] if score %t SW.EchoOwner = %a Supports.SW.ID run advancement grant %a only mrt_supports:soulweaver/i_see_you complete",
                     "actor_selector": "%a",
                     "target_selector": "%t"
                 },
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/effects/unravel-hit"
                             },
                             {
-                                "type": "origins:grant_power",
+                                "type": "apoli:grant_power",
                                 "power": "mrt_supports:soulweaver/given/unravel-target",
                                 "source": "mrt_supports:soulweaver/given/unravel-target"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s add Supports.Soulweaver.UnravelTarget"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s add Supports.Soulweaver.Adv.Unraveled"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "scoreboard players set @s SW.AdvUnravelTTL 120"
                             },
                             {
-                                "type": "origins:selector_action",
+                                "type": "apoli:selector_action",
                                 "selector": "@s",
                                 "bientity_action": {
                                     "type": "apoli:add_to_entity_set",
@@ -230,14 +231,14 @@
                     }
                 },
                 {
-                    "type": "origins:actor_action",
+                    "type": "apoli:actor_action",
                     "action": {
                         "type": "apoli:action_on_entity_set",
                         "set": "mrt_supports:soulweaver/link_linked-set",
                         "bientity_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:selector_action",
+                                "type": "apoli:selector_action",
                                 "selector": "@e[tag=Supports.Soulweaver.UnravelTarget,limit=1]",
                                 "bientity_action": {
                                     "type": "apoli:add_to_entity_set",
@@ -249,38 +250,38 @@
                     }
                 },
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:damage",
+                                "type": "apoli:damage",
                                 "amount": 2.0,
                                 "damage_type": "mrt_supports:unravel"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s remove Supports.Soulweaver.UnravelTarget"
                             }
                         ]
                     }
                 },
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "conditions": [
                             {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:nbt",
+                                    "type": "apoli:nbt",
                                     "nbt": "{Tags:[\"Supports.Soulweaver.LinkedEntity\"]}"
                                 }
                             },
                             {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:health",
+                                    "type": "apoli:health",
                                     "comparison": "<=",
                                     "compare_to": 0.0
                                 }
@@ -288,47 +289,47 @@
                         ]
                     },
                     "if_action": {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:grant_advancement",
+                            "type": "apoli:grant_advancement",
                             "advancement": "mrt_supports:soulweaver/unraveled_weave"
                         }
                     },
                     "else_action": {
-                        "type": "origins:nothing"
+                        "type": "apoli:nothing"
                     }
                 }
             ]
         },
         "damage_condition": {
-            "type": "origins:projectile",
+            "type": "apoli:projectile",
             "projectile": "minecraft:llama_spit",
             "projectile_condition": {
-                    "type": "origins:nbt",
+                    "type": "apoli:nbt",
                     "nbt": "{Tags:[\"Supports.Soulweaver.UnravelProjectile\"]}"
             }
         },
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:target_condition",
+                    "type": "apoli:target_condition",
                     "condition": {
-                        "type": "origins:living"
+                        "type": "apoli:living"
                     }
                 },
                 {
-                    "type": "origins:target_condition",
+                    "type": "apoli:target_condition",
                     "condition": {
-                        "type": "origins:in_tag",
+                        "type": "apoli:in_tag",
                         "tag": "mrt_supports:non-living",
                         "inverted": true
                     }
                 },
                 {
-                    "type": "origins:target_condition",
+                    "type": "apoli:target_condition",
                     "condition": {
-                        "type": "origins:tamed",
+                        "type": "apoli:tamed",
                         "inverted": true
                     }
                 },

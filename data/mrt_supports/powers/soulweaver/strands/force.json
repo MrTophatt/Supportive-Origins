@@ -4,7 +4,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "With an empty main hand, use its pulse to cast nearby unbound creatures away."
         },
         {
@@ -16,23 +16,23 @@
             }
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "switch-effects": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_gained": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players set @s SW.LanternStrand 3"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/strands/strand-switch-player-vfx"
                 },
                 {
-                    "type": "origins:apply_effect",
+                    "type": "apoli:apply_effect",
                     "effect": {
                         "effect": "minecraft:slowness",
                         "amplifier": 5,
@@ -45,16 +45,16 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "mrt_supports:soulweaver/lantern/animations_lantern-display-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "scoreboard players set @s SW.LanternStrand 3"
                                 },
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/strands/strand-switch"
                                 }
                             ]
@@ -66,14 +66,14 @@
     },
     
     "knockback-2-3": {
-        "type": "origins:attribute",
+        "type": "apoli:attribute",
         "modifier": {
             "attribute": "minecraft:generic.attack_knockback",
             "operation": "addition",
             "value": 0.10
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:scoreboard",
@@ -91,16 +91,16 @@
         }
     },
     "repulse-2-3": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "mrt_supports:soulweaver/strands/force-pulse-cooldown"
                 },
                 {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:sonic_boom",
                     "count": 1,
                     "speed": 0,
@@ -112,23 +112,23 @@
                     }
                 },
                 {
-                    "type": "origins:delay",
+                    "type": "apoli:delay",
                     "ticks": 8,
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:area_of_effect",
+                                "type": "apoli:area_of_effect",
                                 "radius": 4.0,
                                 "shape": "sphere",
                                 "include_actor": false,
                                 "bientity_condition": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "conditions": [
                                         {
-                                            "type": "origins:target_condition",
+                                            "type": "apoli:target_condition",
                                             "condition": {
-                                                "type": "origins:entity_type",
+                                                "type": "apoli:entity_type",
                                                 "entity_type": "minecraft:armor_stand",
                                                 "inverted": true
                                             }
@@ -141,7 +141,7 @@
                                     ]
                                 },
                                 "bientity_action": {
-                                    "type": "origins:add_velocity",
+                                    "type": "apoli:add_velocity",
                                     "x": 0.0,
                                     "y": 0.22,
                                     "z": 1.15,
@@ -150,7 +150,7 @@
                                 }
                             },
                             {
-                                "type": "origins:play_sound",
+                                "type": "apoli:play_sound",
                                 "sound": "minecraft:block.amethyst_block.fall",
                                 "volume": 1,
                                 "pitch": 0.6
@@ -169,17 +169,17 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:equipped_item",
+                    "type": "apoli:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:empty"
+                        "type": "apoli:empty"
                     }
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/strands/force-pulse-cooldown",
                     "comparison": "==",
                     "compare_to": 0
@@ -201,7 +201,7 @@
     },
 
     "knockback-4": {
-        "type": "origins:attribute",
+        "type": "apoli:attribute",
         "modifier": {
             "attribute": "minecraft:generic.attack_knockback",
             "operation": "addition",
@@ -215,16 +215,16 @@
         }
     },
     "repulse-4": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "mrt_supports:soulweaver/strands/force-pulse-cooldown"
                 },
                 {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:sonic_boom",
                     "count": 1,
                     "speed": 0,
@@ -236,23 +236,23 @@
                     }
                 },
                 {
-                    "type": "origins:delay",
+                    "type": "apoli:delay",
                     "ticks": 8,
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:area_of_effect",
+                                "type": "apoli:area_of_effect",
                                 "radius": 4.5,
                                 "shape": "sphere",
                                 "include_actor": false,
                                 "bientity_condition": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "conditions": [
                                         {
-                                            "type": "origins:target_condition",
+                                            "type": "apoli:target_condition",
                                             "condition": {
-                                                "type": "origins:entity_type",
+                                                "type": "apoli:entity_type",
                                                 "entity_type": "minecraft:armor_stand",
                                                 "inverted": true
                                             }
@@ -265,7 +265,7 @@
                                     ]
                                 },
                                 "bientity_action": {
-                                    "type": "origins:add_velocity",
+                                    "type": "apoli:add_velocity",
                                     "x": 0.0,
                                     "y": 0.22,
                                     "z": 1.15,
@@ -274,7 +274,7 @@
                                 }
                             },
                             {
-                                "type": "origins:play_sound",
+                                "type": "apoli:play_sound",
                                 "sound": "minecraft:block.amethyst_block.fall",
                                 "volume": 1,
                                 "pitch": 0.6
@@ -293,17 +293,17 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:equipped_item",
+                    "type": "apoli:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:empty"
+                        "type": "apoli:empty"
                     }
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/strands/force-pulse-cooldown",
                     "comparison": "==",
                     "compare_to": 0
@@ -319,7 +319,7 @@
     },
 
     "knockback-5": {
-        "type": "origins:attribute",
+        "type": "apoli:attribute",
         "modifier": {
             "attribute": "minecraft:generic.attack_knockback",
             "operation": "addition",
@@ -333,16 +333,16 @@
         }
     },
     "repulse-5": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "mrt_supports:soulweaver/strands/force-pulse-cooldown"
                 },
                 {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:sonic_boom",
                     "count": 1,
                     "speed": 0,
@@ -354,23 +354,23 @@
                     }
                 },
                 {
-                    "type": "origins:delay",
+                    "type": "apoli:delay",
                     "ticks": 8,
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:area_of_effect",
+                                "type": "apoli:area_of_effect",
                                 "radius": 5.0,
                                 "shape": "sphere",
                                 "include_actor": false,
                                 "bientity_condition": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "conditions": [
                                         {
-                                            "type": "origins:target_condition",
+                                            "type": "apoli:target_condition",
                                             "condition": {
-                                                "type": "origins:entity_type",
+                                                "type": "apoli:entity_type",
                                                 "entity_type": "minecraft:armor_stand",
                                                 "inverted": true
                                             }
@@ -383,7 +383,7 @@
                                     ]
                                 },
                                 "bientity_action": {
-                                    "type": "origins:add_velocity",
+                                    "type": "apoli:add_velocity",
                                     "x": 0.0,
                                     "y": 0.22,
                                     "z": 1.15,
@@ -392,7 +392,7 @@
                                 }
                             },
                             {
-                                "type": "origins:play_sound",
+                                "type": "apoli:play_sound",
                                 "sound": "minecraft:block.amethyst_block.fall",
                                 "volume": 1,
                                 "pitch": 0.6
@@ -411,17 +411,17 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:equipped_item",
+                    "type": "apoli:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
-                        "type": "origins:empty"
+                        "type": "apoli:empty"
                     }
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/strands/force-pulse-cooldown",
                     "comparison": "==",
                     "compare_to": 0

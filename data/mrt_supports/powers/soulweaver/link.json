@@ -4,19 +4,19 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/star.png",
             "text": "Right-click a player to weave/detach their soul"
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "You cannot weave to other Soul Weavers, nor players woven to another Soul Weaver. You have a maximum of 5 links"
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "counter": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 5,
         "start_value": 0,
@@ -27,10 +27,10 @@
     },
 
     "counter-apoli": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:if_else_list",
+            "type": "apoli:if_else_list",
             "actions": [
                 {
                     "condition": {
@@ -40,7 +40,7 @@
                         "compare_to": 5
                     },
                     "action": {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:soulweaver/link_counter",
                         "operation": "set",
                         "change": 5
@@ -54,7 +54,7 @@
                         "compare_to": 4
                     },
                     "action": {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:soulweaver/link_counter",
                         "operation": "set",
                         "change": 4
@@ -68,7 +68,7 @@
                         "compare_to": 3
                     },
                     "action": {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:soulweaver/link_counter",
                         "operation": "set",
                         "change": 3
@@ -82,7 +82,7 @@
                         "compare_to": 2
                     },
                     "action": {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:soulweaver/link_counter",
                         "operation": "set",
                         "change": 2
@@ -96,7 +96,7 @@
                         "compare_to": 1
                     },
                     "action": {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:soulweaver/link_counter",
                         "operation": "set",
                         "change": 1
@@ -110,7 +110,7 @@
                         "compare_to": 0
                     },
                     "action": {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:soulweaver/link_counter",
                         "operation": "set",
                         "change": 0
@@ -121,27 +121,27 @@
     },
 
     "buff-apoli": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/buffs/refresh-owner"
         }
     },
 
     "pending-severed-messages": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/validation/consume-pending-severed"
         }
     },
 
     "id": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_added": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/ensure-id"
         }
     },
@@ -172,31 +172,31 @@
 
 
     "reclaim-stands": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation $Repair Supports.SW.ID = @s Supports.SW.ID"
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@e[type=minecraft:armor_stand,tag=Supports.Soulweaver.Linked]",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "conditions": [
                                     {
-                                        "type": "origins:power",
+                                        "type": "apoli:power",
                                         "power": "mrt_supports:soulweaver/given/stand-power"
                                     },
                                     {
-                                        "type": "origins:command",
+                                        "type": "apoli:command",
                                         "command": "execute if score @s Supports.SW.ID = $Repair Supports.SW.ID",
                                         "comparison": "==",
                                         "compare_to": 1
@@ -209,7 +209,7 @@
                             "set": "mrt_supports:soulweaver/link_stand-set"
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     }
                 }
@@ -218,35 +218,35 @@
     },
 
     "validate-linked-set": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "*:*_linked-set",
             "bientity_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/validation/mark-matching-stand"
                         }
                     },
                     {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:selector_action",
+                            "type": "apoli:selector_action",
                             "selector": "@e[type=minecraft:armor_stand,tag=Supports.Soulweaver.ValidationStand,limit=1]",
                             "bientity_action": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "actions": [
                                     {
                                         "type": "apoli:add_to_entity_set",
                                         "set": "mrt_supports:soulweaver/link_stand-set"
                                     },
                                     {
-                                        "type": "sync:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "scoreboard players operation %t Supports.SW.ID = %a Supports.SW.ID",
                                         "actor_selector": "%a",
                                         "target_selector": "%t"
@@ -256,36 +256,36 @@
                         }
                     },
                     {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:command",
+                                "type": "apoli:command",
                                 "command": "execute if entity @s[tag=Supports.Soulweaver.HasValidationStand]",
                                 "comparison": "==",
                                 "compare_to": 1
                             }
                         },
                         "if_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/validation/repair-linked-from-stand"
                             }
                         },
                         "else_action": {
-                            "type": "origins:if_else",
+                            "type": "apoli:if_else",
                             "condition": {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:command",
+                                    "type": "apoli:command",
                                     "command": "execute if score @s Supports.SW.LinkID matches 1..",
                                     "comparison": "==",
                                     "compare_to": 1
                                 }
                             },
                             "if_action": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "actions": [
                                     {
                                         "type": "apoli:remove_from_entity_set",
@@ -296,16 +296,16 @@
                                         "set": "mrt_supports:soulweaver/link_linked-set"
                                     },
                                     {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:and",
+                                            "type": "apoli:and",
                                             "actions": [
                                                 {
-                                                    "type": "origins:execute_command",
+                                                    "type": "apoli:execute_command",
                                                     "command": "title @s actionbar {\"text\":\"⚠ Your soul was unwoven while you were away\",\"color\":\"#21AEFF\",\"bold\":true}"
                                                 },
                                                 {
-                                                    "type": "origins:execute_command",
+                                                    "type": "apoli:execute_command",
                                                     "command": "function mrt_supports:soulweaver/validation/cleanup-linked-self"
                                                 }
                                             ]
@@ -314,14 +314,14 @@
                                 ]
                             },
                             "else_action": {
-                                "type": "origins:nothing"
+                                "type": "apoli:nothing"
                             }
                         }
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/validation/clear-matching-stand"
                         }
                     }
@@ -338,50 +338,50 @@
 
 
     "callback": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_added": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/ensure-id"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "tag @s add Supports.Soulweaver.Owner"
                 }
             ]
         },
         "entity_action_removed": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/buffs/clear"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "origin set @s mrt_supports:strands origins:empty"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "tag @s remove Supports.Soulweaver.Owner"
                 }
             ]
         },
         "entity_action_lost": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/buffs/clear"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "origin set @s mrt_supports:strands origins:empty"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "tag @s remove Supports.Soulweaver.Owner"
                 }
             ]
@@ -392,13 +392,13 @@
 
 
     "link": {
-        "type": "origins:action_on_entity_use",
+        "type": "apoli:action_on_entity_use",
         "bientity_action": {
-            "type": "origins:if_else_list",
+            "type": "apoli:if_else_list",
             "actions": [
                 {
                     "condition": {
-                        "type": "origins:target_condition",
+                        "type": "apoli:target_condition",
                         "condition": {
                             "type": "origins:origin",
                             "origin": "mrt_supports:fractured_weaver",
@@ -406,16 +406,16 @@
                         }
                     },
                     "action": {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "title @s actionbar {\"text\":\"Cannot weave a fractured soul\",\"color\":\"#21AEFF\",\"bold\":true}"
                                 },
                                 {
-                                    "type": "origins:trigger_cooldown",
+                                    "type": "apoli:trigger_cooldown",
                                     "power": "*:soulweaver/passives/see-health_cooldown"
                                 }
                             ]
@@ -424,12 +424,12 @@
                 },
                 {
                     "condition": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "conditions": [
                             {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:power",
+                                    "type": "apoli:power",
                                     "power": "mrt_supports:soulweaver/given/linked-player"
                                 }
                             },
@@ -441,16 +441,16 @@
                         ]
                     },
                     "action": {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "title @s actionbar {\"text\":\"⚠ The player's soul is weaved to another Soul Weaver\",\"color\":\"#21AEFF\",\"bold\":true}"
                                 },
                                 {
-                                    "type": "origins:trigger_cooldown",
+                                    "type": "apoli:trigger_cooldown",
                                     "power": "*:soulweaver/passives/see-health_cooldown"
                                 }
                             ]
@@ -459,12 +459,12 @@
                 },
                 {
                     "condition": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "conditions": [
                             {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:power",
+                                    "type": "apoli:power",
                                     "power": "mrt_supports:soulweaver/link"
                                 }
                             },
@@ -476,16 +476,16 @@
                         ]
                     },
                     "action": {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "title @s actionbar {\"text\":\"⚠ Cannot weave another Soul Weaver\",\"color\":\"#21AEFF\",\"bold\":true}"
                                 },
                                 {
-                                    "type": "origins:trigger_cooldown",
+                                    "type": "apoli:trigger_cooldown",
                                     "power": "*:soulweaver/passives/see-health_cooldown"
                                 }
                             ]
@@ -494,10 +494,10 @@
                 },
                 {
                     "condition": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "conditions": [
                             {
-                                "type": "origins:actor_condition",
+                                "type": "apoli:actor_condition",
                                 "condition": {
                                     "type": "apoli:entity_set_size",
                                     "set": "*:*_stand-set",
@@ -513,16 +513,16 @@
                         ]
                     },
                     "action": {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "title @s actionbar {\"text\":\"⚠ Max souls weaved\",\"color\":\"#21AEFF\",\"bold\":true}"
                                 },
                                 {
-                                    "type": "origins:trigger_cooldown",
+                                    "type": "apoli:trigger_cooldown",
                                     "power": "*:soulweaver/passives/see-health_cooldown"
                                 }
                             ]
@@ -531,26 +531,26 @@
                 },
                 {
                     "condition": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "conditions": [
                             {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:power",
+                                    "type": "apoli:power",
                                     "power": "mrt_supports:soulweaver/given/linked-player",
                                     "inverted": true
                                 }
                             },
                             {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:power",
+                                    "type": "apoli:power",
                                     "power": "mrt_supports:soulweaver/link",
                                     "inverted": true
                                 }
                             },
                             {
-                                "type": "origins:actor_condition",
+                                "type": "apoli:actor_condition",
                                 "condition": {
                                     "type": "apoli:entity_set_size",
                                     "set": "*:*_stand-set",
@@ -559,7 +559,7 @@
                                 }
                             },
                             {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
                                     "type": "origins:origin",
                                     "origin": "mrt_supports:fractured_weaver",
@@ -570,19 +570,19 @@
                         ]
                     },
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:actor_action",
+                                "type": "apoli:actor_action",
                                 "action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
-                                            "type": "origins:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "function mrt_supports:soulweaver/summon-stand"
                                         },
                                         {
-                                            "type": "origins:selector_action",
+                                            "type": "apoli:selector_action",
                                             "selector": "@e[type=minecraft:armor_stand,tag=Supports.Soulweaver.NewStand,sort=nearest,limit=1]",
                                             "bientity_action": {
                                                 "type": "apoli:add_to_entity_set",
@@ -593,48 +593,48 @@
                                 }
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %a run scoreboard players operation %a Supports.SW.ID = @s Supports.SW.ID",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t run scoreboard players operation @s Supports.SW.ID = %a Supports.SW.ID",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t run scoreboard players operation @s Supports.SW.LinkID = $NextLink Supports.SW.LinkID",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
-                                            "type": "origins:execute_command",
-                                            "command": "power grant @s mrt_supports:soulweaver/given/linked-player mrt_supports:soulweaver"
+                                            "type": "apoli:execute_command",
+                                            "command": "apoli:power grant @s mrt_supports:soulweaver/given/linked-player mrt_supports:soulweaver"
                                         },
                                         {
-                                            "type": "origins:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "tag @s add Supports.Soulweaver.LinkedEntity"
                                         },
                                         {
-                                            "type": "origins:selector_action",
+                                            "type": "apoli:selector_action",
                                             "selector": "@e[type=minecraft:armor_stand,tag=Supports.Soulweaver.NewStand,sort=nearest,limit=1]",
                                             "bientity_action": {
-                                                "type": "origins:and",
+                                                "type": "apoli:and",
                                                 "actions": [
                                                     {
                                                         "type": "apoli:add_to_entity_set",
                                                         "set": "mrt_supports:soulweaver/given/linked-player_set"
                                                     },
                                                     {
-                                                        "type": "origins:invert",
+                                                        "type": "apoli:invert",
                                                         "action": {
                                                             "type": "apoli:add_to_entity_set",
                                                             "set": "*:soulweaver/given/stand-power_set"
@@ -651,38 +651,38 @@
                                 "set": "mrt_supports:soulweaver/link_linked-set"
                             },
                             {
-                                "type": "origins:actor_action",
+                                "type": "apoli:actor_action",
                                 "action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
-                                            "type": "origins:grant_advancement",
+                                            "type": "apoli:grant_advancement",
                                             "advancement": "mrt_supports:soulweaver/first_thread"
                                         },
                                         {
-                                            "type": "origins:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "tag @s add Supports.Soulweaver.Adv.LoneSoulFailed"
                                         }
                                     ]
                                 }
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/effects/link"
                                 }
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t run title @s actionbar [{\"selector\":\"%a\",\"color\":\"#21AEFF\",\"bold\":true},{\"text\":\" has woven your soul\",\"color\":\"#21AEFF\",\"bold\":true}]",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:actor_action",
+                                "type": "apoli:actor_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "tag @e[type=minecraft:armor_stand,tag=Supports.Soulweaver.NewStand] remove Supports.Soulweaver.NewStand"
                                 }
                             }
@@ -692,12 +692,12 @@
             ]
         },
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:target_condition",
+                    "type": "apoli:target_condition",
                     "condition": {
-                        "type": "origins:entity_type",
+                        "type": "apoli:entity_type",
                         "entity_type": "minecraft:player"
                     }
                 },
@@ -709,7 +709,7 @@
             ]
         },
         "item_condition": {
-            "type": "origins:empty"
+            "type": "apoli:empty"
         },
         "hands": [
             "main_hand"
@@ -717,9 +717,9 @@
     },
 
     "unlink": {
-        "type": "origins:action_on_entity_use",
+        "type": "apoli:action_on_entity_use",
         "bientity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
                     "type": "apoli:remove_from_entity_set",
@@ -738,40 +738,40 @@
                     "set": "mrt_supports:soulweaver/link_linked-set"
                 },
                 {
-                    "type": "sync:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "execute as %t run title @s actionbar [{\"selector\":\"%a\",\"color\":\"#21AEFF\",\"bold\":true},{\"text\":\" has unwoven your soul\",\"color\":\"#21AEFF\",\"bold\":true}]",
                     "actor_selector": "%a",
                     "target_selector": "%t"
                 },
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/effects/unlink-owner"
                     }
                 },
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
                                 "type": "apoli:action_on_entity_set",
                                 "set": "mrt_supports:soulweaver/given/linked-player_set",
                                 "bientity_action": {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "kill @s"
                                     }
                                 }
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/validation/kill-matching-stand"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/validation/cleanup-linked-self"
                             }
                         ]
@@ -784,7 +784,7 @@
             "set": "*:*_linked-set"
         },
         "item_condition": {
-            "type": "origins:empty"
+            "type": "apoli:empty"
         },
         "hands": [
             "main_hand"

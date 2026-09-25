@@ -4,7 +4,8 @@
     "badges": [
         {
             "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/active.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/active.png",
+            "key": "key.origins.quinary_active",
             "text": "Cleanse the linked souls with %s"
         },
         {
@@ -16,96 +17,96 @@
             }
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "cleanse": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/link_linked-set",
             "bientity_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "conditions": [
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:bad_omen"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:blindness"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:darkness"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:hunger"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:levitation"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:mining_fatigue"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:nausea"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:poison"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:slowness"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:unluck"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:weakness"
                                     },
                                     {
-                                        "type": "origins:status_effect",
+                                        "type": "apoli:status_effect",
                                         "effect": "minecraft:wither"
                                     }
                                 ]
                             }
                         },
                         "if_action": {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
-                                "type": "origins:grant_advancement",
+                                "type": "apoli:grant_advancement",
                                 "advancement": "mrt_supports:soulweaver/could_be_worse"
                             }
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/cleanse"
                         }
                     },
                     {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/cleanse"
                         }
                     }
@@ -120,7 +121,7 @@
             "compare_to": 2
         },
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "sprite_location": "origins:textures/gui/sprites/hud_render/huang/resource_bar_01.png",
             "bar_index": 4
         },
         "key": {
@@ -129,16 +130,16 @@
     },
 
     "not-enough-souls-message": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "*:soulweaver/passives/see-health_cooldown"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "title @s actionbar {\"text\":\"Need at least 2 woven souls to use Soul Cleanse\",\"color\":\"#21AEFF\",\"bold\":true}"
                 }
             ]

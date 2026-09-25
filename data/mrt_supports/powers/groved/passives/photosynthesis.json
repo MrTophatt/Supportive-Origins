@@ -1,13 +1,13 @@
 {
     "name": "Photosynthesis",
     "description": "Heal slowly overtime when in direct sunlight.",
-    "type": "origins:action_over_time",
+    "type": "apoli:action_over_time",
     "entity_action": {
-        "type": "origins:heal",
+        "type": "apoli:heal",
         "amount": 1
     },
     "condition": {
-        "type": "origins:exposed_to_sun"
+        "type": "apoli:exposed_to_sun"
     },
     "interval": 30
 }

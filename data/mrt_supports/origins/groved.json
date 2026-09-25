@@ -9,7 +9,7 @@
         "mrt_supports:groved/passives/verdant-presence",
         "mrt_supports:groved/sanctuary-bloom",
         "mrt_supports:groved/passives/leaf-fragile",
-        "origins:vegetarian"
+        "origins:avian/vegetarian"
 	],
 	"icon": {
 		"item": "minecraft:moss_block"

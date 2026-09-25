@@ -4,63 +4,59 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/star.png",
             "text": "Smelting items uses 4 energy"
         },
         {
             "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/active.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/active.png",
+            "key": "key.origins.ternary_active",
             "text": "Smelt items in your main hand using %s"
         }
     ],
-    "type": "origins:active_self",
+    "type": "apoli:active_self",
     "entity_action": {
-        "type": "origins:and",
+        "type": "apoli:and",
         "actions": [
             {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:inventory",
+                    "type": "apoli:inventory",
                     "process_mode": "items",
                     "slot": "weapon.mainhand",
                     "comparison": "==",
                     "compare_to": 1
                 },
                 "if_action": {
-                    "type": "origins:grant_advancement",
+                    "type": "apoli:grant_advancement",
                     "advancement": "mrt_supports:alpha2/inefficiency_at_its_finest"
                 }
             },
             {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:inventory",
+                    "type": "apoli:inventory",
                     "process_mode": "items",
                     "slot": "weapon.mainhand",
                     "comparison": ">=",
                     "compare_to": 64
                 },
                 "if_action": {
-                    "type": "origins:grant_advancement",
+                    "type": "apoli:grant_advancement",
                     "advancement": "mrt_supports:alpha2/efficiency_at_its_finest"
                 }
             },
             {
-                "type": "origins:modify_inventory",
-                "slot": "weapon.mainhand",
-                "process_mode": "items",
-                "item_action": {
-                    "type": "origins:modify",
-                    "modifier": "mrt_supports:smelt"
-                }
+                "type": "apoli:execute_command",
+                "command": "item modify entity @s weapon.mainhand mrt_supports:smelt"
             },
             {
-                "type": "origins:feed",
+                "type": "apoli:feed",
                 "food": -4,
                 "saturation": 0
             },
             {
-                "type": "origins:execute_command",
+                "type": "apoli:execute_command",
                 "command": "function mrt_supports:alpha2/thermal-converter-effects"
             }
         ]
@@ -68,29 +64,29 @@
     "cooldown": 240,
     "key": {
         "key": "key.origins.ternary_active",
-        "continuous": true
+        "continuous": false
     },
     "hud_render": {
-        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "sprite_location": "origins:textures/gui/sprites/hud_render/huang/resource_bar_02.png",
         "bar_index": 15
     },
     "condition": {
-        "type": "origins:and",
+        "type": "apoli:and",
         "conditions": [
             {
-                "type": "origins:food_level",
+                "type": "apoli:food_level",
                 "comparison": ">=",
                 "compare_to": 4
             },
             {
-                "type": "origins:equipped_item",
+                "type": "apoli:equipped_item",
                 "equipment_slot": "mainhand",
                 "item_condition": {
-                    "type": "origins:smeltable"
+                    "type": "apoli:smeltable"
                 }
             },
             {
-                "type": "origins:resource",
+                "type": "apoli:resource",
                 "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
                 "comparison": "==",
                 "compare_to": 0

@@ -1,5 +1,5 @@
 # Two spirals, looks cool, idk.
-execute store result score @s SW.ReweaveFX run resource get @s mrt_supports:fractured-weaver/timer_reweave-delay
+execute store result score @s SW.ReweaveFX run apoli:resource get @s mrt_supports:fractured-weaver/timer_reweave-delay
 
 execute if score @s SW.ReweaveFX matches 30 rotated 0 0 positioned ^0.720 ^0.150 ^0.000 run particle minecraft:dust 0.08 0.65 1.0 1.0 ~ ~ ~ 0.01 0.01 0.01 0 2
 execute if score @s SW.ReweaveFX matches 30 rotated 0 0 positioned ^-0.500 ^0.150 ^0.000 run particle minecraft:soul_fire_flame ~ ~ ~ 0.01 0.01 0.01 0 1

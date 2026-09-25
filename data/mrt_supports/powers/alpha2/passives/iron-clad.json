@@ -1,9 +1,9 @@
 {
     "name": "Iron Clad",
     "description": "Your durable metal chassis provides 5 additional armor points.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
     "armor": {
-        "type": "origins:attribute",
+        "type": "apoli:attribute",
         "modifier": {
             "name": "Max health increase",
             "attribute": "minecraft:generic.armor",
@@ -12,12 +12,12 @@
         }
     },
     "impact-feedback": {
-        "type": "origins:action_when_hit",
+        "type": "apoli:action_when_hit",
         "cooldown": 20,
         "bientity_action": {
-            "type": "origins:target_action",
+            "type": "apoli:target_action",
             "action": {
-                "type": "origins:execute_command",
+                "type": "apoli:execute_command",
                 "command": "function mrt_supports:alpha2/iron-clad-effects"
             }
         }

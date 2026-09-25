@@ -1,13 +1,13 @@
 {
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
     "hidden": true,
 
     "set": {
         "type": "apoli:entity_set",
         "action_on_remove": {
-            "type": "origins:actor_action",
+            "type": "apoli:actor_action",
             "action": {
-                "type": "origins:revoke_power",
+                "type": "apoli:revoke_power",
                 "power": "mrt_supports:soulweaver/given/unravel-target",
                 "source": "mrt_supports:soulweaver/given/unravel-target"
             }
@@ -15,7 +15,7 @@
     },
 
     "vulnerability": {
-        "type": "origins:modify_damage_taken",
+        "type": "apoli:modify_damage_taken",
         "modifier": {
             "operation": "multiply_total",
             "value": 0.15
@@ -29,17 +29,17 @@
     },
 
     "marked-hit-vfx": {
-        "type": "origins:action_when_hit",
+        "type": "apoli:action_when_hit",
         "cooldown": 4,
         "bientity_action": {
-            "type": "origins:target_action",
+            "type": "apoli:target_action",
             "action": {
-                "type": "origins:execute_command",
+                "type": "apoli:execute_command",
                 "command": "particle minecraft:soul_fire_flame ~ ~1 ~ 0.22 0.3 0.22 0.015 12 force @a[distance=..24]"
             }
         },
         "bientity_condition": {
-            "type": "origins:target_condition",
+            "type": "apoli:target_condition",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "*:*_set",
@@ -50,28 +50,28 @@
     },
 
     "marked-trouble-hit": {
-        "type": "origins:action_when_hit",
+        "type": "apoli:action_when_hit",
         "cooldown": 0,
         "bientity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "sync:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "execute if score %a Supports.SW.ID = %t SW.MarkOwner run scoreboard players operation %a SW.MarkHitID = %t SW.MarkID",
                     "actor_selector": "%a",
                     "target_selector": "%t"
                 },
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/advancements/marked-for-trouble/hit"
                     }
                 }
             ]
         },
         "bientity_condition": {
-            "type": "origins:target_condition",
+            "type": "apoli:target_condition",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "*:*_set",

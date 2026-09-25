@@ -1,33 +1,33 @@
 {
     "name": "Solar Panels",
     "description": "Sunlight restores 1 energy every 5 seconds. Artificial light also works, restoring 1 energy every 15 seconds.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "solar": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:feed",
+                    "type": "apoli:feed",
                     "food": 1,
                     "saturation": 0
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:alpha2/solar-charge-effects"
                 }
             ]
         },
         "interval": 100,
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:exposed_to_sun"
+                    "type": "apoli:exposed_to_sun"
                 },
                 {
-                    "type": "origins:food_level",
+                    "type": "apoli:food_level",
                     "comparison": "!=",
                     "compare_to": 20
                 }
@@ -36,36 +36,36 @@
     },
 
     "artificial": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:feed",
+                    "type": "apoli:feed",
                     "food": 1,
                     "saturation": 0
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:alpha2/solar-charge-effects"
                 }
             ]
         },
         "interval": 300,
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:brightness",
+                    "type": "apoli:brightness",
                     "comparison": ">=",
                     "compare_to": 0.25
                 },
                 {
-                    "type": "origins:exposed_to_sun",
+                    "type": "apoli:exposed_to_sun",
                     "inverted": true
                 },
                 {
-                    "type": "origins:food_level",
+                    "type": "apoli:food_level",
                     "comparison": "!=",
                     "compare_to": 20
                 }

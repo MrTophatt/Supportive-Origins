@@ -1,17 +1,17 @@
 {
     "name": "Verdant Presence",
     "description": "Life follows in your wake, marked by a lone drifting blossom and the occasional quiet rustle of leaves.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
     "ambient-particles": {
-        "type": "origins:particle",
+        "type": "apoli:particle",
         "particle": "minecraft:cherry_leaves",
         "frequency": 10
     },
     "ambient-sound": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 160,
         "entity_action": {
-            "type": "origins:play_sound",
+            "type": "apoli:play_sound",
             "sound": "minecraft:block.azalea_leaves.hit",
             "volume": 0.12,
             "pitch": 1.2

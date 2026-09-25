@@ -1,27 +1,27 @@
 {
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "set": {
         "type": "apoli:entity_set"
     },
 
     "prevent-vibrations": {
-        "type": "origins:prevent_game_event",
+        "type": "apoli:prevent_game_event",
         "tag": "minecraft:vibrations"
     },
 
     "position": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "data merge entity @s {Invisible:1b}"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "execute in minecraft:overworld run tp @s 8 -60 8"
                 }
             ]
@@ -29,31 +29,31 @@
     },
 
     "reclaim-owner-set": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation $Repair Supports.SW.ID = @s Supports.SW.ID"
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@a",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "conditions": [
                                     {
-                                        "type": "origins:power",
+                                        "type": "apoli:power",
                                         "power": "mrt_supports:soulweaver/link"
                                     },
                                     {
-                                        "type": "origins:command",
+                                        "type": "apoli:command",
                                         "command": "execute if score @s Supports.SW.ID = $Repair Supports.SW.ID",
                                         "comparison": "==",
                                         "compare_to": 1
@@ -62,14 +62,14 @@
                             }
                         },
                         "if_action": {
-                            "type": "origins:invert",
+                            "type": "apoli:invert",
                             "action": {
                                 "type": "apoli:add_to_entity_set",
                                 "set": "mrt_supports:soulweaver/link_stand-set"
                             }
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     }
                 }
@@ -78,72 +78,72 @@
     },
 
     "repair-linked-entity": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "*:*_set",
             "bientity_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "scoreboard players operation $Repair Supports.SW.ID = @s Supports.SW.ID"
                         }
                     },
                     {
-                        "type": "sync:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "scoreboard players operation %t Supports.SW.ID = %a Supports.SW.ID",
                         "actor_selector": "%a",
                         "target_selector": "%t"
                     },
                     {
-                        "type": "sync:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "scoreboard players operation %t Supports.SW.LinkID = %a Supports.SW.LinkID",
                         "actor_selector": "%a",
                         "target_selector": "%t"
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s add Supports.Soulweaver.LinkedEntity"
                         }
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
-                            "command": "power grant @s mrt_supports:soulweaver/given/linked-player mrt_supports:soulweaver"
+                            "type": "apoli:execute_command",
+                            "command": "apoli:power grant @s mrt_supports:soulweaver/given/linked-player mrt_supports:soulweaver"
                         }
                     },
                     {
-                        "type": "origins:invert",
+                        "type": "apoli:invert",
                         "action": {
                             "type": "apoli:add_to_entity_set",
                             "set": "mrt_supports:soulweaver/given/linked-player_set"
                         }
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:selector_action",
+                            "type": "apoli:selector_action",
                             "selector": "@a",
                             "bientity_action": {
-                                "type": "origins:if_else",
+                                "type": "apoli:if_else",
                                 "condition": {
-                                    "type": "origins:target_condition",
+                                    "type": "apoli:target_condition",
                                     "condition": {
-                                        "type": "origins:and",
+                                        "type": "apoli:and",
                                         "conditions": [
                                             {
-                                                "type": "origins:power",
+                                                "type": "apoli:power",
                                                 "power": "mrt_supports:soulweaver/link"
                                             },
                                             {
-                                                "type": "origins:command",
+                                                "type": "apoli:command",
                                                 "command": "execute if score @s Supports.SW.ID = $Repair Supports.SW.ID",
                                                 "comparison": "==",
                                                 "compare_to": 1
@@ -152,14 +152,14 @@
                                     }
                                 },
                                 "if_action": {
-                                    "type": "origins:invert",
+                                    "type": "apoli:invert",
                                     "action": {
                                         "type": "apoli:add_to_entity_set",
                                         "set": "mrt_supports:soulweaver/link_linked-set"
                                     }
                                 },
                                 "else_action": {
-                                    "type": "origins:nothing"
+                                    "type": "apoli:nothing"
                                 }
                             }
                         }
@@ -176,49 +176,49 @@
     },
 
     "apoli-link-buffs": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/buffs/prepare-count-from-stand"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/buffs/apply-count"
                         }
                     }
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@a[tag=Supports.Soulweaver.Owner]",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:command",
+                                "type": "apoli:command",
                                 "command": "execute if score @s Supports.SW.ID = $BuffOwner Supports.SW.ID",
                                 "comparison": "==",
                                 "compare_to": 1
                             }
                         },
                         "if_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/buffs/apply-count"
                             }
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     }
                 }
@@ -227,33 +227,33 @@
     },
 
     "kill-if-owner-lost-origin": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation $Repair Supports.SW.ID = @s Supports.SW.ID"
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@a[tag=!Supports.Soulweaver.LinkedEntity]",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "conditions": [
                                     {
-                                        "type": "origins:command",
+                                        "type": "apoli:command",
                                         "command": "execute if score @s Supports.SW.ID = $Repair Supports.SW.ID",
                                         "comparison": "==",
                                         "compare_to": 1
                                     },
                                     {
-                                        "type": "origins:power",
+                                        "type": "apoli:power",
                                         "power": "mrt_supports:soulweaver/link",
                                         "inverted": true
                                     }
@@ -261,33 +261,33 @@
                             }
                         },
                         "if_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/buffs/clear"
                                     }
                                 },
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "tag @s remove Supports.Soulweaver.Owner"
                                     }
                                 },
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "kill @s"
                                     }
                                 }
                             ]
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-execute store result score @s A2.Shell run resource get @s mrt_supports:alpha2/scan-ores_ping-shell
+execute store result score @s A2.Shell run apoli:resource get @s mrt_supports:alpha2/scan-ores_ping-shell
 
 tag @a[tag=Supports.Alpha02.ScanOwnerCurrent] remove Supports.Alpha02.ScanOwnerCurrent
 tag @s add Supports.Alpha02.ScanOwnerCurrent

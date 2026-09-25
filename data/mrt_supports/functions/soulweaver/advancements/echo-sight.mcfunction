@@ -3,7 +3,7 @@ tag @a[tag=Supports.Soulweaver.Adv.EchoExcluded] remove Supports.Soulweaver.Adv.
 scoreboard players operation $EchoOwner Supports.SW.ID = @s Supports.SW.ID
 execute as @a[tag=Supports.Soulweaver.LinkedEntity] if score @s Supports.SW.ID = $EchoOwner Supports.SW.ID run tag @s add Supports.Soulweaver.Adv.EchoExcluded
 tag @s add Supports.Soulweaver.Adv.EchoExcluded
-execute store result score @s SW.AdvEcho run resource get @s mrt_supports:soulweaver/link_counter
+execute store result score @s SW.AdvEcho run apoli:resource get @s mrt_supports:soulweaver/link_counter
 scoreboard players set $EchoCount SW.AdvCount 0
 
 # Remember everything seen for I See You, and count mobs separately for Seeing Double.

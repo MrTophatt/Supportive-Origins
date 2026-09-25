@@ -4,35 +4,35 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "You cannot eat or recover through natural regeneration."
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "no-eating": {
-        "type": "origins:prevent_item_use",
+        "type": "apoli:prevent_item_use",
         "item_condition": {
-            "type": "origins:food"
+            "type": "apoli:food"
         }
     },
 
     "no-natural-regeneration": {
-        "type": "origins:disable_regen"
+        "type": "apoli:disable_regen"
     },
 
     "stay-fed": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:feed",
+            "type": "apoli:feed",
             "food": 20,
             "saturation": 0
         }
     },
 
     "no-exhaustion": {
-        "type": "origins:modify_exhaustion",
+        "type": "apoli:modify_exhaustion",
         "modifier": {
             "operation": "multiply_total",
             "value": -1.0
@@ -40,7 +40,7 @@
     },
 
     "more-experience": {
-        "type": "origins:modify_xp_gain",
+        "type": "apoli:modify_xp_gain",
         "modifier": {
             "operation": "multiply_total",
             "value": 0.5
@@ -48,15 +48,15 @@
     },
 
     "fire-immunity": {
-        "type": "origins:invulnerability",
+        "type": "apoli:invulnerability",
         "damage_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:fire"
+                    "type": "apoli:fire"
                 },
                 {
-                    "type": "origins:name",
+                    "type": "apoli:name",
                     "name": "lava",
                     "inverted": true
                 }
@@ -65,19 +65,19 @@
     },
 
     "lava-resistance": {
-        "type": "origins:modify_damage_taken",
+        "type": "apoli:modify_damage_taken",
         "modifier": {
             "operation": "multiply_total",
             "value": -0.50
         },
         "damage_condition": {
-            "type": "origins:name",
+            "type": "apoli:name",
             "name": "lava"
         }
     },
 
     "water-weakness": {
-        "type": "origins:damage_over_time",
+        "type": "apoli:damage_over_time",
         "interval": 20,
         "onset_delay": 1,
         "damage": 1.5,
@@ -86,24 +86,24 @@
         "protection_enchantment": "origins:water_protection",
         "protection_effectiveness": 0.75,
         "condition": {
-            "type": "origins:or",
+            "type": "apoli:or",
             "conditions": [
                 {
-                    "type": "origins:fluid_height",
+                    "type": "apoli:fluid_height",
                     "fluid": "minecraft:water",
                     "comparison": ">",
                     "compare_to": 0.0
                 },
                 {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "conditions": [
                         {
-                            "type": "origins:in_rain"
+                            "type": "apoli:in_rain"
                         },
                         {
-                            "type": "origins:biome",
+                            "type": "apoli:biome",
                             "condition": {
-                                "type": "origins:temperature",
+                                "type": "apoli:temperature",
                                 "comparison": ">",
                                 "compare_to": 0.15
                             }
@@ -115,7 +115,7 @@
     },
 
     "snowfall-weakness": {
-        "type": "origins:damage_over_time",
+        "type": "apoli:damage_over_time",
         "interval": 40,
         "onset_delay": 1,
         "damage": 1.0,
@@ -124,19 +124,19 @@
         "protection_enchantment": "origins:water_protection",
         "protection_effectiveness": 0.75,
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:predicate",
+                    "type": "apoli:predicate",
                     "predicate": "mrt_supports:raining"
                 },
                 {
-                    "type": "origins:exposed_to_sky"
+                    "type": "apoli:exposed_to_sky"
                 },
                 {
-                    "type": "origins:biome",
+                    "type": "apoli:biome",
                     "condition": {
-                        "type": "origins:temperature",
+                        "type": "apoli:temperature",
                         "comparison": "<=",
                         "compare_to": 0.15
                     }
@@ -146,13 +146,13 @@
     },
 
     "snowball-weakness": {
-        "type": "origins:modify_damage_taken",
+        "type": "apoli:modify_damage_taken",
         "modifier": {
             "operation": "addition",
             "value": 1.0
         },
         "damage_condition": {
-            "type": "origins:projectile",
+            "type": "apoli:projectile",
             "projectile": "minecraft:snowball"
         }
     },

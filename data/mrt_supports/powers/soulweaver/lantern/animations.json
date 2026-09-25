@@ -1,5 +1,5 @@
 {
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
     "name": "Soul Lantern",
     "description": "A patient ember of your soul waits faithfully at your side. Your Soul Lantern follows your path, finding room around you and settling when you rest.",
     "hidden": true,
@@ -20,7 +20,7 @@
     },
 
     "rest-timer": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 2000,
         "start_value": 0,
@@ -28,29 +28,29 @@
             "should_render": false
         },
         "max_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/rest/begin"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/rest/search"
                         }
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/rest/copy-target-identity"
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@e[type=minecraft:marker,tag=Supports.Soulweaver.NewLanternRestTarget,sort=nearest,limit=1,distance=..5]",
                     "bientity_action": {
                         "type": "apoli:add_to_entity_set",
@@ -58,24 +58,24 @@
                     }
                 },
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:command",
+                        "type": "apoli:command",
                         "command": "execute if entity @e[type=minecraft:marker,tag=Supports.Soulweaver.NewLanternRestTarget,limit=1,distance=..5]",
                         "comparison": "==",
                         "compare_to": 1
                     },
                     "if_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "scoreboard players set @s SW.LanternRest 2"
                     },
                     "else_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "scoreboard players set @s SW.LanternRest 0"
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/rest/finish-search"
                 }
             ]
@@ -83,7 +83,7 @@
     },
 
     "pose-height": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 10,
         "start_value": 0,
@@ -93,30 +93,30 @@
     },
 
     "pose-height-low": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
             "change": 1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
                     "comparison": "<",
                     "compare_to": 10
                 },
                 {
-                    "type": "origins:or",
+                    "type": "apoli:or",
                     "conditions": [
                         {
-                            "type": "origins:swimming"
+                            "type": "apoli:swimming"
                         },
                         {
-                            "type": "origins:fall_flying"
+                            "type": "apoli:fall_flying"
                         },
                         {
                             "type": "apoli:swimming"
@@ -128,31 +128,31 @@
     },
 
     "pose-height-crouch-down": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
             "change": 1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
                     "comparison": "<",
                     "compare_to": 4
                 },
                 {
-                    "type": "origins:sneaking"
+                    "type": "apoli:sneaking"
                 },
                 {
-                    "type": "origins:swimming",
+                    "type": "apoli:swimming",
                     "inverted": true
                 },
                 {
-                    "type": "origins:fall_flying",
+                    "type": "apoli:fall_flying",
                     "inverted": true
                 },
                 {
@@ -163,31 +163,31 @@
     },
 
     "pose-height-crouch-up": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
             "change": -1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
                     "comparison": ">",
                     "compare_to": 4
                 },
                 {
-                    "type": "origins:sneaking"
+                    "type": "apoli:sneaking"
                 },
                 {
-                    "type": "origins:swimming",
+                    "type": "apoli:swimming",
                     "inverted": true
                 },
                 {
-                    "type": "origins:fall_flying",
+                    "type": "apoli:fall_flying",
                     "inverted": true
                 },
                 {
@@ -198,32 +198,32 @@
     },
 
     "pose-height-standing": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
             "change": -1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/lantern/animations_pose-height",
                     "comparison": ">",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:sneaking",
+                    "type": "apoli:sneaking",
                     "inverted": true
                 },
                 {
-                    "type": "origins:swimming",
+                    "type": "apoli:swimming",
                     "inverted": true
                 },
                 {
-                    "type": "origins:fall_flying",
+                    "type": "apoli:fall_flying",
                     "inverted": true
                 },
                 {
@@ -234,32 +234,32 @@
     },
 
     "retry-rest-at-max": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 20,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players set @s SW.LanternRest 1"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/rest/search"
                         }
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/rest/copy-target-identity"
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@e[type=minecraft:marker,tag=Supports.Soulweaver.NewLanternRestTarget,sort=nearest,limit=1,distance=..5]",
                     "bientity_action": {
                         "type": "apoli:add_to_entity_set",
@@ -267,43 +267,43 @@
                     }
                 },
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:command",
+                        "type": "apoli:command",
                         "command": "execute if entity @e[type=minecraft:marker,tag=Supports.Soulweaver.NewLanternRestTarget,limit=1,distance=..5]",
                         "comparison": "==",
                         "compare_to": 1
                     },
                     "if_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "scoreboard players set @s SW.LanternRest 2"
                     },
                     "else_action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "scoreboard players set @s SW.LanternRest 0"
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/rest/finish-search"
                 }
             ]
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:nbt",
+                    "type": "apoli:nbt",
                     "nbt": "{Tags:[\"Supports.Soulweaver.LanternRestReady\"]}"
                 },
                 {
-                    "type": "origins:command",
+                    "type": "apoli:command",
                     "command": "execute if entity @s[nbt={OnGround:1b}] unless block ~ ~ ~ #mrt_supports:lantern_idle_forbidden unless data entity @s RootVehicle",
                     "comparison": "==",
                     "compare_to": 1
                 },
                 {
-                    "type": "origins:moving",
+                    "type": "apoli:moving",
                     "inverted": true
                 },
                 {
@@ -317,22 +317,22 @@
     },
 
     "increase-rest-timer": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:soulweaver/lantern/animations_rest-timer",
             "change": 1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:moving",
+                    "type": "apoli:moving",
                     "inverted": true
                 },
                 {
-                    "type": "origins:command",
+                    "type": "apoli:command",
                     "command": "execute if score @s SW.LanternRest matches 0 if entity @s[nbt={OnGround:1b}] unless block ~ ~ ~ #mrt_supports:lantern_idle_forbidden unless data entity @s RootVehicle unless entity @s[nbt={HurtTime:10s}]",
                     "comparison": "==",
                     "compare_to": 1
@@ -342,86 +342,86 @@
     },
 
     "reset-rest-timer-and-wake": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:soulweaver/lantern/animations_rest-timer",
                     "operation": "set",
                     "change": 0
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/rest/cancel-and-wake"
                 }
             ]
         },
         "condition": {
-            "type": "origins:moving"
+            "type": "apoli:moving"
         }
     },
 
     "mark-lantern-owner-active": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "tag @s add Supports.Soulweaver.LanternOwnerActive"
         }
     },
 
     "dimension-apoli": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/lifecycle/begin-dimension-check"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "tag @s add Supports.Soulweaver.LanternDimensionProbe"
                                 }
                             },
                             {
-                                "type": "origins:if_else",
+                                "type": "apoli:if_else",
                                 "condition": {
-                                    "type": "origins:actor_condition",
+                                    "type": "apoli:actor_condition",
                                     "condition": {
-                                        "type": "origins:command",
+                                        "type": "apoli:command",
                                         "command": "execute if entity @e[type=minecraft:armor_stand,tag=Supports.Soulweaver.LanternDimensionProbe,limit=1]",
                                         "comparison": "==",
                                         "compare_to": 1
                                     }
                                 },
                                 "if_action": {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "tag @s remove Supports.Soulweaver.LanternDimensionMismatch"
                                     }
                                 },
                                 "else_action": {
-                                    "type": "origins:nothing"
+                                    "type": "apoli:nothing"
                                 }
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "tag @s remove Supports.Soulweaver.LanternDimensionProbe"
                                 }
                             }
@@ -429,28 +429,28 @@
                     }
                 },
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:nbt",
+                            "type": "apoli:nbt",
                             "nbt": "{Tags:[\"Supports.Soulweaver.LanternDimensionMismatch\"]}"
                     },
                     "if_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
                                 "type": "apoli:action_on_entity_set",
                                 "set": "*:*_lantern-display-set",
                                 "bientity_action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
                                             "type": "apoli:remove_from_entity_set",
                                             "set": "*:*_lantern-display-set"
                                         },
                                         {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:execute_command",
+                                                "type": "apoli:execute_command",
                                                 "command": "kill @s"
                                             }
                                         }
@@ -461,16 +461,16 @@
                                 "type": "apoli:action_on_entity_set",
                                 "set": "*:*_lantern-rest-target-set",
                                 "bientity_action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
                                             "type": "apoli:remove_from_entity_set",
                                             "set": "*:*_lantern-rest-target-set"
                                         },
                                         {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:execute_command",
+                                                "type": "apoli:execute_command",
                                                 "command": "kill @s"
                                             }
                                         }
@@ -481,16 +481,16 @@
                                 "type": "apoli:action_on_entity_set",
                                 "set": "*:*_lantern-carrier-set",
                                 "bientity_action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
                                             "type": "apoli:remove_from_entity_set",
                                             "set": "*:*_lantern-carrier-set"
                                         },
                                         {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:execute_command",
+                                                "type": "apoli:execute_command",
                                                 "command": "kill @s"
                                             }
                                         }
@@ -498,54 +498,54 @@
                                 }
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "scoreboard players set @s SW.LanternRest 0"
                             },
                             {
-                                "type": "origins:change_resource",
+                                "type": "apoli:change_resource",
                                 "resource": "mrt_supports:soulweaver/lantern/animations_rest-timer",
                                 "operation": "set",
                                 "change": 0
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s remove Supports.Soulweaver.LanternRestReady"
                             }
                         ]
                     },
                     "else_action": {
-                        "type": "origins:nothing"
+                        "type": "apoli:nothing"
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "tag @s remove Supports.Soulweaver.LanternDimensionMismatch"
                 }
             ]
         },
         "condition": {
-            "type": "origins:nbt",
+            "type": "apoli:nbt",
             "nbt": "{Tags:[\"Supports.Soulweaver.LanternForceRespawn\"]}"
         }
     },
 
     "ensure-lantern": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players set @s SW.LanternRest 0"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-display-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "kill @s"
                         }
                     }
@@ -554,19 +554,19 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "kill @s"
                         }
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/lifecycle/spawn-pair"
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@e[type=minecraft:armor_stand,tag=Supports.Soulweaver.NewLanternCarrier,sort=nearest,limit=1,distance=..2]",
                     "bientity_action": {
                         "type": "apoli:add_to_entity_set",
@@ -574,7 +574,7 @@
                     }
                 },
                 {
-                    "type": "origins:selector_action",
+                    "type": "apoli:selector_action",
                     "selector": "@e[type=minecraft:block_display,tag=Supports.Soulweaver.NewLanternDisplay,sort=nearest,limit=1,distance=..2]",
                     "bientity_action": {
                         "type": "apoli:add_to_entity_set",
@@ -582,13 +582,13 @@
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/lifecycle/finish-spawn"
                 }
             ]
         },
         "condition": {
-            "type": "origins:or",
+            "type": "apoli:or",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -603,7 +603,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:nbt",
+                    "type": "apoli:nbt",
                     "nbt": "{Tags:[\"Supports.Soulweaver.LanternForceRespawn\"]}"
                 }
             ]
@@ -611,21 +611,21 @@
     },
 
     "rest-target-cleanup": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "*:*_lantern-rest-target-set",
             "bientity_action": {
-                "type": "origins:target_action",
+                "type": "apoli:target_action",
                 "action": {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "kill @s"
                 }
             }
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:scoreboard",
@@ -644,96 +644,96 @@
     },
 
     "follow-player": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation $LanternActiveGeneration SW.LanternGeneration = @s SW.LanternGeneration"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:command",
+                                "type": "apoli:command",
                                 "command": "execute if score @s SW.LanternGeneration = $LanternActiveGeneration SW.LanternGeneration",
                                 "comparison": "==",
                                 "compare_to": 1
                             }
                         },
                         "if_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                         {
-                            "type": "sync:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "execute store result score $LanternOrbitTarget SW.LanternTargetAngle run data get entity @s Rotation[0] 100",
                             "actor_selector": "%a",
                             "target_selector": "%t"
                         },
                         {
-                            "type": "sync:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "execute as %t run scoreboard players operation @s SW.LanternTargetAngle = $LanternOrbitTarget SW.LanternTargetAngle",
                             "actor_selector": "%a",
                             "target_selector": "%t"
                         },
                         {
-                            "type": "sync:execute_command",
-                            "command": "execute store result score %t SW.LanternPoseHeight run resource get %a mrt_supports:soulweaver/lantern/animations_pose-height",
+                            "type": "apoli:execute_command",
+                            "command": "execute store result score %t SW.LanternPoseHeight run apoli:resource get %a mrt_supports:soulweaver/lantern/animations_pose-height",
                             "actor_selector": "%a",
                             "target_selector": "%t"
                         },
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/lantern/choose-shoulder"
                             }
                         },
                         {
-                            "type": "sync:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "execute as %t at %a rotated as %a rotated ~ 0 run function mrt_supports:soulweaver/lantern/select-follow-position",
                             "actor_selector": "%a",
                             "target_selector": "%t"
                         },
                         {
-                            "type": "origins:if_else",
+                            "type": "apoli:if_else",
                             "condition": {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                                 "condition": {
-                                                    "type": "origins:nbt",
+                                                    "type": "apoli:nbt",
                                                     "nbt": "{Tags:[\"Supports.Soulweaver.LanternLeftShoulder\"]}"
                                 }
                             },
                             "if_action": {
-                                "type": "origins:actor_action",
+                                "type": "apoli:actor_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "tag @s add Supports.Soulweaver.LanternLeftShoulder"
                                 }
                             },
                             "else_action": {
-                                "type": "origins:actor_action",
+                                "type": "apoli:actor_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "tag @s remove Supports.Soulweaver.LanternLeftShoulder"
                                 }
                             }
                         },
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/lantern/orbit-animation"
                             }
                         },
                         {
-                            "type": "sync:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "execute as %t at %a rotated as %a rotated ~ 0 run function mrt_supports:soulweaver/lantern/place-follow-position",
                             "actor_selector": "%a",
                             "target_selector": "%t"
@@ -741,12 +741,12 @@
                             ]
                         },
                         "else_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "actions": [
                                     {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/lantern/lifecycle/remove-invalid-carrier"
                                     }
                                 ]
@@ -757,7 +757,7 @@
             ]
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -776,22 +776,22 @@
     },
 
     "rest-descent": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "tag @e[type=minecraft:marker,tag=Supports.Soulweaver.ActiveLanternRestTarget] remove Supports.Soulweaver.ActiveLanternRestTarget"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-rest-target-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s add Supports.Soulweaver.ActiveLanternRestTarget"
                         }
                     }
@@ -800,9 +800,9 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-display-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/rest/settle-model"
                         }
                     }
@@ -811,9 +811,9 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/rest/descend"
                         }
                     }
@@ -822,35 +822,35 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:nbt",
+                                    "type": "apoli:nbt",
                                     "nbt": "{Tags:[\"Supports.Soulweaver.LanternRestLanded\"]}"
                             }
                         },
                         "if_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "scoreboard players set @s SW.LanternRest 3"
                                     }
                                 },
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "tag @s remove Supports.Soulweaver.LanternRestLanded"
                                     }
                                 }
                             ]
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     }
                 },
@@ -858,9 +858,9 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-rest-target-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s remove Supports.Soulweaver.ActiveLanternRestTarget"
                         }
                     }
@@ -868,7 +868,7 @@
             ]
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:scoreboard",
@@ -887,99 +887,99 @@
     },
 
     "wake-rise": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "tag @e[type=minecraft:marker,tag=Supports.Soulweaver.ActiveLanternRestTarget] remove Supports.Soulweaver.ActiveLanternRestTarget"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute store result score %t SW.LanternDelta run data get entity %a Motion[0] 1000",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute store result score %t SW.LanternDesiredVel run data get entity %a Motion[1] 1000",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute store result score %t SW.LanternVelDiff run data get entity %a Motion[2] 1000",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/lantern/rest/wake-update-speed"
                                 }
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute store result score $LanternOrbitTarget SW.LanternTargetAngle run data get entity @s Rotation[0] 100",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t run scoreboard players operation @s SW.LanternTargetAngle = $LanternOrbitTarget SW.LanternTargetAngle",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "sync:execute_command",
-                                "command": "execute store result score %t SW.LanternPoseHeight run resource get %a mrt_supports:soulweaver/lantern/animations_pose-height",
+                                "type": "apoli:execute_command",
+                                "command": "execute store result score %t SW.LanternPoseHeight run apoli:resource get %a mrt_supports:soulweaver/lantern/animations_pose-height",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/lantern/choose-shoulder"
                                 }
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t at %a rotated as %a rotated ~ 0 run function mrt_supports:soulweaver/lantern/select-follow-position",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                     {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/lantern/update-animation"
                                     }
                                     ]
                                 }
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t at %a rotated as %a rotated ~ 0 run function mrt_supports:soulweaver/lantern/validate-orbit-step",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/lantern/rest/publish-wake-orbit"
                                 }
                             }
@@ -990,38 +990,38 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-rest-target-set",
                     "bientity_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "execute store result score @s SW.LanternDelta run data get entity @s Pos[1] 1000"
                                 }
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute store result score %t SW.LanternVelDiff run data get entity %a Motion[1] 1000",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/lantern/rest/prepare-wake-target"
                                 }
                             },
                             {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t at %a rotated as %a rotated ~ 0 run function mrt_supports:soulweaver/lantern/position-at-orbit",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/lantern/rest/wake-update-height"
                                 }
                             }
@@ -1032,9 +1032,9 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-rest-target-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s add Supports.Soulweaver.ActiveLanternRestTarget"
                         }
                     }
@@ -1043,9 +1043,9 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/rest/wake-rise"
                         }
                     }
@@ -1054,31 +1054,31 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:nbt",
+                                    "type": "apoli:nbt",
                                     "nbt": "{Tags:[\"Supports.Soulweaver.LanternWakeReached\"]}"
                             }
                         },
                         "if_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "scoreboard players set @s SW.LanternRest 0"
                                     }
                                 },
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:and",
+                                        "type": "apoli:and",
                                         "actions": [
                                             {
-                                                "type": "origins:execute_command",
+                                                "type": "apoli:execute_command",
                                                 "command": "function mrt_supports:soulweaver/lantern/wake/reset-rise"
                                             }
                                         ]
@@ -1087,7 +1087,7 @@
                             ]
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     }
                 },
@@ -1095,9 +1095,9 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-rest-target-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s remove Supports.Soulweaver.ActiveLanternRestTarget"
                         }
                     }
@@ -1105,7 +1105,7 @@
             ]
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:scoreboard",
@@ -1130,61 +1130,61 @@
     },
 
     "rest-validation": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 5,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "*:*_lantern-rest-target-set",
             "bientity_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/rest/validate-target"
                         }
                     },
                     {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:nbt",
+                                    "type": "apoli:nbt",
                                     "nbt": "{Tags:[\"Supports.Soulweaver.LanternRestInvalid\"]}"
                             }
                         },
                         "if_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "scoreboard players set @s SW.LanternRest 0"
                                     }
                                 },
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "tag @s remove Supports.Soulweaver.LanternRestInvalid"
                                     }
                                 }
                             ]
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     }
                 ]
             }
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "conditions": [
                         {
                             "type": "apoli:scoreboard",
@@ -1211,36 +1211,36 @@
     },
 
     "stale-display-cleanup": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation $LanternActiveGeneration SW.LanternGeneration = @s SW.LanternGeneration"
                 },
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-display-set",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:target_condition",
+                            "type": "apoli:target_condition",
                             "condition": {
-                                "type": "origins:command",
+                                "type": "apoli:command",
                                 "command": "execute if score @s SW.LanternGeneration = $LanternActiveGeneration SW.LanternGeneration",
                                 "comparison": "==",
                                 "compare_to": 1
                             }
                         },
                         "if_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         },
                         "else_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "kill @s"
                             }
                         }
@@ -1257,30 +1257,30 @@
     },
 
     "face-player-yaw": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "*:*_lantern-display-set",
             "bientity_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "sync:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "execute store result score $LanternYaw SW.LanternTargetAngle run data get entity @s Rotation[0] 100",
                         "actor_selector": "%a",
                         "target_selector": "%t"
                     },
                     {
-                        "type": "sync:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "execute as %t run scoreboard players operation @s SW.LanternTargetAngle = $LanternYaw SW.LanternTargetAngle",
                         "actor_selector": "%a",
                         "target_selector": "%t"
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/yaw-animation"
                         }
                     }
@@ -1288,7 +1288,7 @@
             }
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -1297,7 +1297,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "conditions": [
                         {
                             "type": "apoli:scoreboard",
@@ -1324,21 +1324,21 @@
     },
 
     "bob-animation": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "*:*_lantern-display-set",
             "bientity_action": {
-                "type": "origins:target_action",
+                "type": "apoli:target_action",
                 "action": {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/bob-animation"
                 }
             }
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -1357,24 +1357,24 @@
     },
 
     "soul-flame-trail": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 4,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "*:*_lantern-display-set",
             "bientity_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "sync:execute_command",
-                        "command": "execute store result score %t SW.LanternStrand run resource get %a mrt_supports:soulweaver/lantern-strands_state",
+                        "type": "apoli:execute_command",
+                        "command": "execute store result score %t SW.LanternStrand run apoli:resource get %a mrt_supports:soulweaver/lantern-strands_state",
                         "actor_selector": "%a",
                         "target_selector": "%t"
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/lantern/particle-trail"
                         }
                     }
@@ -1390,26 +1390,26 @@
     },
 
     "remove-lantern": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_added": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/lifecycle/mark-owner-active"
                 }
             ]
         },
         "entity_action_removed": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-display-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "kill @s"
                         }
                     }
@@ -1418,9 +1418,9 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-carrier-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "kill @s"
                         }
                     }
@@ -1429,15 +1429,15 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_lantern-rest-target-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "kill @s"
                         }
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/lantern/lifecycle/clear-owner-state"
                 }
             ]

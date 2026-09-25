@@ -4,28 +4,29 @@
     "badges": [
         {
             "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/toggle.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/toggle.png",
+            "key": "key.origins.ternary_active",
             "text": "Let your sanctuary bloom with %s, take it down with the same key."
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "The barrier ricochets many projectiles."
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "meter": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 900,
         "start_value": 900,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "sprite_location": "origins:textures/gui/sprites/hud_render/huang/resource_bar_02.png",
             "bar_index": 8,
             "condition": {
-                "type": "origins:resource",
+                "type": "apoli:resource",
                 "resource": "*:*_meter",
                 "comparison": "!=",
                 "compare_to": 900
@@ -34,7 +35,7 @@
     },
 
     "toggle-state": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
@@ -42,20 +43,20 @@
             "should_render": false
         },
         "max_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:groved/sanctuary/lifecycle/activate"
                 },
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_recharge-delay",
                     "operation": "set",
                     "change": 0
                 },
                 {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:happy_villager",
                     "count": 14,
                     "speed": 0.08,
@@ -67,7 +68,7 @@
                     }
                 },
                 {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:cherry_leaves",
                     "count": 12,
                     "speed": 0.07,
@@ -79,7 +80,7 @@
                     }
                 },
                 {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:spore_blossom_air",
                     "count": 8,
                     "speed": 0.035,
@@ -91,19 +92,19 @@
                     }
                 },
                 {
-                    "type": "origins:play_sound",
+                    "type": "apoli:play_sound",
                     "sound": "minecraft:item.bone_meal.use",
                     "volume": 0.75,
                     "pitch": 0.85
                 },
                 {
-                    "type": "origins:play_sound",
+                    "type": "apoli:play_sound",
                     "sound": "minecraft:block.flowering_azalea.break",
                     "volume": 0.65,
                     "pitch": 1.25
                 },
                 {
-                    "type": "origins:play_sound",
+                    "type": "apoli:play_sound",
                     "sound": "minecraft:block.amethyst_block.chime",
                     "volume": 0.35,
                     "pitch": 1.55
@@ -111,14 +112,14 @@
             ]
         },
         "min_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:groved/sanctuary/lifecycle/deactivate"
                 },
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_recharge-delay",
                     "operation": "set",
                     "change": 30
@@ -128,26 +129,26 @@
     },
 
     "toggle": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
-                "type": "origins:resource",
+                "type": "apoli:resource",
                 "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                 "comparison": "==",
                 "compare_to": 1
             },
             "if_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                         "operation": "set",
                         "change": 0
                     },
                     {
-                        "type": "origins:spawn_particles",
+                        "type": "apoli:spawn_particles",
                         "particle": "minecraft:cherry_leaves",
                         "count": 6,
                         "speed": 0.04,
@@ -159,7 +160,7 @@
                         }
                     },
                     {
-                        "type": "origins:play_sound",
+                        "type": "apoli:play_sound",
                         "sound": "minecraft:block.azalea_leaves.break",
                         "volume": 0.55,
                         "pitch": 0.8
@@ -167,28 +168,28 @@
                 ]
             },
             "else_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_meter",
                     "comparison": "==",
                     "compare_to": 900
                 },
                 "if_action": {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "operation": "set",
                     "change": 1
                 },
                 "else_action": {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "actions": [
                         {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "title @s actionbar {\"text\":\"Sanctuary Bloom must be fully recharged.\",\"color\":\"#8EDB75\",\"italic\":true}"
                         },
                         {
-                            "type": "origins:play_sound",
+                            "type": "apoli:play_sound",
                             "sound": "minecraft:block.azalea_leaves.hit",
                             "volume": 0.25,
                             "pitch": 0.65
@@ -208,15 +209,15 @@
     },
 
     "drain": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:groved/sanctuary-bloom_meter",
             "change": -1
         },
         "condition": {
-            "type": "origins:resource",
+            "type": "apoli:resource",
             "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
             "comparison": "==",
             "compare_to": 1
@@ -224,19 +225,19 @@
     },
 
     "automatic-deactivation": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "operation": "set",
                     "change": 0
                 },
                 {
-                    "type": "origins:spawn_particles",
+                    "type": "apoli:spawn_particles",
                     "particle": "minecraft:spore_blossom_air",
                     "count": 6,
                     "speed": 0.025,
@@ -248,7 +249,7 @@
                     }
                 },
                 {
-                    "type": "origins:play_sound",
+                    "type": "apoli:play_sound",
                     "sound": "minecraft:block.azalea_leaves.break",
                     "volume": 0.5,
                     "pitch": 0.7
@@ -256,16 +257,16 @@
             ]
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "comparison": "==",
                     "compare_to": 1
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_meter",
                     "comparison": "==",
                     "compare_to": 0
@@ -275,7 +276,7 @@
     },
 
     "recharge-delay": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 30,
         "start_value": 0,
@@ -285,24 +286,24 @@
     },
 
     "recharge-delay-tick": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:groved/sanctuary-bloom_recharge-delay",
             "change": -1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_recharge-delay",
                     "comparison": ">",
                     "compare_to": 0
@@ -312,36 +313,36 @@
     },
 
     "shade-recharge": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 4,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:groved/sanctuary-bloom_meter",
             "change": 1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_recharge-delay",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_meter",
                     "comparison": "<",
                     "compare_to": 900
                 },
                 {
-                    "type": "origins:exposed_to_sun",
+                    "type": "apoli:exposed_to_sun",
                     "inverted": true
                 }
             ]
@@ -349,50 +350,50 @@
     },
 
     "sunlight-recharge": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 2,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:groved/sanctuary-bloom_meter",
             "change": 1
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_recharge-delay",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_meter",
                     "comparison": "<",
                     "compare_to": 900
                 },
                 {
-                    "type": "origins:exposed_to_sun"
+                    "type": "apoli:exposed_to_sun"
                 }
             ]
         }
     },
 
     "owner-validation": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
                 "command": "function mrt_supports:groved/sanctuary/lifecycle/owner_validate"
         },
         "condition": {
-            "type": "origins:resource",
+            "type": "apoli:resource",
             "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
             "comparison": "==",
             "compare_to": 1
@@ -400,25 +401,25 @@
     },
 
     "missing-anchor-cleanup": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "operation": "set",
                     "change": 0
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:groved/sanctuary/lifecycle/cleanup"
                 }
             ]
         },
         "condition": {
-            "type": "origins:nbt",
+            "type": "apoli:nbt",
             "nbt": "{Tags:[\"Supports.Groved.SanctuaryAnchorMissing\"]}"
         }
     },
@@ -426,18 +427,18 @@
     "death-cleanup": {
         "type": "apoli:action_on_death",
         "bientity_action": {
-            "type": "origins:target_action",
+            "type": "apoli:target_action",
             "action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:change_resource",
+                        "type": "apoli:change_resource",
                         "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                         "operation": "set",
                         "change": 0
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:groved/sanctuary/lifecycle/cleanup"
                     }
                 ]
@@ -446,32 +447,32 @@
     },
 
     "lifecycle-cleanup": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_added": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:groved/sanctuary/lifecycle/owner_init"
         },
         "entity_action_respawned": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:groved/sanctuary-bloom_toggle-state",
                     "operation": "set",
                     "change": 0
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:groved/sanctuary/lifecycle/cleanup"
                 }
             ]
         },
         "entity_action_removed": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:groved/sanctuary/lifecycle/cleanup"
         },
         "entity_action_lost": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:groved/sanctuary/lifecycle/cleanup"
         }
     }

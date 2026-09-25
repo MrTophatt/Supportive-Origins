@@ -1,13 +1,13 @@
 {
     "hidden": true,
-    "type": "origins:cooldown",
+    "type": "apoli:cooldown",
     "cooldown": 300,
     "hud_render": {
-        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+        "sprite_location": "origins:textures/gui/sprites/hud_render/spiderkolo/resource_bar_02.png",
         "bar_index": 8,
         "should_render": true,
         "condition": {
-            "type": "origins:power",
+            "type": "apoli:power",
             "power": "mrt_supports:soulweaver/strands/force"
         }
     }

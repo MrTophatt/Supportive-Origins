@@ -1,14 +1,14 @@
 {
-    "type": "origins:prevent_entity_render",
+    "type": "apoli:prevent_entity_render",
     "entity_condition": {
-        "type": "origins:and",
+        "type": "apoli:and",
         "conditions": [
             {
-                "type": "origins:entity_type",
+                "type": "apoli:entity_type",
                 "entity_type": "minecraft:block_display"
             },
             {
-                "type": "origins:nbt",
+                "type": "apoli:nbt",
                 "nbt": "{block_state:{Name:\"minecraft:light_blue_stained_glass\"}}"
             }
         ]

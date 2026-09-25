@@ -1,17 +1,17 @@
 {
     "hidden": true,
-    "type": "origins:action_on_callback",
+    "type": "apoli:action_on_callback",
     "entity_action_gained": {
-        "type": "origins:grant_advancement",
+        "type": "apoli:grant_advancement",
         "advancement": "mrt_supports:soulweaver/root"
     },
     "entity_action_lost": {
-        "type": "origins:delay",
+        "type": "apoli:delay",
         "ticks": 1,
         "action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
-                "type": "origins:or",
+                "type": "apoli:or",
                 "conditions": [
                     {
                         "type": "origins:origin",
@@ -26,10 +26,10 @@
                 ]
             },
             "if_action": {
-                "type": "origins:nothing"
+                "type": "apoli:nothing"
             },
             "else_action": {
-                "type": "origins:execute_command",
+                "type": "apoli:execute_command",
                 "command": "function mrt_supports:soulweaver/advancements/revoke-all"
             }
         }

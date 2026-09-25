@@ -4,27 +4,27 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "Shields you from harm, its protection grows with woven souls."
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "switch-effects": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_gained": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players set @s SW.LanternStrand 1"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/strands/strand-switch-player-vfx"
                 },
                 {
-                    "type": "origins:apply_effect",
+                    "type": "apoli:apply_effect",
                     "effect": {
                         "effect": "minecraft:slowness",
                         "amplifier": 5,
@@ -37,16 +37,16 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "mrt_supports:soulweaver/lantern/animations_lantern-display-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "scoreboard players set @s SW.LanternStrand 1"
                                 },
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/strands/strand-switch"
                                 }
                             ]
@@ -58,7 +58,7 @@
     },
     
     "ward-0-1": {
-        "type": "origins:modify_damage_taken",
+        "type": "apoli:modify_damage_taken",
         "modifier": {
             "operation": "multiply_total_multiplicative",
             "value": -0.10
@@ -72,13 +72,13 @@
     },
 
     "ward-2-3": {
-        "type": "origins:modify_damage_taken",
+        "type": "apoli:modify_damage_taken",
         "modifier": {
             "operation": "multiply_total_multiplicative",
             "value": -0.125
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:scoreboard",
@@ -97,7 +97,7 @@
     },
 
     "ward-4": {
-        "type": "origins:modify_damage_taken",
+        "type": "apoli:modify_damage_taken",
         "modifier": {
             "operation": "multiply_total_multiplicative",
             "value": -0.15
@@ -111,7 +111,7 @@
     },
 
     "ward-5": {
-        "type": "origins:modify_damage_taken",
+        "type": "apoli:modify_damage_taken",
         "modifier": {
             "operation": "multiply_total_multiplicative",
             "value": -0.20

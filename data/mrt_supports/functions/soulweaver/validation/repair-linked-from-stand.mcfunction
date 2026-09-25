@@ -7,4 +7,4 @@ execute in minecraft:overworld as @e[type=minecraft:armor_stand,tag=Supports.Sou
 execute if score $Stand Supports.SW.ID matches 1.. run scoreboard players operation @s Supports.SW.ID = $Stand Supports.SW.ID
 execute if score $Stand Supports.SW.LinkID matches 1.. run scoreboard players operation @s Supports.SW.LinkID = $Stand Supports.SW.LinkID
 tag @s add Supports.Soulweaver.LinkedEntity
-power grant @s mrt_supports:soulweaver/given/linked-player mrt_supports:soulweaver
+apoli:power grant @s mrt_supports:soulweaver/given/linked-player mrt_supports:soulweaver

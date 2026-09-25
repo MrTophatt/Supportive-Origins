@@ -1,9 +1,9 @@
 {
     "name": "Short Circut",
     "description": "You are water resistent, not water-proof. As such, you short circuit in bodies of water.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
     "water-damage": {
-        "type": "origins:damage_over_time",
+        "type": "apoli:damage_over_time",
         "interval": 20,
         "onset_delay": 1,
         "damage": 2,
@@ -12,21 +12,21 @@
         "protection_enchantment": "origins:water_protection",
         "protection_effectiveness": 1.0,
         "condition": {
-            "type": "origins:fluid_height",
+            "type": "apoli:fluid_height",
             "fluid": "minecraft:water",
             "comparison": ">",
             "compare_to": 0.0
         }
     },
     "short-circuit-feedback": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 40,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:alpha2/short-circuit-effects"
         },
         "condition": {
-            "type": "origins:fluid_height",
+            "type": "apoli:fluid_height",
             "fluid": "minecraft:water",
             "comparison": ">",
             "compare_to": 0.0

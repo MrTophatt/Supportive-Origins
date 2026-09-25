@@ -1,11 +1,11 @@
 {
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "set": {
         "type": "apoli:entity_set",
         "tick_rate": 1,
         "action_on_add": {
-            "type": "origins:invert",
+            "type": "apoli:invert",
             "action": {
                 "type": "apoli:add_to_entity_set",
                 "set": "*:soulweaver/given/stand-power_set"
@@ -18,7 +18,7 @@
     },
 
     "unravel-hit-glow": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.04,
         "green": 0.18,
@@ -30,15 +30,15 @@
     },
 
     "validate": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "conditions": [
                             {
                                 "type": "apoli:entity_set_size",
@@ -47,7 +47,7 @@
                                 "compare_to": 0
                             },
                             {
-                                "type": "origins:command",
+                                "type": "apoli:command",
                                 "command": "execute unless score @s Supports.SW.LinkID matches 1..",
                                 "comparison": "==",
                                 "compare_to": 1
@@ -55,32 +55,32 @@
                         ]
                     },
                     "if_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/validation/ensure-linkid"
                             },
                             {
                                 "type": "apoli:action_on_entity_set",
                                 "set": "*:*_set",
                                 "bientity_action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
-                                            "type": "sync:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "scoreboard players operation %t Supports.SW.ID = %a Supports.SW.ID",
                                             "actor_selector": "%a",
                                             "target_selector": "%t"
                                         },
                                         {
-                                            "type": "sync:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "scoreboard players operation %t Supports.SW.LinkID = %a Supports.SW.LinkID",
                                             "actor_selector": "%a",
                                             "target_selector": "%t"
                                         },
                                         {
-                                            "type": "origins:invert",
+                                            "type": "apoli:invert",
                                             "action": {
                                                 "type": "apoli:add_to_entity_set",
                                                 "set": "*:soulweaver/given/stand-power_set"
@@ -92,26 +92,26 @@
                         ]
                     },
                     "else_action": {
-                        "type": "origins:nothing"
+                        "type": "apoli:nothing"
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/validation/mark-matching-stand"
                 },
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:command",
+                        "type": "apoli:command",
                         "command": "execute if entity @s[tag=Supports.Soulweaver.HasValidationStand]",
                         "comparison": "==",
                         "compare_to": 1
                     },
                     "if_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:selector_action",
+                                "type": "apoli:selector_action",
                                 "selector": "@e[type=minecraft:armor_stand,tag=Supports.Soulweaver.ValidationStand,limit=1]",
                                 "bientity_action": {
                                     "type": "apoli:add_to_entity_set",
@@ -119,10 +119,10 @@
                                 }
                             },
                             {
-                                "type": "origins:selector_action",
+                                "type": "apoli:selector_action",
                                 "selector": "@e[type=minecraft:armor_stand,tag=Supports.Soulweaver.ValidationStand,limit=1]",
                                 "bientity_action": {
-                                    "type": "origins:invert",
+                                    "type": "apoli:invert",
                                     "action": {
                                         "type": "apoli:add_to_entity_set",
                                         "set": "*:soulweaver/given/stand-power_set"
@@ -130,19 +130,19 @@
                                 }
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/validation/repair-linked-from-stand"
                             }
                         ]
                     },
                     "else_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:selector_action",
+                                "type": "apoli:selector_action",
                                 "selector": "@a",
                                 "bientity_action": {
-                                    "type": "origins:invert",
+                                    "type": "apoli:invert",
                                     "action": {
                                         "type": "apoli:remove_from_entity_set",
                                         "set": "mrt_supports:soulweaver/link_linked-set"
@@ -150,10 +150,10 @@
                                 }
                             },
                             {
-                                "type": "origins:selector_action",
+                                "type": "apoli:selector_action",
                                 "selector": "@a",
                                 "bientity_action": {
-                                    "type": "origins:invert",
+                                    "type": "apoli:invert",
                                     "action": {
                                         "type": "apoli:remove_from_entity_set",
                                         "set": "mrt_supports:soulweaver/link_selected-set"
@@ -161,18 +161,18 @@
                                 }
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "title @s actionbar {\"text\":\"⚠ Your soul was unwoven while you were away\",\"color\":\"#21AEFF\",\"bold\":true}"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/validation/cleanup-linked-self"
                             }
                         ]
                     }
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/validation/clear-matching-stand"
                 }
             ]
@@ -185,17 +185,17 @@
             "filter": "^Unlink$",
             "prevent": true,
             "before_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "scoreboard players operation $Unlink Supports.SW.ID = @s Supports.SW.ID"
                     },
                     {
-                        "type": "origins:selector_action",
+                        "type": "apoli:selector_action",
                         "selector": "@a[tag=Supports.Soulweaver.Owner]",
                         "bientity_action": {
-                            "type": "origins:invert",
+                            "type": "apoli:invert",
                             "action": {
                                 "type": "apoli:remove_from_entity_set",
                                 "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
@@ -203,10 +203,10 @@
                         }
                     },
                     {
-                        "type": "origins:selector_action",
+                        "type": "apoli:selector_action",
                         "selector": "@a[tag=Supports.Soulweaver.Owner]",
                         "bientity_action": {
-                            "type": "origins:invert",
+                            "type": "apoli:invert",
                             "action": {
                                 "type": "apoli:remove_from_entity_set",
                                 "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set"
@@ -214,21 +214,21 @@
                         }
                     },
                     {
-                        "type": "origins:selector_action",
+                        "type": "apoli:selector_action",
                         "selector": "@a",
                         "bientity_action": {
-                            "type": "origins:if_else",
+                            "type": "apoli:if_else",
                             "condition": {
-                                "type": "origins:target_condition",
+                                "type": "apoli:target_condition",
                                 "condition": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "conditions": [
                                         {
-                                            "type": "origins:power",
+                                            "type": "apoli:power",
                                             "power": "mrt_supports:soulweaver/link"
                                         },
                                         {
-                                            "type": "origins:command",
+                                            "type": "apoli:command",
                                             "command": "execute if score @s Supports.SW.ID = $Unlink Supports.SW.ID",
                                             "comparison": "==",
                                             "compare_to": 1
@@ -237,20 +237,20 @@
                                 }
                             },
                             "if_action": {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %t run tellraw @s [{\"selector\":\"%a\",\"color\":\"#21AEFF\",\"bold\":true},{\"text\":\" has severed the thread\",\"color\":\"#21AEFF\",\"bold\":true}]",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             "else_action": {
-                                "type": "origins:nothing"
+                                "type": "apoli:nothing"
                             }
                         }
                     },
                     {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
-                            "type": "origins:command",
+                            "type": "apoli:command",
                             "command": "execute as @a[tag=Supports.Soulweaver.Owner] if score @s Supports.SW.ID = $Unlink Supports.SW.ID",
                             "comparison": "==",
                             "compare_to": 0
@@ -259,24 +259,24 @@
                             "type": "apoli:action_on_entity_set",
                             "set": "*:*_set",
                             "bientity_action": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "actions": [
                                     {
-                                        "type": "sync:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "execute in minecraft:overworld run summon armor_stand 8 -60 8 {NoGravity:1b,Invulnerable:1b,Invisible:1b,Marker:1b,CustomName:'[{\"selector\":\"%a\",\"color\":\"#21AEFF\",\"bold\":true}]',Tags:[\"Supports.Soulweaver.PendingSevered\",\"Supports.Soulweaver.NewPendingSevered\"]}",
                                         "actor_selector": "%a",
                                         "target_selector": "%t"
                                     },
                                     {
-                                        "type": "sync:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "execute in minecraft:overworld as @e[type=minecraft:armor_stand,tag=Supports.Soulweaver.NewPendingSevered,limit=1,sort=nearest] run scoreboard players operation @s Supports.SW.ID = %t Supports.SW.ID",
                                         "actor_selector": "%a",
                                         "target_selector": "%t"
                                     },
                                     {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "execute in minecraft:overworld run tag @e[type=minecraft:armor_stand,tag=Supports.Soulweaver.NewPendingSevered] remove Supports.Soulweaver.NewPendingSevered"
                                         }
                                     }
@@ -284,14 +284,14 @@
                             }
                         },
                         "else_action": {
-                            "type": "origins:nothing"
+                            "type": "apoli:nothing"
                         }
                     },
                     {
-                        "type": "origins:selector_action",
+                        "type": "apoli:selector_action",
                         "selector": "@a",
                         "bientity_action": {
-                            "type": "origins:invert",
+                            "type": "apoli:invert",
                             "action": {
                                 "type": "apoli:remove_from_entity_set",
                                 "set": "mrt_supports:soulweaver/link_linked-set"
@@ -299,10 +299,10 @@
                         }
                     },
                     {
-                        "type": "origins:selector_action",
+                        "type": "apoli:selector_action",
                         "selector": "@a",
                         "bientity_action": {
-                            "type": "origins:invert",
+                            "type": "apoli:invert",
                             "action": {
                                 "type": "apoli:remove_from_entity_set",
                                 "set": "mrt_supports:soulweaver/link_selected-set"
@@ -313,27 +313,27 @@
                         "type": "apoli:action_on_entity_set",
                         "set": "*:*_set",
                         "bientity_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "kill @s"
                             }
                         }
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/validation/kill-matching-stand"
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "title @s actionbar {\"text\":\"⚠ You have unwoven your soul\",\"color\":\"#21AEFF\",\"bold\":true}"
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/effects/unlink-self"
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/validation/cleanup-linked-self"
                     }
                 ]
@@ -342,13 +342,13 @@
     },
 
     "callback": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_added": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "tag @s add Supports.Soulweaver.LinkedEntity"
         },
         "entity_action_removed": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:soulweaver/buffs/clear"
         }
     }

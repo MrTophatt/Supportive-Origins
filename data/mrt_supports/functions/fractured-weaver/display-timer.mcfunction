@@ -1,4 +1,4 @@
-execute store result score @s SW.FractureTime run resource get @s mrt_supports:fractured-weaver/timer_timer
+execute store result score @s SW.FractureTime run apoli:resource get @s mrt_supports:fractured-weaver/timer_timer
 scoreboard players operation @s SW.FracMin = @s SW.FractureTime
 scoreboard players operation @s SW.FracMin /= #TwelveHundred ml.tmp
 scoreboard players operation @s SW.FracSec = @s SW.FractureTime

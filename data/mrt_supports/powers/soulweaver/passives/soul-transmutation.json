@@ -4,14 +4,14 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "Soul sand or soul soil can be crafted with sand, dirt, lanterns, torches, and campfires."
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "sand-to-soul-sand": {
-        "type": "origins:recipe",
+        "type": "apoli:recipe",
         "recipe": {
             "id": "mrt_supports:soul_sand_from_sand",
             "type": "minecraft:crafting_shapeless",
@@ -31,7 +31,7 @@
     },
 
     "dirt-to-soul-soil": {
-        "type": "origins:recipe",
+        "type": "apoli:recipe",
         "recipe": {
             "id": "mrt_supports:soul_soil_from_dirt",
             "type": "minecraft:crafting_shapeless",
@@ -51,7 +51,7 @@
     },
 
     "soul-lantern": {
-        "type": "origins:recipe",
+        "type": "apoli:recipe",
         "recipe": {
             "id": "mrt_supports:soul_lantern",
             "type": "minecraft:crafting_shapeless",
@@ -70,7 +70,7 @@
     },
 
     "soul-torch": {
-        "type": "origins:recipe",
+        "type": "apoli:recipe",
         "recipe": {
             "id": "mrt_supports:soul_torch",
             "type": "minecraft:crafting_shapeless",
@@ -89,7 +89,7 @@
     },
 
     "soul-campfire": {
-        "type": "origins:recipe",
+        "type": "apoli:recipe",
         "recipe": {
             "id": "mrt_supports:soul_campfire",
             "type": "minecraft:crafting_shapeless",

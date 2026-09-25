@@ -1,10 +1,10 @@
 {
     "name": "Power Saving Mode",
     "description": "At 0 energy, you enter Power Saving Mode, take 1 HP of damage every 5 seconds, and cannot use powered abilities. Normal operation resumes only after recharging to at least 5 energy.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "low-power-state": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
@@ -13,26 +13,26 @@
         }
     },
     "enter-low-power": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:if_else",
+                    "type": "apoli:if_else",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:alpha2/advancements/tracking_ability-use-guard",
                         "comparison": "==",
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:grant_advancement",
+                        "type": "apoli:grant_advancement",
                         "advancement": "mrt_supports:alpha2/running_on_fumes"
                     }
                 },
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
                     "operation": "set",
                     "change": 1
@@ -40,15 +40,15 @@
             ]
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:food_level",
+                    "type": "apoli:food_level",
                     "comparison": "<=",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
                     "comparison": "==",
                     "compare_to": 0
@@ -57,24 +57,24 @@
         }
     },
     "exit-low-power": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
             "operation": "set",
             "change": 0
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:food_level",
+                    "type": "apoli:food_level",
                     "comparison": ">=",
                     "compare_to": 5
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
                     "comparison": "==",
                     "compare_to": 1
@@ -83,7 +83,7 @@
         }
     },
     "system-failure-damage": {
-        "type": "origins:damage_over_time",
+        "type": "apoli:damage_over_time",
         "interval": 100,
         "onset_delay": 1,
         "damage": 1,
@@ -92,7 +92,7 @@
         "protection_enchantment": "minecraft:protection",
         "protection_effectiveness": 1.0,
         "condition": {
-            "type": "origins:resource",
+            "type": "apoli:resource",
             "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
             "comparison": "==",
             "compare_to": 1
@@ -100,7 +100,7 @@
     },
 
     "speed": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "multiply_total",
@@ -108,44 +108,44 @@
         },
         "tick_rate": 1,
         "condition": {
-            "type": "origins:resource",
+            "type": "apoli:resource",
             "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
             "comparison": "==",
             "compare_to": 1
         }
     },
     "no-block-use": {
-        "type": "origins:prevent_block_use",
+        "type": "apoli:prevent_block_use",
         "block_condition": {
-            "type": "origins:hardness",
+            "type": "apoli:hardness",
             "comparison": ">=",
             "compare_to": 0
         },
         "condition": {
-            "type": "origins:resource",
+            "type": "apoli:resource",
             "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
             "comparison": "==",
             "compare_to": 1
         }
     },
     "no-block-select": {
-        "type": "origins:prevent_block_selection",
+        "type": "apoli:prevent_block_selection",
         "condition": {
-            "type": "origins:resource",
+            "type": "apoli:resource",
             "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
             "comparison": "==",
             "compare_to": 1
         }
     },
     "low-power-sound": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 100,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:alpha2/power-saving-effects"
         },
         "condition": {
-            "type": "origins:resource",
+            "type": "apoli:resource",
             "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
             "comparison": "==",
             "compare_to": 1

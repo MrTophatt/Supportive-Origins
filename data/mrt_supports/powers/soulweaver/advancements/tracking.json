@@ -1,19 +1,19 @@
 {
     "hidden": true,
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "full-tapestry": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 20,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/advancements/link-milestones"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/advancements/full-tapestry"
                 }
             ]
@@ -21,13 +21,13 @@
     },
 
     "personal-space": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/advancements/lantern-look-start"
                 },
                 {
@@ -40,13 +40,13 @@
                     "command_along_ray": "function mrt_supports:soulweaver/advancements/lantern-look-sample"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/advancements/lantern-look-finish"
                 }
             ]
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -55,7 +55,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:command",
+                    "type": "apoli:command",
                     "command": "execute unless entity @s[advancements={mrt_supports:soulweaver/personal_space=true}]",
                     "comparison": "==",
                     "compare_to": 1
@@ -65,10 +65,10 @@
     },
 
     "lone-soul-link-check": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "tag @s add Supports.Soulweaver.Adv.LoneSoulFailed"
         },
         "condition": {

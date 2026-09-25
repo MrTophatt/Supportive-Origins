@@ -114,4 +114,4 @@ scoreboard players set #NegOne ml.tmp -1
 scoreboard players set #Twenty ml.tmp 20
 scoreboard players set #Two ml.tmp 2
 scoreboard players set #TwelveHundred ml.tmp 1200
-execute in minecraft:overworld run power grant @e[type=minecraft:armor_stand,tag=Supports.Soulweaver.Linked] mrt_supports:soulweaver/given/stand-power mrt_supports:soulweaver
+execute in minecraft:overworld run apoli:power grant @e[type=minecraft:armor_stand,tag=Supports.Soulweaver.Linked] mrt_supports:soulweaver/given/stand-power mrt_supports:soulweaver

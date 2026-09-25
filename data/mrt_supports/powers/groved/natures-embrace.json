@@ -1,38 +1,42 @@
 {
     "name": "Natures Embrace",
     "description": "Heal those around you. Sacrifice a flower, mushroom, or fungus to spread its unique effect through the surrounding area.",
-    "type": "origins:active_self",
+    "type": "apoli:active_self",
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    },
     "entity_action": {
-        "type": "origins:and",
+        "type": "apoli:and",
         "actions": [
             {
-                "type": "origins:execute_command",
+                "type": "apoli:execute_command",
                 "command": "function mrt_supports:groved/advancements/natures-embrace/used"
             },
             {
-                "type": "origins:if_else_list",
+                "type": "apoli:if_else_list",
                 "actions": [
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:lilac"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:health_boost",
                                                 "amplifier": 3,
@@ -43,10 +47,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -54,25 +58,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:pink_petals"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:slow_falling",
                                                 "duration": 300
@@ -82,10 +86,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -93,25 +97,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:poppy"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:regeneration",
                                                 "duration": 160
@@ -121,10 +125,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -132,25 +136,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:rose_bush"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:strength",
                                                 "duration": 200
@@ -160,10 +164,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -171,25 +175,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:peony"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:resistance",
                                                 "duration": 300
@@ -199,10 +203,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -210,25 +214,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:sunflower"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:fire_resistance",
                                                 "duration": 300
@@ -238,10 +242,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -249,25 +253,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:dandelion"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:saturation",
                                                 "duration": 100
@@ -277,10 +281,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -288,25 +292,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:blue_orchid"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:water_breathing",
                                                 "duration": 600
@@ -316,10 +320,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -327,25 +331,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:allium"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:invisibility",
                                                 "duration": 300
@@ -355,10 +359,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -366,25 +370,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "tag": "mrt_supports:tulips"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:speed",
                                                 "duration": 200
@@ -394,10 +398,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -405,25 +409,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:azure_bluet"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:night_vision",
                                                 "duration": 600
@@ -433,10 +437,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -444,25 +448,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:lily_of_the_valley"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:luck",
                                                 "amplifier": 1,
@@ -473,10 +477,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -484,25 +488,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:oxeye_daisy"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:absorption",
                                                 "duration": 200
@@ -512,10 +516,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -523,25 +527,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:cornflower"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:jump_boost",
                                                 "amplifier": 1,
@@ -552,10 +556,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -563,25 +567,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:torchflower"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:haste",
                                                 "duration": 600
@@ -591,10 +595,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -602,25 +606,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:pitcher_plant"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:conduit_power",
                                                 "duration": 600
@@ -630,10 +634,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -641,25 +645,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:wither_rose"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:wither",
                                                 "amplifier": 1,
@@ -670,10 +674,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -681,25 +685,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:brown_mushroom"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:blindness",
                                                 "duration": 160
@@ -709,10 +713,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -720,25 +724,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:red_mushroom"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:nausea",
                                                 "duration": 200
@@ -748,10 +752,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -759,25 +763,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:crimson_fungus"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:glowing",
                                                 "duration": 600
@@ -787,10 +791,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -798,25 +802,25 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:inventory",
+                            "type": "apoli:inventory",
                             "slot": "weapon.mainhand",
                             "item_condition": {
-                                "type": "origins:ingredient",
+                                "type": "apoli:ingredient",
                                 "ingredient": {
                                     "item": "minecraft:warped_fungus"
                                 }
                             }
                         },
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:area_of_effect",
+                                    "type": "apoli:area_of_effect",
                                     "radius": 5,
                                     "bientity_action": {
-                                        "type": "origins:target_action",
+                                        "type": "apoli:target_action",
                                         "action": {
-                                            "type": "origins:apply_effect",
+                                            "type": "apoli:apply_effect",
                                             "effect": {
                                                 "effect": "minecraft:levitation",
                                                 "duration": 100
@@ -826,10 +830,10 @@
                                     "include_target": true
                                 },
                                 {
-                                    "type": "origins:modify_inventory",
+                                    "type": "apoli:modify_inventory",
                                     "slot": "weapon.mainhand",
                                     "item_action": {
-                                        "type": "origins:consume"
+                                        "type": "apoli:consume"
                                     }
                                 }
                             ]
@@ -838,16 +842,16 @@
                 ]
             },
             {
-                "type": "origins:execute_command",
+                "type": "apoli:execute_command",
                 "command": "function mrt_supports:groved/natures-embrace-effects"
             },
             {
-                "type": "origins:area_of_effect",
+                "type": "apoli:area_of_effect",
                 "radius": 5,
                 "bientity_action": {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:heal",
+                        "type": "apoli:heal",
                         "amount": 5
                     }
                 },
@@ -857,7 +861,7 @@
     },
     "cooldown": 600,
     "hud_render": {
-        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+        "sprite_location": "origins:textures/gui/sprites/hud_render/spiderkolo/resource_bar_02.png",
         "bar_index": 22
     }
 }

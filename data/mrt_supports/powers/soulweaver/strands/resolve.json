@@ -4,7 +4,7 @@
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "Steadies your body against force and hastens the passing of harmful effects."
         },
         {
@@ -16,23 +16,23 @@
             }
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "switch-effects": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_gained": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players set @s SW.LanternStrand 4"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "function mrt_supports:soulweaver/strands/strand-switch-player-vfx"
                 },
                 {
-                    "type": "origins:apply_effect",
+                    "type": "apoli:apply_effect",
                     "effect": {
                         "effect": "minecraft:slowness",
                         "amplifier": 5,
@@ -45,16 +45,16 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "mrt_supports:soulweaver/lantern/animations_lantern-display-set",
                     "bientity_action": {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "scoreboard players set @s SW.LanternStrand 4"
                                 },
                                 {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/strands/strand-switch"
                                 }
                             ]
@@ -66,7 +66,7 @@
     },
     
     "knockback-4": {
-        "type": "origins:attribute",
+        "type": "apoli:attribute",
         "modifier": {
             "attribute": "minecraft:generic.knockback_resistance",
             "operation": "addition",
@@ -80,7 +80,7 @@
         }
     },
     "effects-4": {
-        "type": "origins:modify_status_effect_duration",
+        "type": "apoli:modify_status_effect_duration",
         "status_effects": [
             "minecraft:slowness",
             "minecraft:mining_fatigue",
@@ -106,7 +106,7 @@
     },
 
     "knockback-5": {
-        "type": "origins:attribute",
+        "type": "apoli:attribute",
         "modifier": {
             "attribute": "minecraft:generic.knockback_resistance",
             "operation": "addition",
@@ -120,7 +120,7 @@
         }
     },
     "effects-5": {
-        "type": "origins:modify_status_effect_duration",
+        "type": "apoli:modify_status_effect_duration",
         "status_effects": [
             "minecraft:slowness",
             "minecraft:mining_fatigue",

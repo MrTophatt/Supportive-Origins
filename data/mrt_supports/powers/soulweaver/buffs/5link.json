@@ -1,9 +1,9 @@
 {
     "hidden": true,
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "woven-speed": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "multiply_total",
@@ -17,7 +17,7 @@
         }
     },
     "woven-mining-speed": {
-        "type": "origins:modify_break_speed",
+        "type": "apoli:modify_break_speed",
         "modifier": {
             "operation": "multiply_base",
             "value": 0.30
@@ -30,7 +30,7 @@
         }
     },
     "woven-health": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.max_health",
             "operation": "addition",
@@ -46,7 +46,7 @@
         }
     },
     "woven-nightvision": {
-        "type": "origins:night_vision",
+        "type": "apoli:night_vision",
         "strength": 1,
         "condition": {
             "type": "origins:origin",
@@ -57,7 +57,7 @@
     },
 
     "weaver-speed": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.movement_speed",
             "operation": "multiply_total",
@@ -70,7 +70,7 @@
         }
     },
     "weaver-mining-speed": {
-        "type": "origins:modify_break_speed",
+        "type": "apoli:modify_break_speed",
         "modifier": {
             "operation": "multiply_base",
             "value": 0.30
@@ -82,7 +82,7 @@
         }
     },
     "weaver-health": {
-        "type": "origins:conditioned_attribute",
+        "type": "apoli:conditioned_attribute",
         "modifier": {
             "attribute": "minecraft:generic.max_health",
             "operation": "addition",
@@ -97,7 +97,7 @@
         }
     },
     "weaver-nightvision": {
-        "type": "origins:night_vision",
+        "type": "apoli:night_vision",
         "strength": 0.5,
         "condition": {
             "type": "origins:origin",

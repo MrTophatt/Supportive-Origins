@@ -4,17 +4,18 @@
     "badges": [
         {
             "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/active.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/active.png",
+            "key": "key.origins.nonary_active",
             "text": "Guard the selected woven soul using %s"
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "You cannot Guard a woven soul that is also Resonated."
         },
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/info.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/info.png",
             "text": "Saving a guarded soul prevents you from selecting another Guardian for 1 hour."
         },
         {
@@ -26,30 +27,30 @@
             }
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "guarded-set": {
         "type": "apoli:entity_set",
         "action_on_add": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "sync:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation %t SW.GuardianID = %a Supports.SW.ID",
                     "actor_selector": "%a",
                     "target_selector": "%t"
                 },
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:execute_command",
-                                "command": "power grant @s mrt_supports:soulweaver/given/guarded-soul mrt_supports:guardian_weaver"
+                                "type": "apoli:execute_command",
+                                "command": "apoli:power grant @s mrt_supports:soulweaver/given/guarded-soul mrt_supports:guardian_weaver"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s add Supports.Soulweaver.Guarded"
                             }
                         ]
@@ -58,16 +59,16 @@
             ]
         },
         "action_on_remove": {
-            "type": "origins:target_action",
+            "type": "apoli:target_action",
             "action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:execute_command",
-                        "command": "power revoke @s mrt_supports:soulweaver/given/guarded-soul mrt_supports:guardian_weaver"
+                        "type": "apoli:execute_command",
+                        "command": "apoli:power revoke @s mrt_supports:soulweaver/given/guarded-soul from mrt_supports:guardian_weaver"
                     },
                     {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/guardian/clear-guarded-soul"
                     }
                 ]
@@ -80,39 +81,39 @@
     },
     
     "save-cooldown": {
-        "type": "origins:cooldown",
+        "type": "apoli:cooldown",
         "cooldown": 72000,
         "hud_render": {
             "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "sprite_location": "origins:textures/gui/sprites/hud_render/huang/resource_bar_01.png",
             "bar_index": 6
         }
     },
     "select": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/link_selected-set",
             "bientity_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
                     "type": "apoli:in_entity_set",
                     "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
                 },
                 "if_action": {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "actions": [
                         {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute at @s run playsound minecraft:entity.allay.item_thrown player @a[distance=..24] ~ ~ ~ 0.8 0.75"
                             }
                         },
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute at @s run playsound minecraft:entity.allay.item_thrown player @a[distance=..24] ~ ~ ~ 0.8 0.75"
                             }
                         },
@@ -123,28 +124,28 @@
                     ]
                 },
                 "else_action": {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "actions": [
                         {
                             "type": "apoli:add_to_entity_set",
                             "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
                         },
                         {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute at @s run playsound minecraft:block.respawn_anchor.charge player @a[distance=..24] ~ ~ ~ 0.9 1.20"
                             }
                         },
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute at @s run playsound minecraft:block.respawn_anchor.charge player @a[distance=..24] ~ ~ ~ 0.9 1.20"
                             }
                         },
                         {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
                                 "type": "apoli:action_on_entity_set",
                                 "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set",
@@ -160,7 +161,7 @@
                             }
                         },
                         {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
                                 "type": "apoli:action_on_entity_set",
                                 "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set",
@@ -169,19 +170,19 @@
                                     "set": "mrt_supports:soulweaver/link_selected-set"
                                 },
                                 "bientity_action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:execute_command",
+                                                "type": "apoli:execute_command",
                                                 "command": "function mrt_supports:soulweaver/resonance/deselect-effect"
                                             }
                                         },
                                         {
-                                            "type": "origins:actor_action",
+                                            "type": "apoli:actor_action",
                                             "action": {
-                                                "type": "origins:execute_command",
+                                                "type": "apoli:execute_command",
                                                 "command": "function mrt_supports:soulweaver/resonance/deselect-effect"
                                             }
                                         },
@@ -205,7 +206,7 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -220,7 +221,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/linked-powers/guardian-weaver_save-cooldown",
                     "comparison": "==",
                     "compare_to": 0
@@ -229,16 +230,16 @@
         }
     },
     "not-enough-links-message": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "*:soulweaver/passives/see-health_cooldown"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "title @s actionbar {\"text\":\"Need 5 woven souls to use Guardian Weaver\",\"color\":\"#21AEFF\",\"bold\":true}"
                 }
             ]
@@ -259,16 +260,16 @@
         }
     },
     "cooldown-message": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "*:soulweaver/passives/see-health_cooldown"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "title @s actionbar {\"text\":\"Guardian Weaver is still recovering\",\"color\":\"#21AEFF\",\"bold\":true}"
                 }
             ]
@@ -282,7 +283,7 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -291,7 +292,7 @@
                     "compare_to": 5
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/linked-powers/guardian-weaver_save-cooldown",
                     "comparison": ">",
                     "compare_to": 0
@@ -300,16 +301,16 @@
         }
     },
     "no-selection-message": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "*:soulweaver/passives/see-health_cooldown"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "title @s actionbar {\"text\":\"Select a woven soul to use Guardian Weaver\",\"color\":\"#21AEFF\",\"bold\":true}"
                 }
             ]
@@ -323,7 +324,7 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -338,7 +339,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:soulweaver/linked-powers/guardian-weaver_save-cooldown",
                     "comparison": "==",
                     "compare_to": 0
@@ -347,15 +348,15 @@
         }
     },
     "maintain": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set",
             "bientity_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:or",
+                    "type": "apoli:or",
                     "conditions": [
                         {
                             "type": "apoli:in_entity_set",
@@ -363,7 +364,7 @@
                             "inverted": true
                         },
                         {
-                            "type": "origins:actor_condition",
+                            "type": "apoli:actor_condition",
                             "condition": {
                                 "type": "apoli:entity_set_size",
                                 "set": "mrt_supports:soulweaver/link_stand-set",
@@ -387,13 +388,13 @@
         }
     },
     "guarded-glow": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.0,
         "green": 0.30,
         "blue": 0.68,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -408,13 +409,13 @@
         }
     },
     "selected-guarded-glow": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.0,
         "green": 0.72,
         "blue": 0.90,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -428,13 +429,13 @@
         }
     },
     "guarded-indicator-glow": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.0,
         "green": 0.30,
         "blue": 0.68,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -453,13 +454,13 @@
         }
     },
     "selected-guarded-indicator-glow": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.0,
         "green": 0.72,
         "blue": 0.90,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -477,70 +478,70 @@
         }
     },
     "rescue-guarded-soul": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set",
             "bientity_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:target_condition",
+                    "type": "apoli:target_condition",
                     "condition": {
-                                        "type": "origins:nbt",
+                                        "type": "apoli:nbt",
                                         "nbt": "{Tags:[\"Supports.Soulweaver.GuardianSaved\"]}"
                     }
                 },
                 "if_action": {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "actions": [
                         {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "actions": [
                                     {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/guardian/save-weaver"
                                     },
                                     {
-                                        "type": "origins:grant_advancement",
+                                        "type": "apoli:grant_advancement",
                                         "advancement": "mrt_supports:soulweaver/guardian_angel"
                                     },
                                     {
-                                        "type": "origins:trigger_cooldown",
+                                        "type": "apoli:trigger_cooldown",
                                         "power": "mrt_supports:soulweaver/linked-powers/guardian-weaver_save-cooldown"
                                     },
                                     {
-                                        "type": "origins:trigger_cooldown",
+                                        "type": "apoli:trigger_cooldown",
                                         "power": "mrt_supports:soulweaver/linked-powers/soul-recall_all-tp-cooldown"
                                     },
                                     {
-                                        "type": "origins:trigger_cooldown",
+                                        "type": "apoli:trigger_cooldown",
                                         "power": "mrt_supports:soulweaver/linked-powers/cleanse_cleanse"
                                     },
                                     {
-                                        "type": "origins:if_else",
+                                        "type": "apoli:if_else",
                                         "condition": {
-                                            "type": "origins:power_active",
+                                            "type": "apoli:power_active",
                                             "power": "mrt_supports:soulweaver/linked-powers/veil-beyond_toggle"
                                         },
                                         "if_action": {
-                                            "type": "origins:toggle",
+                                            "type": "apoli:toggle",
                                             "power": "mrt_supports:soulweaver/linked-powers/veil-beyond_toggle"
                                         },
                                         "else_action": {
-                                            "type": "origins:nothing"
+                                            "type": "apoli:nothing"
                                         }
                                     },
                                     {
-                                        "type": "origins:change_resource",
+                                        "type": "apoli:change_resource",
                                         "resource": "mrt_supports:soulweaver/linked-powers/veil-beyond_resource",
                                         "operation": "set",
                                         "change": 0
                                     },
                                     {
-                                        "type": "origins:change_resource",
+                                        "type": "apoli:change_resource",
                                         "resource": "mrt_supports:soulweaver/linked-powers/veil-beyond_delay",
                                         "operation": "set",
                                         "change": 0
@@ -549,29 +550,29 @@
                             }
                         },
                         {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
-                                "type": "origins:trigger_cooldown",
+                                "type": "apoli:trigger_cooldown",
                                 "power": "*:soulweaver/passives/see-health_cooldown"
                             }
                         },
                         {
-                            "type": "sync:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "execute as %a run title @s actionbar [{\"text\":\"You saved \",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\",\"bold\":true}]",
                             "actor_selector": "%a",
                             "target_selector": "%t"
                         },
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/effects/unlink-owner"
                             }
                         },
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/validation/cleanup-linked-self"
                             }
                         },
@@ -592,9 +593,9 @@
                             "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
                         },
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s remove Supports.Soulweaver.GuardianSaved"
                             }
                         }
@@ -604,7 +605,7 @@
         }
     },
     "cleanup": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_added": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set",

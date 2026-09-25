@@ -4,7 +4,8 @@
     "badges": [
         {
             "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/active.png",
+            "sprite": "origins:textures/gui/badge/isaacfanta/active.png",
+            "key": "key.origins.senary_active",
             "text": "Resonate with the selected woven soul using %s"
         },
         {
@@ -16,17 +17,17 @@
             }
         }
     ],
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "resonance-toggled": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 2,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "tag @s remove Supports.Soulweaver.ResonanceToggled"
         },
         "condition": {
-            "type": "origins:command",
+            "type": "apoli:command",
             "command": "execute if entity @s[tag=Supports.Soulweaver.ResonanceToggled]",
             "comparison": "==",
             "compare_to": 1
@@ -36,30 +37,30 @@
     "resonate-set": {
         "type": "apoli:entity_set",
         "action_on_add": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "sync:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "scoreboard players operation %t SW.StrandLinks = %a SW.BuffLevel",
                     "actor_selector": "%a",
                     "target_selector": "%t"
                 },
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:execute_command",
-                        "command": "power grant @s mrt_supports:soulweaver/strands/force-pulse-cooldown mrt_supports:resonant_strand_cooldown"
+                        "type": "apoli:execute_command",
+                        "command": "apoli:power grant @s mrt_supports:soulweaver/strands/force-pulse-cooldown mrt_supports:resonant_strand_cooldown"
                     }
                 }
             ]
         },
         "action_on_remove": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:target_action",
+                    "type": "apoli:target_action",
                     "action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
                                 "type": "apoli:revoke_all_powers",
@@ -70,20 +71,20 @@
                                 "source": "mrt_supports:resonant_strand"
                             },
                             {
-                                "type": "origins:execute_command",
-                                "command": "power revoke @s mrt_supports:soulweaver/strands/force-pulse-cooldown mrt_supports:resonant_strand_cooldown"
+                                "type": "apoli:execute_command",
+                                "command": "apoli:power revoke @s mrt_supports:soulweaver/strands/force-pulse-cooldown from mrt_supports:resonant_strand_cooldown"
                             },
                             {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "scoreboard players reset @s SW.StrandLinks"
                             }
                         ]
                     }
                 },
                 {
-                    "type": "origins:actor_action",
+                    "type": "apoli:actor_action",
                     "action": {
-                        "type": "origins:execute_command",
+                        "type": "apoli:execute_command",
                         "command": "function mrt_supports:soulweaver/advancements/perfect-resonance/reset"
                     }
                 }
@@ -92,13 +93,13 @@
     },
 
     "share-link-count": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set",
             "bientity_action": {
-                "type": "sync:execute_command",
+                "type": "apoli:execute_command",
                 "command": "scoreboard players operation %t SW.StrandLinks = %a SW.BuffLevel",
                 "actor_selector": "%a",
                 "target_selector": "%t"
@@ -111,15 +112,15 @@
     },
 
     "strands-function": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 1,
         "start_value": 0,
         "max_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:change_resource",
+                    "type": "apoli:change_resource",
                     "resource": "*:*_strands-function",
                     "operation": "set",
                     "change": 0
@@ -128,12 +129,12 @@
                     "type": "apoli:action_on_entity_set",
                     "set": "*:*_resonate-set",
                     "bientity_action": {
-                        "type": "origins:and",
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:target_action",
+                                "type": "apoli:target_action",
                                 "action": {
-                                    "type": "origins:and",
+                                    "type": "apoli:and",
                                     "actions": [
                                         {
                                             "type": "apoli:revoke_all_powers",
@@ -147,33 +148,33 @@
                                 }
                             },
                             {
-                                "type": "origins:actor_action",
+                                "type": "apoli:actor_action",
                                 "action": {
-                                    "type": "origins:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "function mrt_supports:soulweaver/advancements/perfect-resonance/record"
                                 }
                             },
                             {
-                                "type": "origins:if_else_list",
+                                "type": "apoli:if_else_list",
                                 "actions": [
                                     {
                                         "condition": {
-                                            "type": "origins:actor_condition",
+                                            "type": "apoli:actor_condition",
                                             "condition": {
-                                                "type": "origins:resource",
+                                                "type": "apoli:resource",
                                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                 "comparison": "==",
                                                 "compare_to": 0
                                             }
                                         },
                                         "action": {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:and",
+                                                "type": "apoli:and",
                                                 "actions": [
                                                     {
-                                                        "type": "origins:execute_command",
-                                                        "command": "power grant @s mrt_supports:soulweaver/strands/renewal mrt_supports:soulweaver/strands"
+                                                        "type": "apoli:execute_command",
+                                                        "command": "apoli:power grant @s mrt_supports:soulweaver/strands/renewal mrt_supports:soulweaver/strands"
                                                     }
                                                 ]
                                             }
@@ -181,22 +182,22 @@
                                     },
                                     {
                                         "condition": {
-                                            "type": "origins:actor_condition",
+                                            "type": "apoli:actor_condition",
                                             "condition": {
-                                                "type": "origins:resource",
+                                                "type": "apoli:resource",
                                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                 "comparison": "==",
                                                 "compare_to": 1
                                             }
                                         },
                                         "action": {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:and",
+                                                "type": "apoli:and",
                                                 "actions": [
                                                     {
-                                                        "type": "origins:execute_command",
-                                                        "command": "power grant @s mrt_supports:soulweaver/strands/warding mrt_supports:soulweaver/strands"
+                                                        "type": "apoli:execute_command",
+                                                        "command": "apoli:power grant @s mrt_supports:soulweaver/strands/warding mrt_supports:soulweaver/strands"
                                                     }
                                                 ]
                                             }
@@ -204,22 +205,22 @@
                                     },
                                     {
                                         "condition": {
-                                            "type": "origins:actor_condition",
+                                            "type": "apoli:actor_condition",
                                             "condition": {
-                                                "type": "origins:resource",
+                                                "type": "apoli:resource",
                                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                 "comparison": "==",
                                                 "compare_to": 2
                                             }
                                         },
                                         "action": {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:and",
+                                                "type": "apoli:and",
                                                 "actions": [
                                                     {
-                                                        "type": "origins:execute_command",
-                                                        "command": "power grant @s mrt_supports:soulweaver/strands/fervor mrt_supports:soulweaver/strands"
+                                                        "type": "apoli:execute_command",
+                                                        "command": "apoli:power grant @s mrt_supports:soulweaver/strands/fervor mrt_supports:soulweaver/strands"
                                                     }
                                                 ]
                                             }
@@ -227,22 +228,22 @@
                                     },
                                     {
                                         "condition": {
-                                            "type": "origins:actor_condition",
+                                            "type": "apoli:actor_condition",
                                             "condition": {
-                                                "type": "origins:resource",
+                                                "type": "apoli:resource",
                                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                 "comparison": "==",
                                                 "compare_to": 3
                                             }
                                         },
                                         "action": {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:and",
+                                                "type": "apoli:and",
                                                 "actions": [
                                                     {
-                                                        "type": "origins:execute_command",
-                                                        "command": "power grant @s mrt_supports:soulweaver/strands/force mrt_supports:soulweaver/strands"
+                                                        "type": "apoli:execute_command",
+                                                        "command": "apoli:power grant @s mrt_supports:soulweaver/strands/force mrt_supports:soulweaver/strands"
                                                     }
                                                 ]
                                             }
@@ -250,22 +251,22 @@
                                     },
                                     {
                                         "condition": {
-                                            "type": "origins:actor_condition",
+                                            "type": "apoli:actor_condition",
                                             "condition": {
-                                                "type": "origins:resource",
+                                                "type": "apoli:resource",
                                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                 "comparison": "==",
                                                 "compare_to": 4
                                             }
                                         },
                                         "action": {
-                                            "type": "origins:target_action",
+                                            "type": "apoli:target_action",
                                             "action": {
-                                                "type": "origins:and",
+                                                "type": "apoli:and",
                                                 "actions": [
                                                     {
-                                                        "type": "origins:execute_command",
-                                                        "command": "power grant @s mrt_supports:soulweaver/strands/resolve mrt_supports:soulweaver/strands"
+                                                        "type": "apoli:execute_command",
+                                                        "command": "apoli:power grant @s mrt_supports:soulweaver/strands/resolve mrt_supports:soulweaver/strands"
                                                     }
                                                 ]
                                             }
@@ -281,40 +282,40 @@
     },
 
     "select": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
                     "type": "apoli:action_on_entity_set",
                     "set": "mrt_supports:soulweaver/link_selected-set",
                     "bientity_action": {
-                        "type": "origins:if_else",
+                        "type": "apoli:if_else",
                         "condition": {
                             "type": "apoli:in_entity_set",
                             "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set"
                         },
                         "if_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "tag @s add Supports.Soulweaver.ResonanceToggled"
                                     }
                                 },
                                 {
-                                    "type": "origins:target_action",
+                                    "type": "apoli:target_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/resonance/deselect-effect"
                                     }
                                 },
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "function mrt_supports:soulweaver/resonance/deselect-effect"
                                     }
                                 },
@@ -329,14 +330,14 @@
                             ]
                         },
                         "else_action": {
-                            "type": "origins:if_else",
+                            "type": "apoli:if_else",
                             "condition": {
-                                "type": "origins:distance",
+                                "type": "apoli:distance",
                                 "comparison": "<=",
                                 "compare_to": 100
                             },
                             "if_action": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "actions": [
                                 {
                                     "type": "apoli:add_to_entity_set",
@@ -347,7 +348,7 @@
                                     "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
                                 },
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
                                         "type": "apoli:action_on_entity_set",
                                         "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set",
@@ -363,27 +364,27 @@
                                     }
                                 },
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:change_resource",
+                                        "type": "apoli:change_resource",
                                         "resource": "mrt_supports:soulweaver/linked-powers/resonant-strand_strands-function",
                                         "operation": "set",
                                         "change": 1
                                     }
                                 },
                                 {
-                                    "type": "origins:actor_action",
+                                    "type": "apoli:actor_action",
                                     "action": {
-                                        "type": "origins:and",
+                                        "type": "apoli:and",
                                         "actions": [
                                             {
-                                                "type": "origins:play_sound",
+                                                "type": "apoli:play_sound",
                                                 "sound": "minecraft:block.beacon.power_select",
                                                 "volume": 0.65,
                                                 "pitch": 1.30
                                             },
                                             {
-                                                "type": "origins:play_sound",
+                                                "type": "apoli:play_sound",
                                                 "sound": "minecraft:item.trident.return",
                                                 "volume": 0.45,
                                                 "pitch": 1.65
@@ -394,16 +395,16 @@
                             ]
                         },
                         "else_action": {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
-                                "type": "origins:and",
+                                "type": "apoli:and",
                                 "actions": [
                                     {
-                                        "type": "origins:trigger_cooldown",
+                                        "type": "apoli:trigger_cooldown",
                                         "power": "mrt_supports:soulweaver/passives/see-health_cooldown"
                                     },
                                     {
-                                        "type": "origins:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "title @s actionbar {\"text\":\"Woven soul must be within 100 blocks to use Resonant Strand\",\"color\":\"#21AEFF\",\"bold\":true}"
                                     }
                                 ]
@@ -423,7 +424,7 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -442,16 +443,16 @@
     },
 
     "no-links-message": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "mrt_supports:soulweaver/passives/see-health_cooldown"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "title @s actionbar {\"text\":\"Need at least 3 woven soul to use Resonant Strand\",\"color\":\"#21AEFF\",\"bold\":true}"
                 }
             ]
@@ -473,16 +474,16 @@
     },
 
     "no-selection-message": {
-        "type": "origins:active_self",
+        "type": "apoli:active_self",
         "entity_action": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
+                    "type": "apoli:trigger_cooldown",
                     "power": "mrt_supports:soulweaver/passives/see-health_cooldown"
                 },
                 {
-                    "type": "origins:execute_command",
+                    "type": "apoli:execute_command",
                     "command": "title @s actionbar {\"text\":\"Select a woven soul to use Resonant Strand\",\"color\":\"#21AEFF\",\"bold\":true}"
                 }
             ]
@@ -496,7 +497,7 @@
             "continuous": false
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -511,7 +512,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:command",
+                    "type": "apoli:command",
                     "command": "execute unless entity @s[tag=Supports.Soulweaver.ResonanceToggled]",
                     "comparison": "==",
                     "compare_to": 1
@@ -521,15 +522,15 @@
     },
 
     "maintain": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set",
             "bientity_action": {
-                "type": "origins:if_else",
+                "type": "apoli:if_else",
                 "condition": {
-                    "type": "origins:or",
+                    "type": "apoli:or",
                     "conditions": [
                         {
                             "type": "apoli:in_entity_set",
@@ -537,12 +538,12 @@
                             "inverted": true
                         },
                         {
-                            "type": "origins:distance",
+                            "type": "apoli:distance",
                             "comparison": ">",
                             "compare_to": 100
                         },
                         {
-                            "type": "origins:actor_condition",
+                            "type": "apoli:actor_condition",
                             "condition": {
                                 "type": "apoli:entity_set_size",
                                 "set": "mrt_supports:soulweaver/link_stand-set",
@@ -553,19 +554,19 @@
                     ]
                 },
                 "if_action": {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "actions": [
                         {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/resonance/deselect-effect"
                             }
                         },
                         {
-                            "type": "origins:actor_action",
+                            "type": "apoli:actor_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "function mrt_supports:soulweaver/resonance/deselect-effect"
                             }
                         },
@@ -586,19 +587,19 @@
     },
 
     "beam": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set",
             "bientity_action": {
-                "type": "origins:if_else_list",
+                "type": "apoli:if_else_list",
                 "actions": [
                     {
                         "condition": {
-                            "type": "origins:actor_condition",
+                            "type": "apoli:actor_condition",
                             "condition": {
-                                "type": "origins:resource",
+                                "type": "apoli:resource",
                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                 "comparison": "==",
                                 "compare_to": 0
@@ -616,9 +617,9 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:actor_condition",
+                            "type": "apoli:actor_condition",
                             "condition": {
-                                "type": "origins:resource",
+                                "type": "apoli:resource",
                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                 "comparison": "==",
                                 "compare_to": 1
@@ -636,9 +637,9 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:actor_condition",
+                            "type": "apoli:actor_condition",
                             "condition": {
-                                "type": "origins:resource",
+                                "type": "apoli:resource",
                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                 "comparison": "==",
                                 "compare_to": 2
@@ -656,9 +657,9 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:actor_condition",
+                            "type": "apoli:actor_condition",
                             "condition": {
-                                "type": "origins:resource",
+                                "type": "apoli:resource",
                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                 "comparison": "==",
                                 "compare_to": 3
@@ -676,9 +677,9 @@
                     },
                     {
                         "condition": {
-                            "type": "origins:actor_condition",
+                            "type": "apoli:actor_condition",
                             "condition": {
-                                "type": "origins:resource",
+                                "type": "apoli:resource",
                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                 "comparison": "==",
                                 "compare_to": 4
@@ -706,39 +707,39 @@
     },
 
     "beam-workaround": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set",
             "bientity_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:execute_command",
-                            "command": "execute store result score @s SW.LanternStrand run resource get @s mrt_supports:soulweaver/lantern-strands_state"
+                            "type": "apoli:execute_command",
+                            "command": "execute store result score @s SW.LanternStrand run apoli:resource get @s mrt_supports:soulweaver/lantern-strands_state"
                         }
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s add Supports.Soulweaver.ResonantBeamTarget"
                         }
                     },
                     {
-                        "type": "origins:actor_action",
+                        "type": "apoli:actor_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "function mrt_supports:soulweaver/resonance/beam/start"
                         }
                     },
                     {
-                        "type": "origins:target_action",
+                        "type": "apoli:target_action",
                         "action": {
-                            "type": "origins:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "tag @s remove Supports.Soulweaver.ResonantBeamTarget"
                         }
                     }
@@ -746,7 +747,7 @@
             }
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -755,7 +756,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:power_active",
+                    "type": "apoli:power_active",
                     "power": "mrt_supports:soulweaver/linked-powers/veil-beyond_toggle",
                     "inverted": true
                 }
@@ -764,13 +765,13 @@
     },
 
     "glow-renewal": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.20,
         "green": 1.00,
         "blue": 0.35,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -782,9 +783,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 0
@@ -795,13 +796,13 @@
     },
 
     "glow-warding": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.20,
         "green": 0.45,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -813,9 +814,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 1
@@ -826,13 +827,13 @@
     },
 
     "glow-fervor": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.25,
         "blue": 0.05,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -844,9 +845,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 2
@@ -857,13 +858,13 @@
     },
 
     "glow-force": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.65,
         "green": 0.20,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -875,9 +876,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 3
@@ -888,13 +889,13 @@
     },
 
     "glow-resolve": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.75,
         "blue": 0.15,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -906,9 +907,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 4
@@ -919,13 +920,13 @@
     },
 
     "selected-glow-renewal": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.56,
         "green": 1.00,
         "blue": 0.64,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -936,9 +937,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 0
@@ -949,13 +950,13 @@
     },
 
     "selected-glow-warding": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.56,
         "green": 0.70,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -966,9 +967,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 1
@@ -979,13 +980,13 @@
     },
 
     "selected-glow-fervor": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.59,
         "blue": 0.48,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -996,9 +997,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 2
@@ -1009,13 +1010,13 @@
     },
 
     "selected-glow-force": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.81,
         "green": 0.56,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1026,9 +1027,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 3
@@ -1039,13 +1040,13 @@
     },
 
     "selected-glow-resolve": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.86,
         "blue": 0.53,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1056,9 +1057,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 4
@@ -1069,13 +1070,13 @@
     },
 
     "indicator-glow-renewal": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.20,
         "green": 1.00,
         "blue": 0.35,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1091,9 +1092,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 0
@@ -1104,13 +1105,13 @@
     },
 
     "selected-indicator-glow-renewal": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.56,
         "green": 1.00,
         "blue": 0.64,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1125,9 +1126,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-indicator-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 0
@@ -1138,13 +1139,13 @@
     },
 
     "indicator-glow-warding": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.20,
         "green": 0.45,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1160,9 +1161,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 1
@@ -1173,13 +1174,13 @@
     },
 
     "selected-indicator-glow-warding": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.56,
         "green": 0.70,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1194,9 +1195,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-indicator-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 1
@@ -1207,13 +1208,13 @@
     },
 
     "indicator-glow-fervor": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.25,
         "blue": 0.05,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1229,9 +1230,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 2
@@ -1242,13 +1243,13 @@
     },
 
     "selected-indicator-glow-fervor": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.59,
         "blue": 0.48,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1263,9 +1264,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-indicator-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 2
@@ -1276,13 +1277,13 @@
     },
 
     "indicator-glow-force": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.65,
         "green": 0.20,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1298,9 +1299,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 3
@@ -1311,13 +1312,13 @@
     },
 
     "selected-indicator-glow-force": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 0.81,
         "green": 0.56,
         "blue": 1.00,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1332,9 +1333,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-indicator-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 3
@@ -1345,13 +1346,13 @@
     },
 
     "indicator-glow-resolve": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.75,
         "blue": 0.15,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1367,9 +1368,9 @@
                     "inverted": true
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 4
@@ -1380,13 +1381,13 @@
     },
 
     "selected-indicator-glow-resolve": {
-        "type": "origins:entity_glow",
+        "type": "apoli:entity_glow",
         "use_teams": false,
         "red": 1.00,
         "green": 0.86,
         "blue": 0.53,
         "bientity_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:in_entity_set",
@@ -1401,9 +1402,9 @@
                     "set": "mrt_supports:soulweaver/link_selected-indicator-set"
                 },
                 {
-                    "type": "origins:actor_condition",
+                    "type": "apoli:actor_condition",
                     "condition": {
-                        "type": "origins:resource",
+                        "type": "apoli:resource",
                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                         "comparison": "==",
                         "compare_to": 4
@@ -1414,7 +1415,7 @@
     },
 
     "cleanup": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_removed": {
             "type": "apoli:action_on_entity_set",
             "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set",

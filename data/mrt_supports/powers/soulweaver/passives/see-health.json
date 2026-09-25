@@ -1,9 +1,9 @@
 {
     "hidden": true,
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "cooldown": {
-        "type": "origins:cooldown",
+        "type": "apoli:cooldown",
         "cooldown": 30,
         "hud_render": {
             "should_render": false
@@ -11,10 +11,10 @@
     },
 
     "display-health": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 1,
         "entity_action": {
-            "type": "origins:if_else",
+            "type": "apoli:if_else",
             "condition": {
                 "type": "apoli:entity_set_size",
                 "set": "mrt_supports:soulweaver/link_selected-set",
@@ -25,84 +25,84 @@
                 "type": "apoli:action_on_entity_set",
                 "set": "mrt_supports:soulweaver/link_selected-set",
                 "bientity_action": {
-                    "type": "origins:and",
+                    "type": "apoli:and",
                     "actions": [
                         {
-                            "type": "sync:execute_command",
+                            "type": "apoli:execute_command",
                             "command": "execute as %t store result score @s SW.Health run data get entity @s Health",
                             "actor_selector": "%a",
                             "target_selector": "%t"
                         },
                         {
-                            "type": "origins:if_else",
+                            "type": "apoli:if_else",
                             "condition": {
-                                "type": "origins:actor_condition",
+                                "type": "apoli:actor_condition",
                                 "condition": {
-                                    "type": "origins:resource",
+                                    "type": "apoli:resource",
                                     "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                     "comparison": "==",
                                     "compare_to": 0
                                 }
                             },
                             "if_action": {
-                                "type": "sync:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "execute as %a run title @s actionbar [{\"text\":\"The highlighted soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Renewal\",\"color\":\"#33FF59\"}]",
                                 "actor_selector": "%a",
                                 "target_selector": "%t"
                             },
                             "else_action": {
-                                "type": "origins:if_else",
+                                "type": "apoli:if_else",
                                 "condition": {
-                                    "type": "origins:actor_condition",
+                                    "type": "apoli:actor_condition",
                                     "condition": {
-                                        "type": "origins:resource",
+                                        "type": "apoli:resource",
                                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                         "comparison": "==",
                                         "compare_to": 1
                                     }
                                 },
                                 "if_action": {
-                                    "type": "sync:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "execute as %a run title @s actionbar [{\"text\":\"The highlighted soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Warding\",\"color\":\"#3373FF\"}]",
                                     "actor_selector": "%a",
                                     "target_selector": "%t"
                                 },
                                 "else_action": {
-                                    "type": "origins:if_else",
+                                    "type": "apoli:if_else",
                                     "condition": {
-                                        "type": "origins:actor_condition",
+                                        "type": "apoli:actor_condition",
                                         "condition": {
-                                            "type": "origins:resource",
+                                            "type": "apoli:resource",
                                             "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                             "comparison": "==",
                                             "compare_to": 2
                                         }
                                     },
                                     "if_action": {
-                                        "type": "sync:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "execute as %a run title @s actionbar [{\"text\":\"The highlighted soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Fervor\",\"color\":\"#FF400D\"}]",
                                         "actor_selector": "%a",
                                         "target_selector": "%t"
                                     },
                                     "else_action": {
-                                        "type": "origins:if_else",
+                                        "type": "apoli:if_else",
                                         "condition": {
-                                            "type": "origins:actor_condition",
+                                            "type": "apoli:actor_condition",
                                             "condition": {
-                                                "type": "origins:resource",
+                                                "type": "apoli:resource",
                                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                 "comparison": "==",
                                                 "compare_to": 3
                                             }
                                         },
                                         "if_action": {
-                                            "type": "sync:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "execute as %a run title @s actionbar [{\"text\":\"The highlighted soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Force\",\"color\":\"#A633FF\"}]",
                                             "actor_selector": "%a",
                                             "target_selector": "%t"
                                         },
                                         "else_action": {
-                                            "type": "sync:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "execute as %a run title @s actionbar [{\"text\":\"The highlighted soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Resolve\",\"color\":\"#FFBF26\"}]",
                                             "actor_selector": "%a",
                                             "target_selector": "%t"
@@ -115,101 +115,101 @@
                 }
             },
             "else_action": {
-                "type": "origins:and",
+                "type": "apoli:and",
                 "actions": [
                     {
                         "type": "apoli:action_on_entity_set",
                         "set": "mrt_supports:soulweaver/link_linked-set",
                         "bientity_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s add Supports.Soulweaver.HealthCandidate"
                             }
                         }
                     },
                     {
-                        "type": "origins:selector_action",
+                        "type": "apoli:selector_action",
                         "selector": "@e[tag=Supports.Soulweaver.HealthCandidate,sort=nearest,limit=1]",
                         "bientity_action": {
-                            "type": "origins:and",
+                            "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "sync:execute_command",
+                                    "type": "apoli:execute_command",
                                     "command": "execute as %t store result score @s SW.Health run data get entity @s Health",
                                     "actor_selector": "%a",
                                     "target_selector": "%t"
                                 },
                                 {
-                                    "type": "origins:if_else",
+                                    "type": "apoli:if_else",
                                     "condition": {
-                                        "type": "origins:actor_condition",
+                                        "type": "apoli:actor_condition",
                                         "condition": {
-                                            "type": "origins:resource",
+                                            "type": "apoli:resource",
                                             "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                             "comparison": "==",
                                             "compare_to": 0
                                         }
                                     },
                                     "if_action": {
-                                        "type": "sync:execute_command",
+                                        "type": "apoli:execute_command",
                                         "command": "execute as %a run title @s actionbar [{\"text\":\"The nearest linked soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Renewal\",\"color\":\"#33FF59\"}]",
                                         "actor_selector": "%a",
                                         "target_selector": "%t"
                                     },
                                     "else_action": {
-                                        "type": "origins:if_else",
+                                        "type": "apoli:if_else",
                                         "condition": {
-                                            "type": "origins:actor_condition",
+                                            "type": "apoli:actor_condition",
                                             "condition": {
-                                                "type": "origins:resource",
+                                                "type": "apoli:resource",
                                                 "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                 "comparison": "==",
                                                 "compare_to": 1
                                             }
                                         },
                                         "if_action": {
-                                            "type": "sync:execute_command",
+                                            "type": "apoli:execute_command",
                                             "command": "execute as %a run title @s actionbar [{\"text\":\"The nearest linked soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Warding\",\"color\":\"#3373FF\"}]",
                                             "actor_selector": "%a",
                                             "target_selector": "%t"
                                         },
                                         "else_action": {
-                                            "type": "origins:if_else",
+                                            "type": "apoli:if_else",
                                             "condition": {
-                                                "type": "origins:actor_condition",
+                                                "type": "apoli:actor_condition",
                                                 "condition": {
-                                                    "type": "origins:resource",
+                                                    "type": "apoli:resource",
                                                     "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                     "comparison": "==",
                                                     "compare_to": 2
                                                 }
                                             },
                                             "if_action": {
-                                                "type": "sync:execute_command",
+                                                "type": "apoli:execute_command",
                                                 "command": "execute as %a run title @s actionbar [{\"text\":\"The nearest linked soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Fervor\",\"color\":\"#FF400D\"}]",
                                                 "actor_selector": "%a",
                                                 "target_selector": "%t"
                                             },
                                             "else_action": {
-                                                "type": "origins:if_else",
+                                                "type": "apoli:if_else",
                                                 "condition": {
-                                                    "type": "origins:actor_condition",
+                                                    "type": "apoli:actor_condition",
                                                     "condition": {
-                                                        "type": "origins:resource",
+                                                        "type": "apoli:resource",
                                                         "resource": "mrt_supports:soulweaver/lantern-strands_state",
                                                         "comparison": "==",
                                                         "compare_to": 3
                                                     }
                                                 },
                                                 "if_action": {
-                                                    "type": "sync:execute_command",
+                                                    "type": "apoli:execute_command",
                                                     "command": "execute as %a run title @s actionbar [{\"text\":\"The nearest linked soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Force\",\"color\":\"#A633FF\"}]",
                                                     "actor_selector": "%a",
                                                     "target_selector": "%t"
                                                 },
                                                 "else_action": {
-                                                    "type": "sync:execute_command",
+                                                    "type": "apoli:execute_command",
                                                     "command": "execute as %a run title @s actionbar [{\"text\":\"The nearest linked soul [\",\"color\":\"#289DA3\"},{\"selector\":\"%t\",\"color\":\"#65E9F7\"},{\"text\":\"] has \",\"color\":\"#289DA3\"},{\"score\":{\"name\":\"%t\",\"objective\":\"SW.Health\"},\"color\":\"#F71414\"},{\"text\":\" HP\",\"color\":\"#F71414\"},{\"text\":\" \",\"color\":\"#289DA3\"},{\"text\":\"|\",\"color\":\"#289DA3\",\"bold\":true},{\"text\":\" Strand of \",\"color\":\"#289DA3\"},{\"text\":\"Resolve\",\"color\":\"#FFBF26\"}]",
                                                     "actor_selector": "%a",
                                                     "target_selector": "%t"
@@ -225,9 +225,9 @@
                         "type": "apoli:action_on_entity_set",
                         "set": "mrt_supports:soulweaver/link_linked-set",
                         "bientity_action": {
-                            "type": "origins:target_action",
+                            "type": "apoli:target_action",
                             "action": {
-                                "type": "origins:execute_command",
+                                "type": "apoli:execute_command",
                                 "command": "tag @s remove Supports.Soulweaver.HealthCandidate"
                             }
                         }
@@ -236,7 +236,7 @@
             }
         },
         "condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
                     "type": "apoli:entity_set_size",
@@ -245,7 +245,7 @@
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "*:*_cooldown",
                     "comparison": "==",
                     "compare_to": 0

@@ -1,22 +1,18 @@
 {
     "name": "Machine",
     "description": "As a man-made object you do not possess blood neither a digestive system, nor do you need to sleep.",
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "no-insomnia": {
-        "type": "origins:modify_insomnia_ticks",
-        "modifier": {
-            "operation": "set_total",
-            "value": 0
-        }
+        "type": "apoli:simple"
     },
 
     "disable-regen": {
-        "type": "origins:disable_regen"
+        "type": "apoli:disable_regen"
     },
 
     "effect-immunity": {
-        "type": "origins:effect_immunity",
+        "type": "apoli:effect_immunity",
         "effects": [
             "minecraft:regeneration",
             "minecraft:instant_health",
@@ -29,22 +25,22 @@
     },
 
     "no-food": {
-        "type": "origins:prevent_item_use",
+        "type": "apoli:prevent_item_use",
         "item_condition": {
-            "type": "origins:and",
+            "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "origins:ingredient",
+                    "type": "apoli:ingredient",
                     "ingredient": {
                         "item": "minecraft:redstone"
                     },
                     "inverted": true
                 },
                 {
-                    "type": "origins:food"
+                    "type": "apoli:food"
                 },
                 {
-                    "type": "origins:ingredient",
+                    "type": "apoli:ingredient",
                     "ingredient": {
                         "tag": "origins:ignore_diet"
                     },

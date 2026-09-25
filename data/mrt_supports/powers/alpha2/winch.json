@@ -1,92 +1,175 @@
 {
     "name": "Winch",
-    "description": "Fire a ripe at a solid block. Once attached, you can hang from the rope, reel yourself upward, lower yourself, or release the line at any time",
+    "description": "Fire a rope at a solid block. Once attached, jump to reel yourself in, sneak to pay out line, use movement keys to swing, or press the Winch key again to detach.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
-            "text": "Deploying your winch uses 5 energy | Need at least 6 energy to deploy"
+            "sprite": "origins:textures/gui/badge/isaacfanta/star.png",
+            "text": "Deploying your winch uses 5 energy and requires at least 6 energy. Missed shots consume no energy."
         },
         {
             "type": "origins:keybind",
-            "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Deploy & detach your winch with %s"
+            "sprite": "origins:textures/gui/badge/isaacfanta/active.png",
+            "key": "key.origins.quinary_active",
+            "text": "Deploy or detach your winch with %s"
         }
     ],
-    "type": "origins:active_self",
-    "entity_action": {
-        "type": "origins:and",
-        "actions": [
-            {
-                "type": "origins:if_else",
-                "condition": {
-                    "type": "apoli:attached_to_rope",
-                    "comparison": "==",
-                    "compare_to": 0
-                },
-                "if_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:execute_command",
-                            "command": "function mrt_supports:alpha2/winch/detach"
-                        },
-                        {
-                            "type": "apoli:attach_rope",
-                            "slot": "winch",
-                            "mode": "rigid",
-                            "stiffness": 0.5,
-                            "slack_pull_rate": 6,
-                            "max_length": 64
-                        }
-                    ]
-                },
-                "else_action": {
-                    "type": "origins:if_else",
+    "type": "apoli:multiple",
+    "activation": {
+        "type": "apoli:active_self",
+        "entity_action": {
+            "type": "apoli:if_else_list",
+            "actions": [
+                {
                     "condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:food_level",
-                                "comparison": ">=",
-                                "compare_to": 6
-                            },
-                            {
-                                "type": "origins:resource",
-                                "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
-                                "comparison": "==",
-                                "compare_to": 0
-                            }
-                        ]
+                        "type": "apoli:attached_to_rope",
+                        "slot": "winch",
+                        "comparison": ">",
+                        "compare_to": 0
                     },
-                    "if_action": {
-                        "type": "origins:and",
+                    "action": {
+                        "type": "apoli:and",
                         "actions": [
                             {
-                                "type": "origins:feed",
+                                "type": "apoli:detach_rope",
+                                "slot": "winch"
+                            },
+                            {
+                                "type": "apoli:set_fall_distance",
+                                "fall_distance": 0
+                            },
+                            {
+                                "type": "apoli:execute_command",
+                                "command": "function mrt_supports:alpha2/winch/detach"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "apoli:resource",
+                        "resource": "mrt_supports:alpha2/battery/power-saving_low-power-state",
+                        "comparison": "!=",
+                        "compare_to": 0
+                    },
+                    "action": {
+                        "type": "apoli:execute_command",
+                        "command": "title @s actionbar {\"text\":\"Winch unavailable in low-power mode.\",\"color\":\"red\"}"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "apoli:food_level",
+                        "comparison": "<",
+                        "compare_to": 6
+                    },
+                    "action": {
+                        "type": "apoli:execute_command",
+                        "command": "title @s actionbar {\"text\":\"Winch requires at least 6 energy.\",\"color\":\"red\"}"
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "apoli:raycast",
+                        "distance": 64,
+                        "block": true,
+                        "entity": false,
+                        "shape_type": "collider",
+                        "fluid_handling": "none"
+                    },
+                    "action": {
+                        "type": "apoli:and",
+                        "actions": [
+                            {
+                                "type": "apoli:attach_rope",
+                                "from": {
+                                    "source": "self"
+                                },
+                                "to": {
+                                    "source": "raycast",
+                                    "distance": 64,
+                                    "entities": false,
+                                    "blocks": true
+                                },
+                                "slot": "winch",
+                                "toggle": false,
+                                "controllable": true,
+                                "mode": "leash",
+                                "break_beyond": 70,
+                                "min_length": 2,
+                                "max_length": 64,
+                                "stiffness": 0.15,
+                                "radial_damping": 0.9,
+                                "spring_scaling": 0.5,
+                                "swing_boost": 1.0,
+                                "max_swing_speed": 0.6,
+                                "reel_step": 0.15,
+                                "slack_pull_rate": 2.0,
+                                "constrain_from": true,
+                                "constrain_to": false
+                            },
+                            {
+                                "type": "apoli:feed",
                                 "food": -5,
                                 "saturation": 0
                             },
                             {
-                                "type": "origins:execute_command",
-                                "command": "function mrt_supports:alpha2/winch/attach"
+                                "type": "apoli:set_fall_distance",
+                                "fall_distance": 0
                             },
                             {
-                                "type": "apoli:attach_rope",
-                                "slot": "winch",
-                                "mode": "rigid",
-                                "stiffness": 0.5,
-                                "slack_pull_rate": 6,
-                                "max_length": 64
+                                "type": "apoli:execute_command",
+                                "command": "function mrt_supports:alpha2/winch/attach"
                             }
                         ]
                     }
+                },
+                {
+                    "condition": {
+                        "type": "apoli:food_level",
+                        "comparison": ">=",
+                        "compare_to": 0
+                    },
+                    "action": {
+                        "type": "apoli:execute_command",
+                        "command": "title @s actionbar {\"text\":\"No solid winch anchor within 64 blocks.\",\"color\":\"red\"}"
+                    }
                 }
-            }
-        ]
+            ]
+        },
+        "cooldown": 2,
+        "key": {
+            "key": "key.origins.quinary_active",
+            "continuous": false
+        }
     },
-    "cooldown": 2,
-    "key": {
-        "key": "key.origins.quinary_active"
+    "fall-safety": {
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:set_fall_distance",
+            "fall_distance": 0
+        },
+        "condition": {
+            "type": "apoli:attached_to_rope",
+            "slot": "winch",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+    "cleanup": {
+        "type": "apoli:action_on_callback",
+        "entity_action_removed": {
+            "type": "apoli:detach_rope",
+            "slot": "winch"
+        },
+        "entity_action_lost": {
+            "type": "apoli:detach_rope",
+            "slot": "winch"
+        },
+        "entity_action_respawned": {
+            "type": "apoli:detach_rope",
+            "slot": "winch"
+        }
     }
 }

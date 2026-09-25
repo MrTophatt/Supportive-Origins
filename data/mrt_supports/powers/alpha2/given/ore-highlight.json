@@ -1,10 +1,10 @@
 {
-    "type": "origins:multiple",
+    "type": "apoli:multiple",
 
     "invisibility": {
-        "type": "origins:action_on_callback",
+        "type": "apoli:action_on_callback",
         "entity_action_gained": {
-            "type": "origins:apply_effect",
+            "type": "apoli:apply_effect",
             "effect": {
                 "effect": "minecraft:invisibility",
                 "duration": -1,
@@ -14,7 +14,7 @@
     },
 
     "duration": {
-        "type": "origins:resource",
+        "type": "apoli:resource",
         "min": 0,
         "max": 12,
         "start_value": 12,
@@ -24,33 +24,33 @@
     },
 
     "duration-tick": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 20,
         "entity_action": {
-            "type": "origins:change_resource",
+            "type": "apoli:change_resource",
             "resource": "mrt_supports:alpha2/given/ore-highlight_duration",
             "change": -1
         }
     },
 
     "expire": {
-        "type": "origins:action_over_time",
+        "type": "apoli:action_over_time",
         "interval": 2,
         "entity_action": {
-            "type": "origins:execute_command",
+            "type": "apoli:execute_command",
             "command": "function mrt_supports:alpha2/seismic-ping/cleanup/kill/shulker"
         },
         "condition": {
-            "type": "origins:or",
+            "type": "apoli:or",
             "conditions": [
                 {
-                    "type": "origins:resource",
+                    "type": "apoli:resource",
                     "resource": "mrt_supports:alpha2/given/ore-highlight_duration",
                     "comparison": "==",
                     "compare_to": 0
                 },
                 {
-                    "type": "origins:block_collision",
+                    "type": "apoli:block_collision",
                     "offset_x": 0,
                     "offset_y": 0,
                     "offset_z": 0,
@@ -63,7 +63,7 @@
     "immunity": {
         "type": "apoli:modify_damage_taken",
         "damage_condition": {
-            "type": "origins:name",
+            "type": "apoli:name",
             "name": "genericKill",
             "inverted": true
         },
