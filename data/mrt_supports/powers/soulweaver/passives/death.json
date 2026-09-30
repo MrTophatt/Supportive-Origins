@@ -2,65 +2,13 @@
     "hidden": true,
     "type": "apoli:multiple",
 
-    "track-death-lanterns": {
-        "type": "apoli:action_over_time",
-        "interval": 1,
-        "entity_action": {
-            "type": "apoli:and",
-            "actions": [
-                {
-                    "type": "apoli:if_else",
-                    "condition": {
-                        "type": "apoli:inventory",
-                        "inventory_types": [
-                            "inventory"
-                        ],
-                        "process_mode": "items",
-                        "item_condition": {
-                            "type": "apoli:ingredient",
-                            "ingredient": {
-                                "item": "minecraft:soul_lantern"
-                            }
-                        },
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "apoli:execute_command",
-                        "command": "tag @s add Supports.Soulweaver.HasSoulLantern"
-                    },
-                    "else_action": {
-                        "type": "apoli:execute_command",
-                        "command": "tag @s remove Supports.Soulweaver.HasSoulLantern"
-                    }
-                },
-                {
-                    "type": "apoli:if_else",
-                    "condition": {
-                        "type": "apoli:inventory",
-                        "inventory_types": [
-                            "inventory"
-                        ],
-                        "process_mode": "items",
-                        "item_condition": {
-                            "type": "apoli:ingredient",
-                            "ingredient": {
-                                "item": "minecraft:lantern"
-                            }
-                        },
-                        "comparison": ">",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "apoli:execute_command",
-                        "command": "tag @s add Supports.Soulweaver.HasLantern"
-                    },
-                    "else_action": {
-                        "type": "apoli:execute_command",
-                        "command": "tag @s remove Supports.Soulweaver.HasLantern"
-                    }
-                }
-            ]
+    "consume-lantern-before-death": {
+        "type": "apoli:prevent_death",
+        "condition": {
+            "type": "apoli:command",
+            "command": "function mrt_supports:soulweaver/death/prepare",
+            "comparison": "<",
+            "compare_to": 0
         }
     },
 

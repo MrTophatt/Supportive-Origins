@@ -9,6 +9,7 @@
         "mrt_supports:fractured-weaver/fragile-form",
         "mrt_supports:fractured-weaver/retained-passives",
         "mrt_supports:soulweaver/passives/soul-physiology",
+        "mrt_supports:soulweaver/passives/soul-leap",
         "mrt_supports:soulweaver/passives/soul-speed"
     ],
     "icon": {
