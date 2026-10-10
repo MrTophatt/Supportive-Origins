@@ -38,6 +38,14 @@ scoreboard objectives add SW.LanternPathMode dummy
 scoreboard objectives add SW.LanternProposedAngle dummy
 scoreboard objectives add SW.LanternRadialVel dummy
 scoreboard objectives add SW.LanternPoseHeight dummy
+scoreboard objectives add SW.MoveX dummy
+scoreboard objectives add SW.MoveY dummy
+scoreboard objectives add SW.MoveZ dummy
+scoreboard objectives add SW.LastX dummy
+scoreboard objectives add SW.LastY dummy
+scoreboard objectives add SW.LastZ dummy
+scoreboard objectives add SW.IsMoving dummy
+scoreboard objectives add SW.PosReady dummy
 scoreboard objectives add SW.LinkCount dummy
 scoreboard objectives add SW.BuffLevel dummy
 scoreboard objectives add SW.StrandLinks dummy

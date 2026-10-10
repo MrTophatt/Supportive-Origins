@@ -4,4 +4,5 @@ scale delay set pehkui:height 0
 scale delay set pehkui:width 0
 scale set pehkui:width 3
 scale set pehkui:height 2
+scoreboard players set @s A2.HighlightTTL 100
 tag @s remove Supports.Alpha02.OreHighlightNew

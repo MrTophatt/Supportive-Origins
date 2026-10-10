@@ -233,12 +233,36 @@
         }
     },
 
+    "sample-player-movement": {
+        "type": "apoli:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "apoli:execute_command",
+            "command": "function mrt_supports:soulweaver/lantern/movement/sample"
+        }
+    },
+
     "retry-rest-at-max": {
         "type": "apoli:action_over_time",
         "interval": 20,
         "entity_action": {
             "type": "apoli:and",
             "actions": [
+                {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "apoli:nbt",
+                        "nbt": "{Tags:[\"Supports.Soulweaver.LanternRestReady\"]}",
+                        "inverted": true
+                    },
+                    "if_action": {
+                        "type": "apoli:execute_command",
+                        "command": "function mrt_supports:soulweaver/lantern/rest/begin"
+                    },
+                    "else_action": {
+                        "type": "apoli:nothing"
+                    }
+                },
                 {
                     "type": "apoli:execute_command",
                     "command": "scoreboard players set @s SW.LanternRest 1"
@@ -293,8 +317,19 @@
             "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "apoli:nbt",
-                    "nbt": "{Tags:[\"Supports.Soulweaver.LanternRestReady\"]}"
+                    "type": "apoli:or",
+                    "conditions": [
+                        {
+                            "type": "apoli:nbt",
+                            "nbt": "{Tags:[\"Supports.Soulweaver.LanternRestReady\"]}"
+                        },
+                        {
+                            "type": "apoli:resource",
+                            "resource": "mrt_supports:soulweaver/lantern/animations_rest-timer",
+                            "comparison": ">=",
+                            "compare_to": 2000
+                        }
+                    ]
                 },
                 {
                     "type": "apoli:command",
@@ -303,8 +338,10 @@
                     "compare_to": 1
                 },
                 {
-                    "type": "apoli:moving",
-                    "inverted": true
+                    "type": "apoli:command",
+                    "command": "execute if score @s SW.IsMoving matches 0",
+                    "comparison": "==",
+                    "compare_to": 1
                 },
                 {
                     "type": "apoli:entity_set_size",
@@ -328,8 +365,10 @@
             "type": "apoli:and",
             "conditions": [
                 {
-                    "type": "apoli:moving",
-                    "inverted": true
+                    "type": "apoli:command",
+                    "command": "execute if score @s SW.IsMoving matches 0",
+                    "comparison": "==",
+                    "compare_to": 1
                 },
                 {
                     "type": "apoli:command",
@@ -360,7 +399,10 @@
             ]
         },
         "condition": {
-            "type": "apoli:moving"
+            "type": "apoli:command",
+            "command": "execute if score @s SW.IsMoving matches 1",
+            "comparison": "==",
+            "compare_to": 1
         }
     },
 

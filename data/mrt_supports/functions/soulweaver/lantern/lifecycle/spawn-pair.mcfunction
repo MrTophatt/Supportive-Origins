@@ -1,4 +1,6 @@
 # Create and identify the lantern pair
+# Invalidate any older pair left in an unloaded chunk.
+scoreboard players add @s SW.LanternGeneration 1
 tag @e[type=minecraft:armor_stand,tag=Supports.Soulweaver.NewLanternCarrier] remove Supports.Soulweaver.NewLanternCarrier
 tag @e[type=minecraft:block_display,tag=Supports.Soulweaver.NewLanternDisplay] remove Supports.Soulweaver.NewLanternDisplay
 summon minecraft:armor_stand ~ ~ ~ {Tags:["Supports.Soulweaver.LanternCarrier","Supports.Soulweaver.NewLanternCarrier"],Invisible:1b,Invulnerable:1b,NoGravity:1b,Marker:1b,Silent:1b,PersistenceRequired:1b}

@@ -1,0 +1,11 @@
+{
+    "name": "No Shields",
+    "description": "Your soul cannot wield shields.",
+    "type": "apoli:prevent_item_use",
+    "item_condition": {
+        "type": "apoli:ingredient",
+        "ingredient": {
+            "item": "minecraft:shield"
+        }
+    }
+}

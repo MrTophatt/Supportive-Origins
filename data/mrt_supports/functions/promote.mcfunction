@@ -1,0 +1,2 @@
+tellraw @a {"text":"Thanks for downloading Supportive Origins!","color":"light_purple"}
+tellraw @a {"text":"Support future updates on Ko-fi: ko-fi.com/mrtophatt","color":"gold","underlined":true,"clickEvent":{"action":"open_url","value":"https://ko-fi.com/mrtophatt"}}

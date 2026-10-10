@@ -13,9 +13,6 @@
         "type": "apoli:execute_command",
         "command": "function mrt_supports:alpha2/redstone-charge-effects"
     },
-    "item_action": {
-        "type": "apoli:consume"
-    },
     "food_component": {
         "always_edible": false,
         "hunger": 4,

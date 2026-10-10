@@ -31,7 +31,7 @@
                 "mrt_supports:soulweaver/passives/soul-transmutation",
                 "mrt_supports:soulweaver/passives/see-health",
                 "mrt_supports:soulweaver/passives/unwoven",
-                "origins:shulk/no_shield"
+                "mrt_supports:soulweaver/passives/no-shield"
         ],
         "icon": {
                 "item": "minecraft:soul_lantern"

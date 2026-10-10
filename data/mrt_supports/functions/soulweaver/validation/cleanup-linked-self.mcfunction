@@ -9,5 +9,6 @@ tag @s remove Supports.Soulweaver.LinkedEntity
 tag @s remove Supports.Soulweaver.LinkedFar
 tag @s remove Supports.Soulweaver.SelectionCandidate
 tag @s remove Supports.Soulweaver.HasValidationStand
+tag @s remove Supports.Soulweaver.GuardianSaved
 function mrt_supports:soulweaver/buffs/clear
 apoli:power revoke @s mrt_supports:soulweaver/given/linked-player from mrt_supports:soulweaver

@@ -8,6 +8,7 @@ scoreboard objectives add A2.Checked dummy
 scoreboard objectives add A2.ShellPos dummy
 scoreboard objectives add A2.Height dummy
 scoreboard objectives add A2.GroupValid dummy
+scoreboard objectives add A2.HighlightTTL dummy
 
 scoreboard players add $Next A2.ScanID 0
 

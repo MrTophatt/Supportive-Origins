@@ -341,6 +341,67 @@
         }
     },
 
+    "unweave-on-death": {
+        "type": "apoli:action_on_death",
+        "bientity_action": {
+            "type": "apoli:target_action",
+            "action": {
+                "type": "apoli:and",
+                "actions": [
+                    {
+                        "type": "apoli:selector_action",
+                        "selector": "@a[tag=Supports.Soulweaver.Owner]",
+                        "bientity_action": {
+                            "type": "apoli:and",
+                            "actions": [
+                                {
+                                    "type": "apoli:invert",
+                                    "action": {
+                                        "type": "apoli:remove_from_entity_set",
+                                        "set": "mrt_supports:soulweaver/link_linked-set"
+                                    }
+                                },
+                                {
+                                    "type": "apoli:invert",
+                                    "action": {
+                                        "type": "apoli:remove_from_entity_set",
+                                        "set": "mrt_supports:soulweaver/link_selected-set"
+                                    }
+                                },
+                                {
+                                    "type": "apoli:invert",
+                                    "action": {
+                                        "type": "apoli:remove_from_entity_set",
+                                        "set": "mrt_supports:soulweaver/linked-powers/guardian-weaver_guarded-set"
+                                    }
+                                },
+                                {
+                                    "type": "apoli:invert",
+                                    "action": {
+                                        "type": "apoli:remove_from_entity_set",
+                                        "set": "mrt_supports:soulweaver/linked-powers/resonant-strand_resonate-set"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "apoli:execute_command",
+                        "command": "function mrt_supports:soulweaver/validation/kill-matching-stand"
+                    },
+                    {
+                        "type": "apoli:execute_command",
+                        "command": "title @s actionbar {\"text\":\"Your soul was unwoven after death\",\"color\":\"#21AEFF\",\"bold\":true}"
+                    },
+                    {
+                        "type": "apoli:execute_command",
+                        "command": "function mrt_supports:soulweaver/validation/cleanup-linked-self"
+                    }
+                ]
+            }
+        }
+    },
+
     "callback": {
         "type": "apoli:action_on_callback",
         "entity_action_added": {
